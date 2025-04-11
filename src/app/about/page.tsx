@@ -234,9 +234,14 @@ export default function AboutPage() {
         <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Beyond the Code</h3>
         
         <p className="text-slate-700 mb-4">
-          While technical skills are essential, I believe what truly makes a difference is how you approach challenges
-          and collaborate with others. I pride myself on being a thoughtful communicator who can translate complex
-          technical concepts into clear, understandable language for stakeholders at all levels.
+          While technical skills are essential, I believe that exceptional coding ability is at the core of truly impactful software development. 
+          I express myself most fluently through code, where I often enter a flow state that allows me to create elegant solutions to complex problems. 
+          Coding is an art form to me - I lose track of time when I'm in the zone, fully immersed in crafting clean, efficient solutions.
+        </p>
+        
+        <p className="text-slate-700 mb-4">
+          While I may find verbal communication challenging at times, I excel at expressing complex technical concepts in written form. 
+          I leverage various tools, including AI, to articulate my ideas clearly and effectively when collaborating with others.
         </p>
         
         <p className="text-slate-700 mb-4">
