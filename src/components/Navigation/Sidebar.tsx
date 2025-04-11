@@ -1,7 +1,7 @@
 // src/components/Navigation/Sidebar.tsx
 'use client';
 import { usePathname } from 'next/navigation';
-import { Home, User, Briefcase, FileText, Code, Mail } from 'lucide-react';
+import { Home, Briefcase, FileText, Code, Mail } from 'lucide-react';
 import NavItem from './NavItem';
 
 const Sidebar = () => {
@@ -15,12 +15,6 @@ const Sidebar = () => {
           text="Home" 
           isActive={pathname === '/'} 
           href="/" 
-        />
-        <NavItem 
-          icon={<User size={18} />} 
-          text="About Me" 
-          isActive={pathname === '/about'} 
-          href="/about" 
         />
         <NavItem 
           icon={<Briefcase size={18} />} 
