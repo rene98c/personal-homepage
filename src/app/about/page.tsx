@@ -240,14 +240,15 @@ export default function AboutPage() {
         </p>
         
         <p className="text-slate-700 mb-4">
-          I'm based in a beautiful rural area near the city of Tartu, Estonia. While I enjoy the tranquility of 
-          countryside living, I'm well-connected digitally and available for remote work, online meetings, and 
-          occasional travel as needed.
+          I'm based in a beautiful rural area near the city of Tartu, Estonia. This location offers
+          me the perfect balance between focused work environment and access to a vibrant tech community
+          when needed.
         </p>
         
         <p className="text-slate-700">
           Outside of coding, I enjoy exploring new technologies, reading about software architecture, and 
-          continuously enhancing my skills to stay at the forefront of the industry.
+          continuously enhancing my skills to stay at the forefront of the industry. While I'm currently engaged
+          in a professional role, I'm always open to discussing interesting projects and opportunities.
         </p>
       </div>
       
