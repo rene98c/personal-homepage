@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Code, Clock, Layers, Check, AlertTriangle } from 'lucide-react';
+import { ChevronDown, ChevronRight, Code, Clock, Layers, Check } from 'lucide-react';
 
 // Phase Section Component
 const PhaseSection = ({ number, title, approach, steps, results, codeSnippet }: { 
@@ -96,7 +96,7 @@ export default function CaseStudyPage() {
         <p className="text-slate-700 mb-4">
           This case study documents my development approach for creating SecureAccess - a mission-critical software 
           system that integrates biometric verification, physical gate control, and permission systems to secure 
-          facility entrances. This project demonstrates how I successfully applied Domain-Driven Design principles, 
+          facility entrances. This project demonstrates how I&apos;ve successfully applied Domain-Driven Design principles, 
           Clean Architecture, and resilience engineering to systems with physical components and high reliability requirements.
         </p>
         <p className="text-slate-700">
@@ -119,7 +119,7 @@ export default function CaseStudyPage() {
             <li className="text-slate-700"><span className="font-medium">Document Validation:</span> Verify visitor identification documents</li>
             <li className="text-slate-700"><span className="font-medium">Permission Check:</span> Verify visitor has necessary permissions</li>
             <li className="text-slate-700"><span className="font-medium">Entry Gate Control:</span> Manage the entry gate to the security area</li>
-            <li className="text-slate-700"><span className="font-medium">Visitor Response:</span> Confirm visitor's intention to proceed</li>
+            <li className="text-slate-700"><span className="font-medium">Visitor Response:</span> Confirm visitor&apos;s intention to proceed</li>
             <li className="text-slate-700"><span className="font-medium">Biometric Verification:</span> Match visitor to registered biometric data</li>
             <li className="text-slate-700"><span className="font-medium">Exit Gate Control:</span> Control exit from security area to secure zone</li>
           </ol>
@@ -420,7 +420,7 @@ public class WorkerIntegrationTests
               Explicit Criticality Classification
             </h4>
             <p className="text-slate-700">
-              I explicitly classified operations as "critical" or "non-critical" with different resilience strategies:
+              I explicitly classified operations as &quot;critical&quot; or &quot;non-critical&quot; with different resilience strategies:
             </p>
             <ul className="list-disc pl-10 mt-2 space-y-1">
               <li className="text-slate-700">

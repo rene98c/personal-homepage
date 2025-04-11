@@ -22,8 +22,8 @@ export default function AboutPage() {
     
     <div className="bg-gray-50 shadow-md rounded-lg p-6 mb-8">
       <p className="text-slate-700 mb-4">
-        I've been writing and developing software on the .NET platform in C# since 2003. I'm passionate about 
-        well-designed systems and enjoy building software that's both robust and maintainable. I have a good 
+        I&apos;ve been writing and developing software on the .NET platform in C# since 2003. I&apos;m passionate about 
+        well-designed systems and enjoy building software that&apos;s both robust and maintainable. I have a good 
         eye for seeing systems as a whole and can navigate any project with relative ease. I never say no to a challenge.
       </p>
       

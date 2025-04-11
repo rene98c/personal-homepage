@@ -1,9 +1,15 @@
 import React from 'react';
 import { Calendar, Briefcase } from 'lucide-react';
 
+interface JobExperienceProps {
+  title: string;
+  company: string;
+  period: string;
+  responsibilities: string[];
+}
 
 // Job Experience Component
-const JobExperience = ({ title, company, period, responsibilities }) => {
+const JobExperience = ({ title, company, period, responsibilities }: JobExperienceProps) => {
   return (
     <div className="bg-gray-50 shadow-md rounded-lg p-6">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -23,7 +29,7 @@ const JobExperience = ({ title, company, period, responsibilities }) => {
       <div className="mt-4">
         <h4 className="font-medium text-slate-700 mb-2">Key Responsibilities:</h4>
         <ul className="list-disc pl-5 space-y-1">
-          {responsibilities.map((responsibility, index) => (
+          {responsibilities.map((responsibility: string, index: number) => (
             <li key={index} className="text-slate-600">{responsibility}</li>
           ))}
         </ul>
@@ -39,7 +45,7 @@ export default function ExperiencePage() {
     
     <div className="bg-gray-50 shadow-md rounded-lg p-6 mb-8">
       <p className="text-slate-700 mb-4">
-        With over 20 years of software development experience, I've worked across a variety of industries and projects,
+        With over 20 years of software development experience, I&apos;ve worked across a variety of industries and projects,
         consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003,
         with expertise in building web services, backend systems, and user interfaces.
       </p>
@@ -51,10 +57,7 @@ export default function ExperiencePage() {
         company="Connected OÜ"
         period="January 2023 - June 2024"
         responsibilities={[
-          "Developed and maintained enterprise-level .NET applications",
-          "Implemented clean architecture principles and design patterns",
-          "Collaborated with cross-functional teams to deliver high-quality software solutions",
-          "Optimized application performance and security"
+          "Developed and maintained enterprise-level .NET application"
         ]}
       />
       
@@ -63,10 +66,7 @@ export default function ExperiencePage() {
         company="Fujitsu Estonia AS"
         period="October 2019 - January 2023"
         responsibilities={[
-          "Designed and implemented mission-critical software systems",
-          "Created resilient applications with comprehensive error handling and recovery",
-          "Applied domain-driven design principles to complex business domains",
-          "Mentored junior developers on best practices and design patterns"
+          "Designed and implemented various software systems"
         ]}
       />
       
@@ -76,9 +76,6 @@ export default function ExperiencePage() {
         period="April 2017 - September 2019"
         responsibilities={[
           "Developed secure, scalable systems for government information management",
-          "Implemented backend services and APIs for critical information systems",
-          "Ensured high standards of data security and integrity",
-          "Collaborated on large-scale system architecture and design"
         ]}
       />
       
@@ -100,8 +97,6 @@ export default function ExperiencePage() {
         period="January 2008 - November 2012"
         responsibilities={[
           "Developed and maintained critical government information systems",
-          "Implemented secure authentication and authorization mechanisms",
-          "Created data migration and integration solutions",
           "Collaborated on system architecture and technical specifications"
         ]}
       />

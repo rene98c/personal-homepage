@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Mail, Globe, Send, ExternalLink, MessageCircle, User, Code } from 'lucide-react';
+import { Mail, Globe, Send, User, Code } from 'lucide-react';
 
 
 
@@ -71,7 +71,7 @@ export default function ContactPage() {
           <h3 className="text-xl font-semibold mb-4 text-slate-800">Get In Touch</h3>
           
           <p className="text-slate-700 mb-6">
-            I'm always interested in discussing new projects, software development challenges, 
+            I&apos;m always interested in discussing new projects, software development challenges, 
             or potential opportunities. Feel free to reach out using the form or connect through 
             any of the channels below.
           </p>
@@ -107,10 +107,10 @@ export default function ContactPage() {
           </div>
   <h3 className="text-xl mt-4 font-semibold mb-4 text-gray-700">Location</h3>
   <p className="text-gray-600 mb-3">
-    I'm based in a beautiful rural area near the city of Tartu, Estonia.
+    I&apos;m based in a beautiful rural area near the city of Tartu, Estonia.
   </p>
   <p className="text-gray-600">
-    While I enjoy the tranquility of countryside living, I'm well-connected digitally and available for remote work, online meetings, and occasional travel as needed.
+    While I enjoy the tranquility of countryside living, I&apos;m well-connected digitally and available for remote work, online meetings, and occasional travel as needed.
   </p>
         </div>
         
@@ -120,7 +120,7 @@ export default function ContactPage() {
           {formSubmitted ? (
             <div className="bg-green-100 text-green-700 p-4 rounded mb-4">
               <p className="font-medium">Thank you for your message!</p>
-              <p>I'll get back to you as soon as possible.</p>
+              <p>I&apos;ll get back to you as soon as possible.</p>
             </div>
           ) : null}
           

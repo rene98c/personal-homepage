@@ -1,6 +1,5 @@
 // src/components/Navigation/Sidebar.tsx
 'use client';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, User, Briefcase, FileText, Code, Mail } from 'lucide-react';
 import NavItem from './NavItem';

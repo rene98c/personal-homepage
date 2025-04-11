@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import PatternDetail from '@/components/UI/PatternDetail';
 import CategoryButton from '@/components/UI/CategoryButton';
-import { ChevronDown, ChevronRight, Code, AlertCircle, Award, CheckCircle, Layers, Clock } from 'lucide-react';
 
 
 export default function DesignPatternsPage() {
@@ -18,9 +17,9 @@ export default function DesignPatternsPage() {
       <div className="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl">
         <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Introduction</h3>
         <p className="text-slate-700 mb-4">
-          Throughout my career as a software developer, I've implemented numerous design patterns to solve 
+          Throughout my career as a software developer, I&apos;ve implemented numerous design patterns to solve 
           complex problems with elegant, maintainable solutions. This catalog showcases practical examples 
-          of design patterns I've used in real-world applications, particularly in my work on secure access 
+          of design patterns I&apos;ve used in real-world applications, particularly in my work on secure access 
           control systems.
         </p>
         <p className="text-slate-700">
@@ -83,7 +82,7 @@ export default function DesignPatternsPage() {
             <p className="text-slate-700">
               Structural patterns deal with object composition, creating relationships between objects to form 
               larger structures. These patterns help ensure that when one part of a system changes, the entire 
-              structure doesn't need to change.
+              structure doesn&apos;t need to change.
             </p>
           </div>
         )}
