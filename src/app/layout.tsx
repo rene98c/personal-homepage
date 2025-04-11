@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Sidebar from '@/components/Navigation/Sidebar';
 import './globals.css';
 import { StructuredData } from '@/components/StructuredData';
-
+import { Analytics } from "@vercel/analytics/react"
 export const metadata: Metadata = {
   title: 'Rene Prost - Software Developer Portfolio',
   description: 'Senior C#/.NET developer with 20+ years of experience building robust, maintainable software systems, specializing in Clean Architecture and Design Patterns.',
@@ -59,6 +59,7 @@ export default function RootLayout({
           {/* Sidebar/Navigation */}
           <Sidebar />
           <StructuredData />
+          <Analytics/>
           {/* Main Content */}
         <main className="flex-grow p-6" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
   {children}
