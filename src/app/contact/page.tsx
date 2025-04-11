@@ -1,8 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Mail, Globe, Send, User, Code } from 'lucide-react';
-
-
+import { Mail, Globe, Send, User, Code, MapPin } from 'lucide-react';
 
 // Contact Method Component
 const ContactMethod = ({ icon, label, value, href }: { icon: React.ReactNode, label: string, value: string, href: string }) => {
@@ -68,12 +66,12 @@ export default function ContactPage() {
       
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div className="bg-gray-50 shadow-md rounded-lg p-6">
-          <h3 className="text-xl font-semibold mb-4 text-slate-800">Get In Touch</h3>
+          <h3 className="text-xl font-semibold mb-4 text-slate-800">Connect With Me</h3>
           
           <p className="text-slate-700 mb-6">
-            I&apos;m always interested in discussing new projects, software development challenges, 
-            or potential opportunities. Feel free to reach out using the form or connect through 
-            any of the channels below.
+            While I&apos;m currently engaged in a professional role, I&apos;m open to discussing 
+            interesting projects, technical challenges, or connecting with fellow developers. 
+            I prefer written communication where I can articulate technical ideas clearly and thoughtfully.
           </p>
           
           <div className="space-y-4">
@@ -106,12 +104,17 @@ export default function ContactPage() {
             />
           </div>
   <h3 className="text-xl mt-4 font-semibold mb-4 text-gray-700">Location</h3>
-  <p className="text-gray-600 mb-3">
-    I&apos;m based in a beautiful rural area near the city of Tartu, Estonia.
-  </p>
-  <p className="text-gray-600">
-    While I enjoy the tranquility of countryside living, I&apos;m well-connected digitally.{/* and available for remote work, online meetings, and occasional travel as needed */}
-  </p>
+  <div className="flex items-start">
+    <MapPin size={20} className="text-red-500 mr-3 mt-1" />
+    <div>
+      <p className="text-gray-600 mb-3">
+        Based near Tartu, Estonia
+      </p>
+      <p className="text-gray-600">
+        I enjoy the focus that comes with countryside living, providing the perfect environment for deep coding sessions.
+      </p>
+    </div>
+  </div>
         </div>
         
         <div className="bg-gray-50 shadow-md rounded-lg p-6">
@@ -189,4 +192,4 @@ export default function ContactPage() {
       </div>
     </div>
   );
-} 
+}

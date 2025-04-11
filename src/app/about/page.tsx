@@ -76,7 +76,7 @@ export default function AboutPage() {
             <h4 className="text-lg text-blue-600 font-medium mb-4">Senior Software Developer</h4>
             
             <p className="text-slate-700 mb-4">
-              I'm a C#/.NET specialist with over 20 years of experience building robust, maintainable software systems. 
+              I&apos;m a C#/.NET specialist with over 20 years of experience building robust, maintainable software systems. 
               With deep expertise in design patterns, clean architecture, and resilience engineering, I specialize in 
               creating solutions that stand the test of time.
             </p>
@@ -97,9 +97,9 @@ export default function AboutPage() {
         <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Professional Journey</h3>
         
         <p className="text-slate-700 mb-4">
-          I've been writing and developing software on the .NET platform in C# since 2003. Throughout my career, 
-          I've worked across a variety of industries including government systems, transportation, and enterprise solutions.
-          I'm passionate about well-designed systems and enjoy building software that's both robust and maintainable.
+          I&apos;ve been writing and developing software on the .NET platform in C# since 2003. Throughout my career, 
+          I&apos;ve worked across a variety of industries including government systems, transportation, and enterprise solutions.
+          I&apos;m passionate about well-designed systems and enjoy building software that&apos;s both robust and maintainable.
         </p>
         
         <p className="text-slate-700 mb-4">
@@ -236,7 +236,7 @@ export default function AboutPage() {
         <p className="text-slate-700 mb-4">
           While technical skills are essential, I believe that exceptional coding ability is at the core of truly impactful software development. 
           I express myself most fluently through code, where I often enter a flow state that allows me to create elegant solutions to complex problems. 
-          Coding is an art form to me - I lose track of time when I'm in the zone, fully immersed in crafting clean, efficient solutions.
+          Coding is an art form to me - I lose track of time when I&apos;m in the zone, fully immersed in crafting clean, efficient solutions.
         </p>
         
         <p className="text-slate-700 mb-4">
@@ -245,23 +245,23 @@ export default function AboutPage() {
         </p>
         
         <p className="text-slate-700 mb-4">
-          I'm based in a beautiful rural area near the city of Tartu, Estonia. This location offers
+          I&apos;m based in a beautiful rural area near the city of Tartu, Estonia. This location offers
           me the perfect balance between focused work environment and access to a vibrant tech community
           when needed.
         </p>
         
         <p className="text-slate-700">
           Outside of coding, I enjoy exploring new technologies, reading about software architecture, and 
-          continuously enhancing my skills to stay at the forefront of the industry. While I'm currently engaged
-          in a professional role, I'm always open to discussing interesting projects and opportunities.
+          continuously enhancing my skills to stay at the forefront of the industry. While I&apos;m currently engaged
+          in a professional role, I&apos;m always open to discussing interesting projects and opportunities.
         </p>
       </div>
       
       {/* Call to Action */}
       <div className="bg-blue-600 shadow-md rounded-lg p-6 text-white text-center">
-        <h3 className="text-xl font-semibold mb-3">Interested in my approach to software development?</h3>
+        <h3 className="text-xl font-semibold mb-3">See how I translate creative thinking into elegant code</h3>
         <p className="mb-4">
-          Check out my case study on building a mission-critical access control system to see how I apply these principles in practice.
+          Check out my case study on building a mission-critical access control system to see how I apply creative problem-solving and technical excellence in practice.
         </p>
         <Link 
           href="/case-study" 
