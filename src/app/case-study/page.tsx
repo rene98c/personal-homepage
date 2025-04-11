@@ -1,95 +1,28 @@
-'use client'
-import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Code, Clock, Layers, Check } from 'lucide-react';
+
+import React from 'react';
+import {  BookOpen } from 'lucide-react';
+
+import { PhaseSection } from './PhaseSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Mission-Critical Access Control System Case Study | Rene Prost',
+  description: 'Detailed case study of SecureAccess - a mission-critical software system integrating biometric verification, access control, and permission systems',
+  openGraph: {
+    title: 'Mission-Critical Access Control System Case Study | Rene Prost',
+    description: 'Learn how I built a robust access control system using Domain-Driven Design and Clean Architecture',
+    url: 'https://reneprost.ee/case-study'
+  }
+};
+
 
 // Phase Section Component
-const PhaseSection = ({ number, title, approach, steps, results, codeSnippet }: { 
-  number: string | number, 
-  title: string, 
-  approach: string, 
-  steps: string[], 
-  results: string[], 
-  codeSnippet: string 
-}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  return (
-    <div className="bg-gray-50 shadow-lg border border-gray-100 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-xl mb-6">
-      <div 
-        className="p-4 bg-slate-100 border-b border-slate-200 flex justify-between items-center cursor-pointer transition-colors hover:bg-slate-200"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <div className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">
-            {number}
-          </div>
-          <h4 className="font-semibold text-slate-800">{title}</h4>
-        </div>
-        {isExpanded ? 
-          <ChevronDown size={20} className="text-slate-600 transition-transform duration-200" /> : 
-          <ChevronRight size={20} className="text-slate-600 transition-transform duration-200" />
-        }
-      </div>
-      
-      {isExpanded && (
-        <div className="p-4 space-y-4">
-          <div>
-            <h5 className="font-medium text-slate-800 mb-2 flex items-center">
-              <Layers size={16} className="mr-2 text-blue-600" />
-              Approach
-            </h5>
-            <p className="text-slate-700">{approach}</p>
-          </div>
-          
-          <div>
-            <h5 className="font-medium text-slate-800 mb-2 flex items-center">
-              <Clock size={16} className="mr-2 text-blue-600" />
-              Key Implementation Steps
-            </h5>
-            <ul className="space-y-2">
-              {steps.map((step, index) => (
-                <li key={index} className="flex items-start">
-                  <Check size={16} className="text-green-600 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-slate-700">{step}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h5 className="font-medium text-slate-800 mb-2 flex items-center">
-              <Check size={16} className="mr-2 text-green-600" />
-              Results
-            </h5>
-            <ul className="space-y-2">
-              {results.map((result, index) => (
-                <li key={index} className="flex items-start">
-                  <Check size={16} className="text-green-600 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-slate-700">{result}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h5 className="font-medium text-slate-800 mb-2 flex items-center">
-              <Code size={16} className="mr-2 text-blue-600" />
-              Code Implementation
-            </h5>
-            <div className="bg-slate-900 border border-slate-700 text-gray-200 p-4 rounded overflow-x-auto">
-              <pre className="whitespace-pre-wrap">{codeSnippet}</pre>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
+
 
 export default function CaseStudyPage() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-white border-b border-blue-700 pb-2 inline-block">Building Mission-Critical Access Control Systems</h2>
+      <h2 className="text-3xl font-bold mb-6 text-white border-b border-blue-700 pb-2 inline-block">Building Mission-Critical Access Control System</h2>
       
       <div className="bg-gray-50 shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
         <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Executive Summary</h3>
@@ -133,11 +66,12 @@ export default function CaseStudyPage() {
         <h4 className="font-medium text-slate-800 mb-2">Development Timeline</h4>
         <p className="text-slate-700">
           The system was developed over approximately 15 days with distinct phases reflecting my methodical 
-          approach to building complex systems.
+          approach to building complex systems. Each phase built upon the foundation of the previous one,
+          resulting in a comprehensive solution delivered efficiently.
         </p>
       </div>
       
-      <h3 className="text-2xl font-semibold mb-6 text-white border-b border-slate-700 pb-2">The Methodical Approach: Step-by-Step</h3>
+      <h3 className="text-2xl font-semibold mb-6 text-white border-b border-slate-700 pb-2">The Methodical Approach: Step-by-Step (15 Days Total)</h3>
       
       <PhaseSection 
         number="1"
@@ -229,6 +163,14 @@ public abstract class AbstractBiometricService : IBiometricService
     protected abstract Task<bool> HttpDeleteUserAsync(string personalId);
     
     // Implementation of interface methods calling abstract methods...
+}
+
+// Mock implementation for testing
+public class MockBiometricService : IBiometricService
+{
+    private readonly ILogger<MockBiometricService> logger;
+    
+    // Implementation of interface methods with simulated behavior...
 }`}
       />
       
@@ -258,33 +200,69 @@ public abstract class AbstractBiometricService : IBiometricService
         TimeSpan baseDelay,
         bool isCritical = true)
     {
-        // Select retry options based on criticality
+        // Metrics setup...
+
+        // Select appropriate retry strategy based on criticality
         RetryOptions retryOptions = isCritical
             ? options.Critical
             : options.NonCritical;
 
+        // Create resilience pipeline with retry and circuit breaker
         var pipeline = new ResiliencePipelineBuilder()
             .AddRetry(new RetryStrategyOptions {
-                // Configure retry with appropriate backoff strategy
+                BackoffType = retryOptions.UseExponentialBackoff ? 
+                    DelayBackoffType.Exponential : DelayBackoffType.Constant,
+                Delay = baseDelay,
+                MaxRetryAttempts = isCritical ? int.MaxValue : retryOptions.MaxRetries,
+                MaxDelay = TimeSpan.FromMilliseconds(retryOptions.MaxDelayMs),
+                UseJitter = true,
+                OnRetry = args => {
+                    var errorMessage = args.Outcome.Exception?.Message ?? "No exception details";
+                    logger.LogWarning(
+                        "Retry attempt {RetryCount} for {ServiceName}.{OperationName}: {ErrorMessage}",
+                        args.AttemptNumber, serviceName, operationName, errorMessage);
+                    return ValueTask.CompletedTask;
+                }
             })
             .AddCircuitBreaker(new CircuitBreakerStrategyOptions {
-                // Configure circuit breaker with appropriate thresholds
+                FailureRatio = 1.0,
+                MinimumThroughput = retryOptions.CircuitBreaker.FailureThreshold,
+                SamplingDuration = TimeSpan.FromMilliseconds(
+                    Math.Max(500, retryOptions.CircuitBreaker.DurationMs)),
+                BreakDuration = TimeSpan.FromMilliseconds(
+                    Math.Max(500, retryOptions.CircuitBreaker.DurationMs)),
+                OnOpened = args => {
+                    logger.LogError(
+                        "Circuit opened for {ServiceName}.{OperationName} after {FailureCount} failures",
+                        serviceName, operationName, retryOptions.CircuitBreaker.FailureThreshold);
+                    return ValueTask.CompletedTask;
+                }
             })
             .Build();
-        
+
         try {
-            // Execute operation through the pipeline...
+            // Execute operation through the resilience pipeline
             return await pipeline.ExecuteAsync(async cancellationToken => {
                 // Attempt operation with instrumentation
                 return await operation();
             }, CancellationToken.None);
         }
         catch (BrokenCircuitException) {
-            // Handle circuit breaker open state based on criticality
+            // Handle circuit breaker open state
             if (!isCritical) {
+                // For non-critical operations, return default value
                 return default;
             }
+            // For critical operations, throw CircuitBreakerException
             throw new CircuitBreakerException(/*...*/);
+        }
+        catch (Exception ex) {
+            // Handle other exceptions based on criticality
+            if (isCritical) {
+                throw; // Rethrow for critical operations
+            }
+            logger.LogError(ex, "Non-critical operation failed: {Operation}", operationName);
+            return default; // Return default value for non-critical operations
         }
     }
 }`}
@@ -321,7 +299,7 @@ public class WorkerIntegrationTests
         // Configure the factory specifically for this test
         factory = new ApplicationFactory()
             .WithMockConfiguration(options => {
-                options.UseMockServices.BiometricService = true;
+                options.UseMockServices.Biometric = true;
                 // Configure other mock services...
             });
 
@@ -334,7 +312,8 @@ public class WorkerIntegrationTests
     {
         // Create a visitor with a specific ID
         var visitor = new Visitor("VISITOR123", 1, 54321, true, "Valid");
-        
+        visitor.Id = Guid.NewGuid();
+
         // Setup mocks for positive scenario
         ((MockVisitorEventSource)scope.ServiceProvider
             .GetRequiredService<IVisitorEventSource>())
@@ -407,6 +386,72 @@ public class WorkerIntegrationTests
 
     protected abstract Task<(HealthStatus Status, string Reason, Dictionary<string, object> Diagnostics)>
         PerformHealthCheckAsync(CancellationToken cancellationToken);
+}`}
+      />
+      
+      <PhaseSection 
+        number="6"
+        title="Configuration Management and Environment Flexibility (Days 17-19)"
+        approach="I implemented a comprehensive configuration system supporting different deployment environments with clear documentation."
+        steps={[
+          "Created a hierarchical configuration structure with sensible defaults",
+          "Implemented configuration validation with meaningful error messages",
+          "Added support for different configuration sources (JSON, environment variables)",
+          "Created Docker deployment configurations with environment variable support"
+        ]}
+        results={[
+          "Flexible deployment across different environments",
+          "Explicit validation of configuration at startup",
+          "Comprehensive documentation of all configuration options",
+          "Docker-ready deployment with environment variable support"
+        ]}
+        codeSnippet={`public class ConfigurationValidator
+{
+    private readonly ApplicationOptions options;
+    private readonly ILogger<ConfigurationValidator> logger;
+    private readonly StringBuilder validationErrors = new();
+
+    // Constructor...
+
+    public bool Validate()
+    {
+        // Validate Core settings
+        ValidateCoreSettings();
+
+        // Validate External Services settings
+        ValidateExternalServices();
+
+        // Validate Resilience settings
+        ValidateResilienceSettings();
+
+        // Log all validation errors if any were found
+        if (validationErrors.Length > 0)
+        {
+            logger.LogCritical("Configuration validation failed: {Errors}", 
+                validationErrors.ToString());
+            return false;
+        }
+
+        logger.LogInformation("Configuration validation completed successfully");
+        return true;
+    }
+
+    private void ValidateCoreSettings()
+    {
+        if (string.IsNullOrEmpty(options.Core.ApplicationName))
+        {
+            validationErrors.AppendLine("Core:ApplicationName is required");
+        }
+
+        if (options.Core.WorkerInterval < TimeSpan.FromMilliseconds(100))
+        {
+            validationErrors.AppendLine($"Core:WorkerInterval must be at least 100ms, current value: {options.Core.WorkerInterval.TotalMilliseconds}ms");
+        }
+
+        // Additional validations...
+    }
+
+    // Additional validation methods for different configuration sections...
 }`}
       />
       
@@ -539,7 +584,7 @@ public class WorkerIntegrationTests
         </div>
       </div>
       
-      <div className="bg-gray-50 shadow-lg border border-gray-100 rounded-lg p-6 transition-all duration-200 hover:shadow-xl">
+      <div className="bg-gray-50 shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
         <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Conclusion</h3>
         <p className="text-slate-700 mb-4">
           The SecureAccess system demonstrates how I applied established software engineering principles to a mission-critical
@@ -552,6 +597,21 @@ public class WorkerIntegrationTests
           testing tools, and manual override design—demonstrate my ability to adapt established patterns to meet 
           unique requirements in specialized domains.
         </p>
+      </div>
+      
+      <div className="bg-gray-50 shadow-lg border border-gray-100 rounded-lg p-6 transition-all duration-200 hover:shadow-xl">
+        <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2 flex items-center">
+          <BookOpen size={20} className="mr-2 text-blue-600" />
+          References
+        </h3>
+        <ul className="space-y-2">
+          <li className="text-slate-700">Evans, E. (2003). <span className="italic">Domain-Driven Design: Tackling Complexity in the Heart of Software</span>. Addison-Wesley.</li>
+          <li className="text-slate-700">Martin, R. C. (2017). <span className="italic">Clean Architecture: A Craftsman&apos;s Guide to Software Structure and Design</span>. Prentice Hall.</li>
+          <li className="text-slate-700">Nygard, M. T. (2018). <span className="italic">Release It!: Design and Deploy Production-Ready Software</span>. Pragmatic Bookshelf.</li>
+          <li className="text-slate-700">Humble, J., & Farley, D. (2010). <span className="italic">Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation</span>. Addison-Wesley.</li>
+          <li className="text-slate-700">Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). <span className="italic">Design Patterns: Elements of Reusable Object-Oriented Software</span>. Addison-Wesley.</li>
+          <li className="text-slate-700">Beyer, B., Jones, C., et al. (2016). <span className="italic">Site Reliability Engineering</span>. O&apos;Reilly Media.</li>
+        </ul>
       </div>
     </div>
   );

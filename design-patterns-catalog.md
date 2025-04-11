@@ -1,162 +1,22 @@
-'use client'
+# Software Design Patterns in Practice: My Implementation Catalog
 
-import React, { useState } from 'react';
-import PatternDetail from '@/components/UI/PatternDetail';
-import CategoryButton from '@/components/UI/CategoryButton';
+## Introduction
 
+Throughout my career as a software developer, I've implemented numerous design patterns to solve complex problems with elegant, maintainable solutions. This catalog showcases practical examples of design patterns I've used in real-world applications, particularly in my work on secure access control systems.
 
-export default function DesignPatternsPage() {
-  const [activeCategory, setActiveCategory] = useState('creational');
+Design patterns represent proven solutions to common software design challenges. By leveraging these established patterns, I create robust, flexible code that can adapt to changing requirements and scale effectively. This catalog documents my hands-on experience with key patterns across different categories.
 
-  return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-white border-b border-blue-700 pb-2 inline-block">
-        Design Patterns Implementation
-      </h2>
-      
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl">
-        <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Introduction</h3>
-        <p className="text-slate-700 mb-4">
-          Throughout my career as a software developer, I&apos;ve implemented numerous design patterns to solve 
-          complex problems with elegant, maintainable solutions. This catalog showcases practical examples 
-          of design patterns I&apos;ve used in real-world applications, particularly in my work on secure access 
-          control systems.
-        </p>
-        <p className="text-slate-700 mb-4">
-          Design patterns represent proven solutions to common software design challenges. By leveraging these 
-          established patterns, I create robust, flexible code that can adapt to changing requirements and scale 
-          effectively. This catalog documents my hands-on experience with key patterns across different categories.
-        </p>
-        <p className="text-slate-700">
-          The patterns demonstrated here reflect not just theoretical knowledge, but practical experience implementing 
-          and refining these solutions in production systems. Each implementation has been battle-tested in 
-          mission-critical environments.
-        </p>
-      </div>
-      
-      {/* Pattern Category Navigation */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        <CategoryButton 
-          text="Creational" 
-          isActive={activeCategory === 'creational'} 
-          onClick={() => setActiveCategory('creational')} 
-        />
-        <CategoryButton 
-          text="Structural" 
-          isActive={activeCategory === 'structural'} 
-          onClick={() => setActiveCategory('structural')} 
-        />
-        <CategoryButton 
-          text="Behavioral" 
-          isActive={activeCategory === 'behavioral'} 
-          onClick={() => setActiveCategory('behavioral')} 
-        />
-        <CategoryButton 
-          text="Architectural" 
-          isActive={activeCategory === 'architectural'} 
-          onClick={() => setActiveCategory('architectural')} 
-        />
-        <CategoryButton 
-          text="Resilience" 
-          isActive={activeCategory === 'resilience'} 
-          onClick={() => setActiveCategory('resilience')} 
-        />
-        <CategoryButton 
-          text="Testing" 
-          isActive={activeCategory === 'testing'} 
-          onClick={() => setActiveCategory('testing')} 
-        />
-      </div>
-      
-      {/* Category Description */}
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl">
-        {activeCategory === 'creational' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Creational Patterns</h3>
-            <p className="text-slate-700">
-              Creational patterns deal with object creation mechanisms, trying to create objects in a manner 
-              suitable to the situation. These patterns provide flexibility in what gets created, how it gets 
-              created, and who creates it. They abstract the instantiation process, helping make a system independent
-              of how its objects are created, composed, and represented.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'structural' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Structural Patterns</h3>
-            <p className="text-slate-700">
-              Structural patterns deal with object composition, creating relationships between objects to form 
-              larger structures. These patterns help ensure that when one part of a system changes, the entire 
-              structure doesn&apos;t need to change. They help build flexible, loosely coupled systems that can be
-              easily maintained and adapted to new requirements over time.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'behavioral' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Behavioral Patterns</h3>
-            <p className="text-slate-700">
-              Behavioral patterns are concerned with the assignment of responsibilities between objects and how 
-              they communicate. These patterns help make complex flows more manageable and improve communication 
-              between different objects. They characterize how objects interact and distribute responsibility, 
-              increasing flexibility in carrying out this communication.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'architectural' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Architectural Patterns</h3>
-            <p className="text-slate-700">
-              Architectural patterns address fundamental structural organization of software systems. These 
-              high-level patterns define the overall shape and structure of applications and guide the 
-              relationships between major components. They provide reusable solutions to commonly occurring
-              organizational problems in software architecture.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'resilience' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Resilience Patterns</h3>
-            <p className="text-slate-700">
-              Resilience patterns help applications handle failures gracefully and continue functioning under 
-              adverse conditions. These patterns enable systems to recover from failures and maintain service 
-              even when components are degraded. They are essential for mission-critical systems that must maintain
-              high availability and reliability, even when faced with transient failures or unexpected conditions.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'testing' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Testing Patterns</h3>
-            <p className="text-slate-700">
-              Testing patterns ensure software quality through systematic verification approaches. These patterns 
-              provide structured ways to create reliable tests and test environments for complex systems. They help
-              in creating maintainable, repeatable tests that can verify application behavior across various scenarios,
-              from unit testing to integration testing and end-to-end validation.
-            </p>
-          </div>
-        )}
-      </div>
-      
-      {/* Pattern Details */}
-      <div className="space-y-6">
-        {/* Render patterns based on active category */}
-        {activeCategory === 'creational' && (
-          <>
-            <PatternDetail 
-              name="Factory Method"
-              problem="Creating objects without specifying the exact class to create, deferring instantiation to subclasses."
-              benefits={[
-                "Created configurable test environments with selective component replacement",
-                "Enabled integration tests that mix real and mock services",
-                "Simplified the process of testing with different configurations"
-              ]}
-              codeSnippet={`// Test Factory implementation
+## Creational Patterns
+
+Creational patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
+
+### Factory Method
+
+**Problem It Solves**: Creating objects without specifying the exact class to create, deferring instantiation to subclasses.
+
+**My Implementation**:
+```csharp
+// Test Factory implementation
 public class ApplicationFactory : WebApplicationFactory<Program>
 {
     // Configuration delegates
@@ -196,19 +56,21 @@ public class ApplicationFactory : WebApplicationFactory<Program>
             });
         });
     }
-}`}
-              category="creational"
-            />
-            
-            <PatternDetail 
-              name="Builder Pattern"
-              problem="Separating the construction of complex objects from their representation."
-              benefits={[
-                "Created expressive, readable test setup code",
-                "Improved test maintenance through fluent interfaces",
-                "Simplified complex object configurations"
-              ]}
-              codeSnippet={`// Mock builder with fluent interface
+}
+```
+
+**Benefits I've Realized**:
+- Created configurable test environments with selective component replacement
+- Enabled integration tests that mix real and mock services
+- Simplified the process of testing with different configurations
+
+### Builder Pattern
+
+**Problem It Solves**: Separating the construction of complex objects from their representation.
+
+**My Implementation**:
+```csharp
+// Mock builder with fluent interface
 public class MockGateController : AbstractGateController
 {
     // Fluent interface methods
@@ -233,19 +95,21 @@ public class MockGateController : AbstractGateController
     // Usage in tests
     // gateController.WithNextVisitorEnteringSecurityArea()
     //               .WithNextVisitorExitingSecurityArea();
-}`}
-              category="creational"
-            />
-            
-            <PatternDetail 
-              name="Dependency Injection"
-              problem="Achieving loose coupling between classes by moving the responsibility of creating dependencies outside the dependent class."
-              benefits={[
-                "Achieved highly decoupled, testable components",
-                "Enabled runtime service resolution based on configuration",
-                "Simplified testing through easy dependency replacement"
-              ]}
-              codeSnippet={`public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+}
+```
+
+**Benefits I've Realized**:
+- Created expressive, readable test setup code
+- Improved test maintenance through fluent interfaces
+- Simplified complex object configurations
+
+### Dependency Injection
+
+**Problem It Solves**: Achieving loose coupling between classes by moving the responsibility of creating dependencies outside the dependent class.
+
+**My Implementation**:
+```csharp
+public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 {
     // Register step services
     services.AddSingleton<IDocumentValidationStep, DocumentValidationStep>();
@@ -268,23 +132,25 @@ public class MockGateController : AbstractGateController
     );
 
     return services;
-}`}
-              category="creational"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'structural' && (
-          <>
-            <PatternDetail 
-              name="Adapter Pattern"
-              problem="Converting the interface of a class into another interface clients expect."
-              benefits={[
-                "Successfully integrated with third-party systems using different interfaces",
-                "Isolated the application from external API changes",
-                "Enabled seamless switching between different service implementations"
-              ]}
-              codeSnippet={`// External service interface
+}
+```
+
+**Benefits I've Realized**:
+- Achieved highly decoupled, testable components
+- Enabled runtime service resolution based on configuration
+- Simplified testing through easy dependency replacement
+
+## Structural Patterns
+
+Structural patterns deal with object composition, creating relationships between objects to form larger structures.
+
+### Adapter Pattern
+
+**Problem It Solves**: Converting the interface of a class into another interface clients expect.
+
+**My Implementation**:
+```csharp
+// External service interface
 public interface IBiometricService
 {
     Task<bool> DeleteUserAsync(string personalId);
@@ -313,19 +179,21 @@ public class BiometricService : AbstractResilientBiometricService
     {
         return await userManager.DeleteUserAsync(personalId);
     }
-}`}
-              category="structural"
-            />
-            
-            <PatternDetail 
-              name="Facade Pattern"
-              problem="Providing a simplified interface to a complex subsystem of classes."
-              benefits={[
-                "Simplified client interaction with complex access control process",
-                "Reduced dependencies between subsystems",
-                "Created a clear, high-level interface for the access control workflow"
-              ]}
-              codeSnippet={`public class AccessControlService : IAccessControlService
+}
+```
+
+**Benefits I've Realized**:
+- Successfully integrated with third-party systems using different interfaces
+- Isolated the application from external API changes
+- Enabled seamless switching between different service implementations
+
+### Facade Pattern
+
+**Problem It Solves**: Providing a simplified interface to a complex subsystem of classes.
+
+**My Implementation**:
+```csharp
+public class AccessControlService : IAccessControlService
 {
     private readonly IDocumentValidationStep documentValidationStep;
     private readonly IPermissionStep permissionStep;
@@ -361,19 +229,21 @@ public class BiometricService : AbstractResilientBiometricService
     {
         // Logic for processing the visitor through gates...
     }
-}`}
-              category="structural"
-            />
-            
-            <PatternDetail 
-              name="Composite Pattern"
-              problem="Composing objects into tree structures to represent part-whole hierarchies."
-              benefits={[
-                "Created unified notification system that supports multiple channels",
-                "Easily extended system with new notification targets",
-                "Maintained consistent notification interface across different platforms"
-              ]}
-              codeSnippet={`public class CompositeStatusNotifier : IStatusNotifier
+}
+```
+
+**Benefits I've Realized**:
+- Simplified client interaction with complex access control process
+- Reduced dependencies between subsystems
+- Created a clear, high-level interface for the access control workflow
+
+### Composite Pattern
+
+**Problem It Solves**: Composing objects into tree structures to represent part-whole hierarchies.
+
+**My Implementation**:
+```csharp
+public class CompositeStatusNotifier : IStatusNotifier
 {
     private readonly ILogger<CompositeStatusNotifier> logger; 
     private readonly List<IStatusNotifier> notifiers = new List<IStatusNotifier>();
@@ -404,23 +274,25 @@ public class BiometricService : AbstractResilientBiometricService
     }
 
     // Other notification methods...
-} `}
-              category="structural"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'behavioral' && (
-          <>
-            <PatternDetail 
-              name="Strategy Pattern"
-              problem="Defining a family of algorithms, encapsulating each one, and making them interchangeable."
-              benefits={[
-                "Created interchangeable algorithm implementations for different environments",
-                "Enabled runtime strategy selection based on context",
-                "Improved testability by substituting strategies during testing"
-              ]}
-              codeSnippet={`// Strategy interface
+}
+```
+
+**Benefits I've Realized**:
+- Created unified notification system that supports multiple channels
+- Easily extended system with new notification targets
+- Maintained consistent notification interface across different platforms
+
+## Behavioral Patterns
+
+Behavioral patterns are concerned with the assignment of responsibilities between objects and how they communicate.
+
+### Strategy Pattern
+
+**Problem It Solves**: Defining a family of algorithms, encapsulating each one, and making them interchangeable.
+
+**My Implementation**:
+```csharp
+// Strategy interface
 public interface IBiometricScanSubscription : IDisposable
 {
     Task Handle(Action<BiometricVerificationResult> callback, TimeSpan timeout);
@@ -460,19 +332,21 @@ public class BiometricScanStep : IBiometricScanStep
         // Further processing...
         return success;
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="Template Method"
-              problem="Defining the skeleton of an algorithm in a base class while allowing subclasses to override specific steps."
-              benefits={[
-                "Reused common gate control logic across different hardware implementations",
-                "Simplified adding support for new hardware devices",
-                "Ensured consistent behavior while allowing device-specific customization"
-              ]}
-              codeSnippet={`public abstract class AbstractGateController : IGateController
+}
+```
+
+**Benefits I've Realized**:
+- Created interchangeable algorithm implementations for different environments
+- Enabled runtime strategy selection based on context
+- Improved testability by substituting strategies during testing
+
+### Template Method
+
+**Problem It Solves**: Defining the skeleton of an algorithm in a base class while allowing subclasses to override specific steps.
+
+**My Implementation**:
+```csharp
+public abstract class AbstractGateController : IGateController
 {
     // Template methods that implement common algorithm
     public async Task<bool> IsEntryGateClosed()
@@ -512,19 +386,21 @@ public class HardwareGateController : AbstractResilientGateController
         }
         return true;
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="Observer Pattern"
-              problem="Defining a one-to-many dependency between objects so when one object changes state, all dependents are notified."
-              benefits={[
-                "Implemented loosely coupled event communication between system components",
-                "Created responsive user interactions based on asynchronous events",
-                "Enabled multiple components to react to the same events independently"
-              ]}
-              codeSnippet={`public class BiometricEventService : BackgroundService, IBiometricEventService
+}
+```
+
+**Benefits I've Realized**:
+- Reused common gate control logic across different hardware implementations
+- Simplified adding support for new hardware devices
+- Ensured consistent behavior while allowing device-specific customization
+
+### Observer Pattern
+
+**Problem It Solves**: Defining a one-to-many dependency between objects so when one object changes state, all dependents are notified.
+
+**My Implementation**:
+```csharp
+public class BiometricEventService : BackgroundService, IBiometricEventService
 {
     // Event for biometric verification - observer pattern
     public event EventHandler<BiometricVerificationEventArgs> BiometricVerificationEvent;
@@ -556,19 +432,21 @@ public class HardwareGateController : AbstractResilientGateController
             logger.LogError(ex, "Error processing event message");
         }
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="Command Pattern"
-              problem="Encapsulating a request as an object, allowing parameterization of clients with different requests."
-              benefits={[
-                "Encapsulated each access control step as a self-contained command",
-                "Enabled flexible sequencing and conditional execution of steps",
-                "Improved testability by testing commands individually"
-              ]}
-              codeSnippet={`// Each process step is effectively a command
+}
+```
+
+**Benefits I've Realized**:
+- Implemented loosely coupled event communication between system components
+- Created responsive user interactions based on asynchronous events
+- Enabled multiple components to react to the same events independently
+
+### Command Pattern
+
+**Problem It Solves**: Encapsulating a request as an object, allowing parameterization of clients with different requests.
+
+**My Implementation**:
+```csharp
+// Each process step is effectively a command
 public interface IGateProcessStep
 {
     Task<bool> Process(IVisitorContext context);
@@ -617,19 +495,21 @@ public class BiometricScanStep : IBiometricScanStep
         await context.StepProcessed(ProcessStep.BiometricScan, success);
         return success;
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="State Pattern"
-              problem="Allowing an object to alter its behavior when its internal state changes."
-              benefits={[
-                "Created a self-managing visitor entity that maintains its own state",
-                "Implemented clear state transitions based on process outcomes",
-                "Ensured consistent state management across the application"
-              ]}
-              codeSnippet={`public class Visitor
+}
+```
+
+**Benefits I've Realized**:
+- Encapsulated each access control step as a self-contained command
+- Enabled flexible sequencing and conditional execution of steps
+- Improved testability by testing commands individually
+
+### State Pattern
+
+**Problem It Solves**: Allowing an object to alter its behavior when its internal state changes.
+
+**My Implementation**:
+```csharp
+public class Visitor
 {
     public VisitorStatus Status { get; private set; }
     
@@ -664,7 +544,15 @@ public class BiometricScanStep : IBiometricScanStep
             case ProcessStep.EntryGate:
                 Status = success ? VisitorStatus.EntryCompleted : VisitorStatus.EntryFailed;
                 break;
-            // Additional state transitions...
+            case ProcessStep.VisitorResponse:
+                Status = success ? VisitorStatus.VisitorResponseOk : VisitorStatus.VisitorResponseNotOk;
+                break;
+            case ProcessStep.BiometricScan:
+                Status = success ? VisitorStatus.BiometricVerified : VisitorStatus.BiometricFailed;
+                break;
+            case ProcessStep.ExitGate:
+                Status = success ? VisitorStatus.ExitCompleted : VisitorStatus.ExitFailed;
+                break;
         }
     }
     
@@ -677,23 +565,25 @@ public class BiometricScanStep : IBiometricScanStep
     {
         this.Status = VisitorStatus.Abandoned;
     }
-}`}
-              category="behavioral"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'architectural' && (
-          <>
-            <PatternDetail 
-              name="Hexagonal Architecture (Ports and Adapters)"
-              problem="Isolating the core application from external concerns to improve maintainability and testability."
-              benefits={[
-                "Achieved complete isolation of the domain model from external dependencies",
-                "Created a highly testable architecture with easy dependency substitution",
-                "Enabled flexible adaptation to different external systems"
-              ]}
-              codeSnippet={`// Port (interface) - primary port for the application core
+}
+```
+
+**Benefits I've Realized**:
+- Created a self-managing visitor entity that maintains its own state
+- Implemented clear state transitions based on process outcomes
+- Ensured consistent state management across the application
+
+## Architectural Patterns
+
+Architectural patterns address fundamental structural organization of software systems.
+
+### Hexagonal Architecture (Ports and Adapters)
+
+**Problem It Solves**: Isolating the core application from external concerns to improve maintainability and testability.
+
+**My Implementation**:
+```csharp
+// Port (interface) - primary port for the application core
 public interface IBiometricService
 {
     Task<bool> DeleteUserAsync(string personalId);
@@ -727,19 +617,21 @@ services.AddSingleton<IBiometricService>(sp =>
     sp.GetRequiredService<IOptions<TestingOptions>>().Value.UseMockServices.BiometricService
         ? sp.GetRequiredService<MockBiometricService>()
         : sp.GetRequiredService<BiometricService>()
-);`}
-              category="architectural"
-            />
-            
-            <PatternDetail 
-              name="Clean Architecture"
-              problem="Creating a separation of concerns with dependencies pointing inward toward the domain layer."
-              benefits={[
-                "Created a highly maintainable system with clear separation of concerns",
-                "Ensured that business rules are isolated from infrastructure details",
-                "Simplified testing by focusing on domain logic without external dependencies"
-              ]}
-              codeSnippet={`// Domain layer (innermost, no external dependencies)
+);
+```
+
+**Benefits I've Realized**:
+- Achieved complete isolation of the domain model from external dependencies
+- Created a highly testable architecture with easy dependency substitution
+- Enabled flexible adaptation to different external systems
+
+### Clean Architecture
+
+**Problem It Solves**: Creating a separation of concerns with dependencies pointing inward toward the domain layer.
+
+**My Implementation**:
+```csharp
+// Domain layer (innermost, no external dependencies)
 public interface IGateProcessStep
 {
     Task<bool> Process(IVisitorContext context);
@@ -792,23 +684,25 @@ public class Worker : BackgroundService
             true // Critical operation
         );
     }
-}`}
-              category="architectural"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'resilience' && (
-          <>
-            <PatternDetail 
-              name="Circuit Breaker"
-              problem="Preventing cascading failures by detecting failures and stopping operation temporarily."
-              benefits={[
-                "Prevented cascading failures when external services were unavailable",
-                "Implemented automatic service recovery after temporary failures",
-                "Created different circuit breaker strategies for critical and non-critical operations"
-              ]}
-              codeSnippet={`public class ResilientRetry : IRetryPolicy
+}
+```
+
+**Benefits I've Realized**:
+- Created a highly maintainable system with clear separation of concerns
+- Ensured that business rules are isolated from infrastructure details
+- Simplified testing by focusing on domain logic without external dependencies
+
+## Resilience Patterns
+
+Resilience patterns help applications handle failures gracefully and continue functioning under adverse conditions.
+
+### Circuit Breaker
+
+**Problem It Solves**: Preventing cascading failures by detecting failures and stopping operation temporarily.
+
+**My Implementation**:
+```csharp
+public class ResilientRetry : IRetryPolicy
 {
     public async Task<T> Execute<T>(
         Func<Task<T>> operation,
@@ -865,19 +759,21 @@ public class Worker : BackgroundService
                 CircuitState.Open);
         }
     }
-}`}
-              category="resilience"
-            />
-            
-            <PatternDetail 
-              name="Retry Pattern"
-              problem="Handling transient failures by automatically retrying a failed operation."
-              benefits={[
-                "Handled transient failures in external services automatically",
-                "Implemented exponential backoff to avoid overwhelming recovering services",
-                "Created differentiated retry strategies based on operation criticality"
-              ]}
-              codeSnippet={`public class ResilientRetry : IRetryPolicy
+}
+```
+
+**Benefits I've Realized**:
+- Prevented cascading failures when external services were unavailable
+- Implemented automatic service recovery after temporary failures
+- Created different circuit breaker strategies for critical and non-critical operations
+
+### Retry Pattern
+
+**Problem It Solves**: Handling transient failures by automatically retrying a failed operation.
+
+**My Implementation**:
+```csharp
+public class ResilientRetry : IRetryPolicy
 {
     public async Task<T> Execute<T>(
         Func<Task<T>> operation,
@@ -936,19 +832,21 @@ public class Worker : BackgroundService
         
         // Execute with pipeline...
     }
-}`}
-              category="resilience"
-            />
-            
-            <PatternDetail 
-              name="Timeout Pattern"
-              problem="Preventing operations from waiting indefinitely by setting maximum timeouts."
-              benefits={[
-                "Prevented system hangs due to unresponsive external services",
-                "Implemented graceful failure handling for user-facing operations",
-                "Created consistent timeout behavior across the application"
-              ]}
-              codeSnippet={`public async Task Handle(Action<BiometricVerificationResult> callback, TimeSpan timeout)
+}
+```
+
+**Benefits I've Realized**:
+- Handled transient failures in external services automatically
+- Implemented exponential backoff to avoid overwhelming recovering services
+- Created differentiated retry strategies based on operation criticality
+
+### Timeout Pattern
+
+**Problem It Solves**: Preventing operations from waiting indefinitely by setting maximum timeouts.
+
+**My Implementation**:
+```csharp
+public async Task Handle(Action<BiometricVerificationResult> callback, TimeSpan timeout)
 {
     // Create a TaskCompletionSource to handle the async event waiting
     var tcs = new TaskCompletionSource<BiometricVerificationResult>();
@@ -986,23 +884,25 @@ public class Worker : BackgroundService
         logger.LogError(ex, "Unexpected error in biometric scan subscription");
         callback(BiometricVerificationResult.Failure);
     }
-}`}
-              category="resilience"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'testing' && (
-          <>
-            <PatternDetail 
-              name="Test Factory"
-              problem="Creating configurable test environments with all necessary dependencies."
-              benefits={[
-                "Created precisely configured test environments for different scenarios",
-                "Enabled integration tests with selective real/mock components",
-                "Simplified test setup and improved test readability"
-              ]}
-              codeSnippet={`public class ApplicationFactory : WebApplicationFactory<Program>
+}
+```
+
+**Benefits I've Realized**:
+- Prevented system hangs due to unresponsive external services
+- Implemented graceful failure handling for user-facing operations
+- Created consistent timeout behavior across the application
+
+## Testing Patterns
+
+Testing patterns ensure software quality through systematic verification approaches.
+
+### Test Factory
+
+**Problem It Solves**: Creating configurable test environments with all necessary dependencies.
+
+**My Implementation**:
+```csharp
+public class ApplicationFactory : WebApplicationFactory<Program>
 {
     // Configuration delegates that can be set by test classes
     private Action<IServiceCollection>? _serviceConfiguration;
@@ -1048,19 +948,100 @@ public class Worker : BackgroundService
             // More service configuration...
         });
     }
-}`}
-              category="testing"
-            />
-            
-            <PatternDetail 
-              name="Mock Objects"
-              problem="Creating test doubles that simulate the behavior of real objects in a controlled way."
-              benefits={[
-                "Created configurable mock implementations for reliable testing",
-                "Simulated various failure scenarios for robust error handling testing",
-                "Enabled testing of difficult-to-reproduce conditions"
-              ]}
-              codeSnippet={`public class MockBiometricScanSubscription : IBiometricScanSubscription
+}
+
+// Usage in tests
+[Test]
+public async Task Worker_Processes_Visitor_Successfully_Through_The_Gate()
+{
+    // Configure the factory specifically for this test
+    factory = new ApplicationFactory() 
+        .WithMockConfiguration(options =>
+        {
+            options.UseMockServices.BiometricService = true;
+            options.UseMockServices.PermissionService = true;
+            options.UseMockServices.GateController = true;
+            options.UseMockServices.BiometricScanner = true;
+        });
+        
+    factory.StartHost();
+    // Test implementation...
+}
+```
+
+**Benefits I've Realized**:
+- Created precisely configured test environments for different scenarios
+- Enabled integration tests with selective real/mock components
+- Simplified test setup and improved test readability
+
+### Scenario Testing
+
+**Problem It Solves**: Testing complex interaction scenarios to validate system behavior.
+
+**My Implementation**:
+```csharp
+private async Task RunScenario(ApplicationFactory factory, ScenarioType scenario)
+{
+    Console.Clear();
+    Console.WriteLine($"Running scenario: {scenario}");
+    Console.WriteLine("═════════════════════════════════════════════════════");
+
+    using var scope = factory.GetServer().Services.CreateScope();
+
+    // Get services
+    var biometricService = scope.ServiceProvider.GetRequiredService<IBiometricService>();
+    var permissionService = scope.ServiceProvider.GetRequiredService<IPermissionService>();
+    var gateController = scope.ServiceProvider.GetRequiredService<IGateController>();
+    var biometricScan = scope.ServiceProvider.GetRequiredService<MockBiometricScanSubscription>();
+    var visitorEventSource = scope.ServiceProvider.GetRequiredService<IVisitorEventSource>();
+
+    // Create a test visitor
+    var visitor = new Visitor("TEST-" + Guid.NewGuid().ToString().Substring(0, 8), 1, 0, true, "Test Visitor");
+    
+    // Configure mocks for the specific scenario
+    ConfigureMocksForScenario(visitor, scenario, permissionService, gateController, biometricScan);
+
+    // Inject the visitor into the system
+    ((MockVisitorEventSource)visitorEventSource).WithNextVisitor(visitor);
+
+    Console.WriteLine("Starting visitor processing...");
+
+    try
+    {
+        // Wait for visitor processing to complete and verify results
+        await WaitForVisitorProcessingCompletion(visitor);
+        
+        // Show results
+        Console.WriteLine("\nScenario completed!");
+        Console.WriteLine($"Final visitor status: {processedVisitor.Status}");
+
+        // Show which steps were processed
+        Console.WriteLine("\nSteps processed:");
+        foreach (var step in Enum.GetValues<ProcessStep>())
+        {
+            string result = processedVisitor.IsStepProcessed(step) ? "✓" : "✗";
+            Console.WriteLine($"  {step}: {result}");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"\nError during scenario: {ex.Message}");
+    }
+}
+```
+
+**Benefits I've Realized**:
+- Created a tool for comprehensive end-to-end testing
+- Enabled testing of complex interaction sequences
+- Provided interactive demonstration capability for stakeholders
+
+### Mock Objects
+
+**Problem It Solves**: Creating test doubles that simulate the behavior of real objects in a controlled way.
+
+**My Implementation**:
+```csharp
+public class MockBiometricScanSubscription : IBiometricScanSubscription
 {
     private readonly ILogger<MockBiometricScanSubscription> logger;
     private bool? nextScanSuccessful;
@@ -1136,71 +1117,24 @@ public class Worker : BackgroundService
             callback(BiometricVerificationResult.Failure);
         }
     }
-}`}
-              category="testing"
-            />
-            
-            <PatternDetail 
-              name="Scenario Testing"
-              problem="Testing complex interaction scenarios to validate system behavior."
-              benefits={[
-                "Created a tool for comprehensive end-to-end testing",
-                "Enabled testing of complex interaction sequences",
-                "Provided interactive demonstration capability for stakeholders"
-              ]}
-              codeSnippet={`private async Task RunScenario(ApplicationFactory factory, ScenarioType scenario)
-{
-    Console.Clear();
-    Console.WriteLine($"Running scenario: {scenario}");
-    Console.WriteLine("═════════════════════════════════════════════════════");
-
-    using var scope = factory.GetServer().Services.CreateScope();
-
-    // Get services
-    var biometricService = scope.ServiceProvider.GetRequiredService<IBiometricService>();
-    var permissionService = scope.ServiceProvider.GetRequiredService<IPermissionService>();
-    var gateController = scope.ServiceProvider.GetRequiredService<IGateController>();
-    var biometricScan = scope.ServiceProvider.GetRequiredService<MockBiometricScanSubscription>();
-    var visitorEventSource = scope.ServiceProvider.GetRequiredService<IVisitorEventSource>();
-
-    // Create a test visitor
-    var visitor = new Visitor("TEST-" + Guid.NewGuid().ToString().Substring(0, 8), 1, 0, true, "Test Visitor");
-    
-    // Configure mocks for the specific scenario
-    ConfigureMocksForScenario(visitor, scenario, permissionService, gateController, biometricScan);
-
-    // Inject the visitor into the system
-    ((MockVisitorEventSource)visitorEventSource).WithNextVisitor(visitor);
-
-    Console.WriteLine("Starting visitor processing...");
-
-    try
-    {
-        // Wait for visitor processing to complete and verify results
-        await WaitForVisitorProcessingCompletion(visitor);
-        
-        // Show results
-        Console.WriteLine("\\nScenario completed!");
-        Console.WriteLine($"Final visitor status: {processedVisitor.Status}");
-
-        // Show which steps were processed
-        Console.WriteLine("\\nSteps processed:");
-        foreach (var step in Enum.GetValues<ProcessStep>())
-        {
-            string result = processedVisitor.IsStepProcessed(step) ? "✓" : "✗";
-            Console.WriteLine($"  {step}: {result}");
-        }
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"\\nError during scenario: {ex.Message}");
-    }
-}`}
-              category="testing"
-            />
-          </>
-        )}
-      </div>
-    </div>
-  );
 }
+```
+
+**Benefits I've Realized**:
+- Created configurable mock implementations for reliable testing
+- Simulated various failure scenarios for robust error handling testing
+- Enabled testing of difficult-to-reproduce conditions
+
+## Conclusion
+
+This catalog showcases my practical implementation of key design patterns across different categories. By applying these established patterns to real-world challenges, I've created robust, maintainable software systems that can adapt to changing requirements and handle failure gracefully.
+
+Each pattern in this catalog represents not just theoretical knowledge, but practical experience implementing and refining these solutions in production systems. I continue to expand my pattern knowledge and application as I tackle new challenges in software development.
+
+## References
+
+1. Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley.
+2. Martin, R. C. (2017). *Clean Architecture: A Craftsman's Guide to Software Structure and Design*. Prentice Hall.
+3. Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley.
+4. Nygard, M. T. (2018). *Release It!: Design and Deploy Production-Ready Software*. Pragmatic Bookshelf.
+5. Fowler, M. (2002). *Patterns of Enterprise Application Architecture*. Addison-Wesley.

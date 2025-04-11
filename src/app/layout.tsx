@@ -2,12 +2,41 @@
 import type { Metadata } from 'next';
 import Sidebar from '@/components/Navigation/Sidebar';
 import './globals.css';
+import { StructuredData } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Professional Portfolio - Software Developer',
-  description: 'C#/.NET Development Portfolio',
+  title: 'Rene Prost - Software Developer Portfolio',
+  description: 'Senior C#/.NET developer with 20+ years of experience building robust, maintainable software systems, specializing in Clean Architecture and Design Patterns.',
+  keywords: 'software developer, C#, .NET, design patterns, clean architecture, backend development, Rene Prost',
+  authors: [{ name: 'Rene Prost' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://reneprost.ee',
+    siteName: 'Rene Prost - Software Developer Portfolio',
+    title: 'Rene Prost - Senior C#/.NET Developer',
+    description: 'C#/.NET specialist with expertise in robust, maintainable software systems and clean architecture',
+    images: [
+      {
+        url: 'https://reneprost.ee/og-image.jpg', // Create this image
+        width: 1200,
+        height: 630,
+        alt: 'Rene Prost - Software Developer'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Rene Prost - Senior C#/.NET Developer',
+    description: 'C#/.NET specialist with expertise in robust, maintainable software systems and clean architecture',
+    images: ['https://reneprost.ee/og-image.jpg'] // Same as OG image
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
 };
-
+ 
 export default function RootLayout({
   children,
 }: {
@@ -29,7 +58,7 @@ export default function RootLayout({
         <div className="flex flex-col md:flex-row flex-grow">
           {/* Sidebar/Navigation */}
           <Sidebar />
-          
+          <StructuredData />
           {/* Main Content */}
         <main className="flex-grow p-6" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
   {children}

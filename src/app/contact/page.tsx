@@ -110,7 +110,7 @@ export default function ContactPage() {
     I&apos;m based in a beautiful rural area near the city of Tartu, Estonia.
   </p>
   <p className="text-gray-600">
-    While I enjoy the tranquility of countryside living, I&apos;m well-connected digitally and available for remote work, online meetings, and occasional travel as needed.
+    While I enjoy the tranquility of countryside living, I&apos;m well-connected digitally.{/* and available for remote work, online meetings, and occasional travel as needed */}
   </p>
         </div>
         
