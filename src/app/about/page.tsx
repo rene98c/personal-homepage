@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
-
+import Image from 'next/image';
 
 
 // Skill Item Component
@@ -20,19 +20,32 @@ export default function AboutPage() {
     <div className="max-w-4xl mx-auto">
     <h2 className="text-3xl font-bold mb-6 text-white border-b border-slate-700 pb-2">About Me</h2>
     
-    <div className="bg-gray-50 shadow-md rounded-lg p-6 mb-8">
-      <p className="text-slate-700 mb-4">
-        I&apos;ve been writing and developing software on the .NET platform in C# since 2003. I&apos;m passionate about 
-        well-designed systems and enjoy building software that&apos;s both robust and maintainable. I have a good 
-        eye for seeing systems as a whole and can navigate any project with relative ease. I never say no to a challenge.
-      </p>
-      
-      <p className="text-slate-700 mb-4">
-        My approach to software development emphasizes clean architecture, design patterns, and resilient 
-        systems that can adapt to changing requirements. I believe in building software that not only meets 
-        current needs but is flexible enough to evolve over time.
-      </p>
-    </div>
+    <div className="bg-gray-50 shadow-md rounded-lg p-6 mb-8 flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg flex-shrink-0">
+          <Image 
+            src="/profile-photo.jpeg" // Place your image in the public folder
+            alt="Rene Prost - Software Developer"
+            width={192}
+            height={192}
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold mb-3 text-slate-800">Rene Prost</h3>
+          <p className="text-slate-700 mb-4">
+            I've been writing and developing software on the .NET platform in C# since 2003. I'm passionate about 
+            well-designed systems and enjoy building software that's both robust and maintainable. I have a good 
+            eye for seeing systems as a whole and can navigate any project with relative ease. I never say no to a challenge.
+          </p>
+          
+          <p className="text-slate-700">
+            My approach to software development emphasizes clean architecture, design patterns, and resilient 
+            systems that can adapt to changing requirements. I believe in building software that not only meets 
+            current needs but is flexible enough to evolve over time.
+          </p>
+        </div>
+      </div>
     
     <div className="grid md:grid-cols-2 gap-8 mb-8">
       <div className="bg-gray-50 shadow-md rounded-lg p-6">
