@@ -15,6 +15,7 @@ const Navbar = () => {
     { name: 'Experience', href: '/experience', current: pathname === '/experience' },
     { name: 'Case Study', href: '/case-study', current: pathname === '/case-study' },
     { name: 'Design Patterns', href: '/design-patterns', current: pathname === '/design-patterns' },
+    { name: 'Homelab', href: '/homelab', current: pathname === '/homelab' },
     { name: 'Contact', href: '/contact', current: pathname === '/contact' },
   ];
 
