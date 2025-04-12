@@ -5,7 +5,7 @@ import { FileDown } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 
 const PDFResumeButton = () => {
-  // Function to generate PDF resume
+  // Function to generate PDF resume with all the expanded information
   const generatePDFResume = () => {
     const doc = new jsPDF();
     
@@ -60,7 +60,7 @@ const PDFResumeButton = () => {
       return bulletY + 2; // Return the new Y position after this entry
     };
     
-    // Add job entries
+    // Add job entries with expanded details
     let yPosition = 60;
     
     yPosition = addJobEntry(
@@ -75,7 +75,12 @@ const PDFResumeButton = () => {
       '.NET Software Developer', 
       'Fujitsu Estonia AS', 
       'October 2019 - January 2023',
-      ['Designed and maintained various software systems'],
+      [
+        'Designed and maintained various software systems',
+        '.NET on windows/linux, web APIs, entity framework, nHibernate',
+        'Implemented test-driven design and domain-driven design principles',
+        'Worked with Docker, PostgreSQL, MSSQL, and React'
+      ],
       yPosition
     );
     
@@ -86,6 +91,12 @@ const PDFResumeButton = () => {
       ['Developed secure, scalable systems for government information management'],
       yPosition
     );
+    
+    // Add additional page for more experience
+    if (yPosition > 210) {
+      doc.addPage();
+      yPosition = 20;
+    }
     
     yPosition = addJobEntry(
       '.NET Software Developer', 
@@ -101,7 +112,7 @@ const PDFResumeButton = () => {
     );
     
     // Add additional page for more experience
-    if (yPosition > 250) {
+    if (yPosition > 210) {
       doc.addPage();
       yPosition = 20;
     }
@@ -138,69 +149,172 @@ const PDFResumeButton = () => {
       yPosition
     );
     
-    // Skills section
-    if (yPosition > 220) {
+    // Add Educational Background to a new page
+    doc.addPage();
+    yPosition = 20;
+    
+    // Education Section
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('EDUCATION', 20, yPosition);
+    doc.line(20, yPosition + 2, 190, yPosition + 2);
+    yPosition += 10;
+    
+    // Function to add education entry
+    const addEducationEntry = (institution: string, degree: string, years: string, details: string, yPos: number) => {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'bold');
+      doc.text(institution, 20, yPos);
+      
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'italic');
+      doc.text(degree, 20, yPos + 6);
+      
+      doc.setFont('helvetica', 'normal');
+      doc.text(years, 20, yPos + 12);
+      
+      doc.setFontSize(10);
+      doc.text(details, 25, yPos + 18);
+      
+      return yPos + 24; // Return new position
+    };
+    
+    yPosition = addEducationEntry(
+      'Estonian University of Life Sciences',
+      'Rural Building (Maaehitus)',
+      '2001 - 2003',
+      '• Studied rural building engineering (program not completed)',
+      yPosition
+    );
+    
+    yPosition = addEducationEntry(
+      'Tartu Tamme Gümnaasium',
+      'Secondary Education',
+      '1998 - 2001',
+      '• Completed secondary education with focus on sciences and mathematics',
+      yPosition
+    );
+    
+    // Certifications Section
+    yPosition += 6;
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('CERTIFICATIONS', 20, yPosition);
+    doc.line(20, yPosition + 2, 190, yPosition + 2);
+    yPosition += 10;
+    
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    
+    const certifications = [
+      'Developing and Implementing Web Applications with Microsoft Visual C# .NET (Microsoft, 2006)',
+      'Designing and Implementing Databases with Microsoft SQL Server 2000 Enterprise Edition (Microsoft, 2006)',
+      'Developing XML Web Services and Server Components with Microsoft Visual C# .NET (Microsoft, 2006)',
+      'MOC#2273 Designing IT Managing and Maintaining a Microsoft Windows Server 2003 Environment (2005)',
+      'Enterasys ESE Network Specialist Fastrack (TELEGRUPP, 2005)'
+    ];
+    
+    certifications.forEach(cert => {
+      doc.text('• ' + cert, 25, yPosition);
+      yPosition += 5;
+    });
+    
+    // Skills Section
+    yPosition += 6;
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('TECHNICAL SKILLS', 20, yPosition);
+    doc.line(20, yPosition + 2, 190, yPosition + 2);
+    yPosition += 10;
+    
+    // Function to add skill category
+    const addSkillCategory = (category: string, skills: string, yPos: number) => {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'bold');
+      doc.text(category + ':', 20, yPos);
+      yPos += 6;
+      
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.text('• ' + skills, 25, yPos);
+      
+      return yPos + 8;
+    };
+    
+    yPosition = addSkillCategory(
+      'Programming Languages',
+      'C#, JavaScript, HTML, CSS, SQL, JAVA, Bash',
+      yPosition
+    );
+    
+    yPosition = addSkillCategory(
+      'Frameworks & Libraries',
+      '.NET, ASP.NET MVC, Entity Framework, nHibernate, React, Bootstrap, next.js, Node.js',
+      yPosition
+    );
+    
+    yPosition = addSkillCategory(
+      'Databases',
+      'Microsoft SQL Server, PostgreSQL, Oracle SQL',
+      yPosition
+    );
+    
+    yPosition = addSkillCategory(
+      'Cloud & Infrastructure',
+      'Docker, Google Cloud, Digital Ocean, Proxmox, Virtualization, Hyper-V',
+      yPosition
+    );
+    
+    yPosition = addSkillCategory(
+      'Tools & Environments',
+      'Visual Studio, Visual Studio Code, Android Studio, Git, Subversion, IIS, NGINX, REST API',
+      yPosition
+    );
+    
+    yPosition = addSkillCategory(
+      'Languages',
+      'Estonian (Native), English (Professional)',
+      yPosition
+    );
+    
+    // Personal Projects Section
+    yPosition += 6;
+    if (yPosition > 250) {
       doc.addPage();
       yPosition = 20;
-    } else {
-      yPosition += 10;
     }
     
     doc.setFontSize(16);
     doc.setFont('helvetica', 'bold');
-    doc.text('SKILLS & EXPERTISE', 20, yPosition);
+    doc.text('PERSONAL PROJECTS', 20, yPosition);
     doc.line(20, yPosition + 2, 190, yPosition + 2);
     yPosition += 10;
     
-    // Programming & Technologies
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.text('Programming & Technologies:', 20, yPosition);
+    doc.text('Homelab Infrastructure', 20, yPosition);
     yPosition += 6;
     
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
-    const techSkills = [
-      'C# / .NET Core',
-      'Web Services / Web APIs',
-      'SQL (Microsoft SQL Server, PostgreSQL)',
-      'Front-end technologies (React, Angular)',
-      'Cloud services (AWS, Azure)',
-      'Database Design & Optimization'
+    
+    const homelabDetails = [
+      'Three-node high-availability Proxmox VE cluster with seamless service migration',
+      'Virtualized desktop with GPU passthrough for near-bare-metal performance',
+      'OPNsense virtualized router with VLANs and advanced networking features',
+      'Self-hosted services including email, git repositories, and personal cloud storage'
     ];
     
-    techSkills.forEach(skill => {
-      doc.text('• ' + skill, 25, yPosition);
-      yPosition += 5;
-    });
-    
-    yPosition += 5;
-    
-    // Methodologies & Practices
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Methodologies & Practices:', 20, yPosition);
-    yPosition += 6;
-    
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    const methodSkills = [
-      'Clean Architecture',
-      'Design Patterns',
-      'Domain-Driven Design',
-      'Test-Driven Development',
-      'Resilience Engineering',
-      'SOLID Principles'
-    ];
-    
-    methodSkills.forEach(skill => {
-      doc.text('• ' + skill, 25, yPosition);
+    homelabDetails.forEach(detail => {
+      doc.text('• ' + detail, 25, yPosition);
       yPosition += 5;
     });
     
     // Add footer with website and date
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const pageCount = (doc.internal as any).getNumberOfPages();
+    // Use a more reliable approach for page count
+    // @ts-expect-error - Method exists at runtime but TypeScript doesn't recognize it
+    const pageCount = doc.internal.getNumberOfPages();
+    
     for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
       doc.setFontSize(8);

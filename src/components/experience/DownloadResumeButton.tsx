@@ -3,13 +3,10 @@
 import React from 'react';
 import { FileDown } from 'lucide-react';
 
-const DownloadResumeButton = () => {
-  // Function to generate PDF resume data
+export const DownloadResumeButton = () => {
+  // Function to generate more comprehensive resume data
   const generateResumeData = () => {
-    // This is a simplified approach - for a real implementation, 
-    // you would use a pre-generated PDF file stored in your public folder
-    
-    // Content for the resume - structured as plain text
+    // Content for the resume - structured as plain text with all the new information
     const resumeContent = `
 RENE PROST
 C#/.NET Developer with 20+ Years Experience
@@ -26,6 +23,9 @@ January 2023 - June 2024
 Fujitsu Estonia AS
 October 2019 - January 2023
 • Designed and maintained various software systems
+• .NET on windows/linux, web APIs, entity framework, nHibernate
+• Implemented test-driven design and domain-driven design principles
+• Worked with Docker, PostgreSQL, MSSQL, and React
 
 .NET Software Developer
 Centre of Registers and Information Systems
@@ -63,23 +63,54 @@ April 2004 - November 2005
 • Ensured security and reliability of IT infrastructure
 • Documented technical procedures and system configurations
 
-SKILLS & EXPERTISE
+EDUCATION
 
-Programming & Technologies:
-• C# / .NET Core
-• Web Services / Web APIs
-• SQL (Microsoft SQL Server, PostgreSQL)
-• Front-end technologies (React, Angular)
-• Cloud services (AWS, Azure)
-• Database Design & Optimization
+Estonian University of Life Sciences (2001 - 2003)
+Rural Building (Maaehitus)
+• Studied rural building engineering (program not completed)
 
-Methodologies & Practices:
-• Clean Architecture
-• Design Patterns
-• Domain-Driven Design
-• Test-Driven Development
-• Resilience Engineering
-• SOLID Principles
+Tartu Tamme Gümnaasium (1998 - 2001)
+Secondary Education
+• Completed secondary education with focus on sciences and mathematics
+
+CERTIFICATIONS
+
+• Developing and Implementing Web Applications with Microsoft Visual C# .NET (Microsoft, 2006)
+• Designing and Implementing Databases with Microsoft SQL Server 2000 Enterprise Edition (Microsoft, 2006)
+• Developing XML Web Services and Server Components with Microsoft Visual C# .NET (Microsoft, 2006)
+• MOC#2273 Designing IT Managing and Maintaining a Microsoft Windows Server 2003 Environment (BCS Koolituse AS, 2005)
+• Enterasys ESE Network Specialist Fastrack (TELEGRUPP, 2005)
+
+TECHNICAL SKILLS
+
+Programming Languages:
+• C#, JavaScript, HTML, CSS, SQL, JAVA, Bash
+
+Frameworks & Libraries:
+• .NET, ASP.NET MVC, Entity Framework, nHibernate, React, Bootstrap, next.js, Node.js
+
+Databases:
+• Microsoft SQL Server, PostgreSQL, Oracle SQL
+
+Cloud & Infrastructure:
+• Docker, Google Cloud, Digital Ocean, Proxmox, Virtualization, Hyper-V
+
+Tools & Environments:
+• Visual Studio, Visual Studio Code, Android Studio, Git, Subversion, IIS, NGINX, REST API
+
+Languages:
+• Estonian (Native)
+• English (Professional)
+
+PERSONAL PROJECTS
+
+Homelab Infrastructure
+• Three-node high-availability Proxmox VE cluster with seamless service migration
+• Virtualized desktop with GPU passthrough for near-bare-metal performance
+• OPNsense virtualized router with VLANs and advanced networking features
+• Self-hosted services including email, git repositories, and personal cloud storage
+
+For more details and portfolio: https://reneprost.ee
 `;
 
     return resumeContent;
@@ -103,44 +134,14 @@ Methodologies & Practices:
   };
 
   return (
-    <div className="mt-8 flex flex-col items-center">
-      <button
-        onClick={downloadResume}
-        className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 hover:-translate-y-1"
-      >
-        <FileDown className="mr-2 h-5 w-5" />
-        Download Resume
-      </button>
-      <p className="mt-2 text-sm text-gray-500">Get a plain text version of my professional experience</p>
-    </div>
+    <button
+      onClick={downloadResume}
+      className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 hover:-translate-y-1"
+    >
+      <FileDown className="mr-2 h-5 w-5" />
+      Download Resume (Text)
+    </button>
   );
 };
 
-// Enhanced Experience Page Component with Download Button
-const EnhancedExperienceSection = () => {
-  return (
-    <div className="bg-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Experience</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Professional Journey
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            With over 20 years of software development experience, I&apos;ve worked across a variety of industries and projects,
-            consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003,
-            with expertise in building web services, backend systems, and user interfaces.
-          </p>
-          
-          {/* Add the download resume button */}
-          <DownloadResumeButton />
-        </div>
-        
-        {/* Rest of your experience timeline would go here */}
-      </div>
-    </div>
-  );
-};
-
-export default EnhancedExperienceSection;
-export { DownloadResumeButton };
+export default DownloadResumeButton;
