@@ -1,162 +1,103 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
-import PatternDetail from '@/components/UI/PatternDetail';
-import CategoryButton from '@/components/UI/CategoryButton';
+import { Code, CheckCircle, AlertCircle, Award } from 'lucide-react';
 
+// Category Button Component
+const CategoryButton = ({ text, isActive, onClick }: { text: string, isActive: boolean, onClick: () => void }) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+        isActive 
+          ? 'bg-indigo-600 text-white shadow-md' 
+          : 'bg-gray-200 text-gray-700 hover:bg-gray-300 hover:shadow-sm'
+      }`}
+    >
+      {text}
+    </button>
+  );
+};
 
-export default function DesignPatternsPage() {
-  const [activeCategory, setActiveCategory] = useState('creational');
+// Pattern Detail Component
+const PatternDetail = ({ name, problem, benefits, codeSnippet, category }: { name: string, problem: string, benefits: string[], codeSnippet: string, category: string }) => {
+  const getCategoryBorderColor = () => {
+    switch (category) {
+      case 'creational':
+        return 'border-t-amber-500';
+      case 'structural':
+        return 'border-t-green-500';
+      case 'behavioral':
+        return 'border-t-blue-500';
+      case 'architectural':
+        return 'border-t-purple-500';
+      case 'resilience':
+        return 'border-t-red-500';
+      case 'testing':
+        return 'border-t-indigo-500';
+      default:
+        return 'border-t-gray-500';
+    }
+  };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-white border-b border-blue-700 pb-2 inline-block">
-        Design Patterns Implementation
-      </h2>
-      
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl">
-        <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Introduction</h3>
-        <p className="text-slate-700 mb-4">
-          Throughout my career as a software developer, I&apos;ve implemented numerous design patterns to solve 
-          complex problems with elegant, maintainable solutions. This catalog showcases practical examples 
-          of design patterns I&apos;ve used in real-world applications, particularly in my work on secure access 
-          control systems.
-        </p>
-        <p className="text-slate-700 mb-4">
-          Design patterns represent proven solutions to common software design challenges. By leveraging these 
-          established patterns, I create robust, flexible code that can adapt to changing requirements and scale 
-          effectively. This catalog documents my hands-on experience with key patterns across different categories.
-        </p>
-        <p className="text-slate-700">
-          The patterns demonstrated here reflect not just theoretical knowledge, but practical experience implementing 
-          and refining these solutions in production systems. Each implementation has been battle-tested in 
-          mission-critical environments.
-        </p>
+    <div className={`bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl ${getCategoryBorderColor()} border-t-4`}>
+      <div className="flex items-center gap-2 mb-4">
+        <Code className="w-5 h-5 text-indigo-600" />
+        <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
       </div>
       
-      {/* Pattern Category Navigation */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        <CategoryButton 
-          text="Creational" 
-          isActive={activeCategory === 'creational'} 
-          onClick={() => setActiveCategory('creational')} 
-        />
-        <CategoryButton 
-          text="Structural" 
-          isActive={activeCategory === 'structural'} 
-          onClick={() => setActiveCategory('structural')} 
-        />
-        <CategoryButton 
-          text="Behavioral" 
-          isActive={activeCategory === 'behavioral'} 
-          onClick={() => setActiveCategory('behavioral')} 
-        />
-        <CategoryButton 
-          text="Architectural" 
-          isActive={activeCategory === 'architectural'} 
-          onClick={() => setActiveCategory('architectural')} 
-        />
-        <CategoryButton 
-          text="Resilience" 
-          isActive={activeCategory === 'resilience'} 
-          onClick={() => setActiveCategory('resilience')} 
-        />
-        <CategoryButton 
-          text="Testing" 
-          isActive={activeCategory === 'testing'} 
-          onClick={() => setActiveCategory('testing')} 
-        />
+      <div className="mb-6">
+        <div className="flex items-start gap-2">
+          <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+          <p className="text-gray-700">{problem}</p>
+        </div>
       </div>
       
-      {/* Category Description */}
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl">
-        {activeCategory === 'creational' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Creational Patterns</h3>
-            <p className="text-slate-700">
-              Creational patterns deal with object creation mechanisms, trying to create objects in a manner 
-              suitable to the situation. These patterns provide flexibility in what gets created, how it gets 
-              created, and who creates it. They abstract the instantiation process, helping make a system independent
-              of how its objects are created, composed, and represented.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'structural' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Structural Patterns</h3>
-            <p className="text-slate-700">
-              Structural patterns deal with object composition, creating relationships between objects to form 
-              larger structures. These patterns help ensure that when one part of a system changes, the entire 
-              structure doesn&apos;t need to change. They help build flexible, loosely coupled systems that can be
-              easily maintained and adapted to new requirements over time.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'behavioral' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Behavioral Patterns</h3>
-            <p className="text-slate-700">
-              Behavioral patterns are concerned with the assignment of responsibilities between objects and how 
-              they communicate. These patterns help make complex flows more manageable and improve communication 
-              between different objects. They characterize how objects interact and distribute responsibility, 
-              increasing flexibility in carrying out this communication.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'architectural' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Architectural Patterns</h3>
-            <p className="text-slate-700">
-              Architectural patterns address fundamental structural organization of software systems. These 
-              high-level patterns define the overall shape and structure of applications and guide the 
-              relationships between major components. They provide reusable solutions to commonly occurring
-              organizational problems in software architecture.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'resilience' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Resilience Patterns</h3>
-            <p className="text-slate-700">
-              Resilience patterns help applications handle failures gracefully and continue functioning under 
-              adverse conditions. These patterns enable systems to recover from failures and maintain service 
-              even when components are degraded. They are essential for mission-critical systems that must maintain
-              high availability and reliability, even when faced with transient failures or unexpected conditions.
-            </p>
-          </div>
-        )}
-        
-        {activeCategory === 'testing' && (
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-800 border-b border-slate-200 pb-2">Testing Patterns</h3>
-            <p className="text-slate-700">
-              Testing patterns ensure software quality through systematic verification approaches. These patterns 
-              provide structured ways to create reliable tests and test environments for complex systems. They help
-              in creating maintainable, repeatable tests that can verify application behavior across various scenarios,
-              from unit testing to integration testing and end-to-end validation.
-            </p>
-          </div>
-        )}
+      <div className="mb-6">
+        <div className="flex items-center gap-2 mb-3">
+          <Award className="w-5 h-5 text-green-600" />
+          <h4 className="text-lg font-medium text-gray-800">Benefits</h4>
+        </div>
+        <ul className="space-y-3">
+          {benefits.map((benefit, index) => (
+            <li key={index} className="flex items-start">
+              <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" />
+              <span className="text-gray-700">{benefit}</span>
+            </li>
+          ))}
+        </ul>
       </div>
       
-      {/* Pattern Details */}
-      <div className="space-y-6">
-        {/* Render patterns based on active category */}
-        {activeCategory === 'creational' && (
-          <>
-            <PatternDetail 
-              name="Factory Method"
-              problem="Creating objects without specifying the exact class to create, deferring instantiation to subclasses."
-              benefits={[
-                "Created configurable test environments with selective component replacement",
-                "Enabled integration tests that mix real and mock services",
-                "Simplified the process of testing with different configurations"
-              ]}
-              codeSnippet={`// Test Factory implementation
+      <div>
+        <h4 className="text-lg font-medium text-gray-800 mb-3">Implementation</h4>
+        <div className="bg-gray-900 border border-gray-700 text-gray-200 p-4 rounded overflow-x-auto">
+          <pre className="whitespace-pre-wrap">
+            <code className="text-sm">
+              {codeSnippet}
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Design Patterns Page Component
+const DesignPatternsPage = () => {
+  const [activeCategory, setActiveCategory] = useState('creational');
+
+  // Design pattern data
+  const creationalPatterns = [
+    {
+      name: "Factory Method",
+      problem: "Creating objects without specifying the exact class to create, deferring instantiation to subclasses.",
+      benefits: [
+        "Created configurable test environments with selective component replacement",
+        "Enabled integration tests that mix real and mock services",
+        "Simplified the process of testing with different configurations"
+      ],
+      codeSnippet: `// Test Factory implementation
 public class ApplicationFactory : WebApplicationFactory<Program>
 {
     // Configuration delegates
@@ -196,19 +137,18 @@ public class ApplicationFactory : WebApplicationFactory<Program>
             });
         });
     }
-}`}
-              category="creational"
-            />
-            
-            <PatternDetail 
-              name="Builder Pattern"
-              problem="Separating the construction of complex objects from their representation."
-              benefits={[
-                "Created expressive, readable test setup code",
-                "Improved test maintenance through fluent interfaces",
-                "Simplified complex object configurations"
-              ]}
-              codeSnippet={`// Mock builder with fluent interface
+}`,
+      category: "creational"
+    },
+    {
+      name: "Builder Pattern",
+      problem: "Separating the construction of complex objects from their representation.",
+      benefits: [
+        "Created expressive, readable test setup code",
+        "Improved test maintenance through fluent interfaces",
+        "Simplified complex object configurations"
+      ],
+      codeSnippet: `// Mock builder with fluent interface
 public class MockGateController : AbstractGateController
 {
     // Fluent interface methods
@@ -233,58 +173,21 @@ public class MockGateController : AbstractGateController
     // Usage in tests
     // gateController.WithNextVisitorEnteringSecurityArea()
     //               .WithNextVisitorExitingSecurityArea();
-}`}
-              category="creational"
-            />
-            
-            <PatternDetail 
-              name="Dependency Injection"
-              problem="Achieving loose coupling between classes by moving the responsibility of creating dependencies outside the dependent class."
-              benefits={[
-                "Achieved highly decoupled, testable components",
-                "Enabled runtime service resolution based on configuration",
-                "Simplified testing through easy dependency replacement"
-              ]}
-              codeSnippet={`public static IServiceCollection AddApplicationServices(this IServiceCollection services)
-{
-    // Register step services
-    services.AddSingleton<IDocumentValidationStep, DocumentValidationStep>();
-    services.AddSingleton<IPermissionStep, PermissionStep>();
-    services.AddSingleton<IEntryGateStep, EntryGateStep>();
-    services.AddSingleton<IVisitorResponseStep, VisitorResponseStep>();
-    services.AddSingleton<IBiometricScanStep, BiometricScanStep>();
-    services.AddSingleton<IExitGateStep, ExitGateStep>();
-    services.AddSingleton<IManualControl, ManualControl>();
+}`,
+      category: "creational"
+    }
+  ];
 
-    // Register utility services 
-    services.AddSingleton<IErrorHandler, ErrorHandler>(); 
-    services.AddSingleton<IScreen, Screen>();
-       
-    // Conditional registration based on configuration
-    services.AddScoped<IVisitorEventSource>(sp =>
-       sp.GetRequiredService<IOptions<TestingOptions>>().Value.UseMockServices.VisitorEventSource == true
-           ? sp.GetRequiredService<MockVisitorEventSource>()
-           : sp.GetRequiredService<VisitorEventSource>()
-    );
-
-    return services;
-}`}
-              category="creational"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'structural' && (
-          <>
-            <PatternDetail 
-              name="Adapter Pattern"
-              problem="Converting the interface of a class into another interface clients expect."
-              benefits={[
-                "Successfully integrated with third-party systems using different interfaces",
-                "Isolated the application from external API changes",
-                "Enabled seamless switching between different service implementations"
-              ]}
-              codeSnippet={`// External service interface
+  const structuralPatterns = [
+    {
+      name: "Adapter Pattern",
+      problem: "Converting the interface of a class into another interface clients expect.",
+      benefits: [
+        "Successfully integrated with third-party systems using different interfaces",
+        "Isolated the application from external API changes",
+        "Enabled seamless switching between different service implementations"
+      ],
+      codeSnippet: `// External service interface
 public interface IBiometricService
 {
     Task<bool> DeleteUserAsync(string personalId);
@@ -313,19 +216,18 @@ public class BiometricService : AbstractResilientBiometricService
     {
         return await userManager.DeleteUserAsync(personalId);
     }
-}`}
-              category="structural"
-            />
-            
-            <PatternDetail 
-              name="Facade Pattern"
-              problem="Providing a simplified interface to a complex subsystem of classes."
-              benefits={[
-                "Simplified client interaction with complex access control process",
-                "Reduced dependencies between subsystems",
-                "Created a clear, high-level interface for the access control workflow"
-              ]}
-              codeSnippet={`public class AccessControlService : IAccessControlService
+}`,
+      category: "structural"
+    },
+    {
+      name: "Facade Pattern",
+      problem: "Providing a simplified interface to a complex subsystem of classes.",
+      benefits: [
+        "Simplified client interaction with complex access control process",
+        "Reduced dependencies between subsystems",
+        "Created a clear, high-level interface for the access control workflow"
+      ],
+      codeSnippet: `public class AccessControlService : IAccessControlService
 {
     private readonly IDocumentValidationStep documentValidationStep;
     private readonly IPermissionStep permissionStep;
@@ -361,66 +263,21 @@ public class BiometricService : AbstractResilientBiometricService
     {
         // Logic for processing the visitor through gates...
     }
-}`}
-              category="structural"
-            />
-            
-            <PatternDetail 
-              name="Composite Pattern"
-              problem="Composing objects into tree structures to represent part-whole hierarchies."
-              benefits={[
-                "Created unified notification system that supports multiple channels",
-                "Easily extended system with new notification targets",
-                "Maintained consistent notification interface across different platforms"
-              ]}
-              codeSnippet={`public class CompositeStatusNotifier : IStatusNotifier
-{
-    private readonly ILogger<CompositeStatusNotifier> logger; 
-    private readonly List<IStatusNotifier> notifiers = new List<IStatusNotifier>();
-
-    public CompositeStatusNotifier(ILogger<CompositeStatusNotifier> logger)
-    {
-        this.logger = logger;
-        
-        // Add default notifiers
-        notifiers.Add(new LoggingStatusNotifier(logger));
-        
-        // Add platform-specific notifiers
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
-            notifiers.Add(new WindowsEventLogNotifier("SecureAccessService"));
-        }
+}`,
+      category: "structural"
     }
+  ];
 
-    public Task NotifyHealthyStatus(string component, string? details = null)
+  const behavioralPatterns = [
     {
-        // Dispatch to all child notifiers
-        foreach (var notifier in notifiers)
-        {
-            notifier.NotifyHealthyStatus(component, details);
-        }
-
-        return Task.CompletedTask;
-    }
-
-    // Other notification methods...
-} `}
-              category="structural"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'behavioral' && (
-          <>
-            <PatternDetail 
-              name="Strategy Pattern"
-              problem="Defining a family of algorithms, encapsulating each one, and making them interchangeable."
-              benefits={[
-                "Created interchangeable algorithm implementations for different environments",
-                "Enabled runtime strategy selection based on context",
-                "Improved testability by substituting strategies during testing"
-              ]}
-              codeSnippet={`// Strategy interface
+      name: "Strategy Pattern",
+      problem: "Defining a family of algorithms, encapsulating each one, and making them interchangeable.",
+      benefits: [
+        "Created interchangeable algorithm implementations for different environments",
+        "Enabled runtime strategy selection based on context",
+        "Improved testability by substituting strategies during testing"
+      ],
+      codeSnippet: `// Strategy interface
 public interface IBiometricScanSubscription : IDisposable
 {
     Task Handle(Action<BiometricVerificationResult> callback, TimeSpan timeout);
@@ -460,71 +317,18 @@ public class BiometricScanStep : IBiometricScanStep
         // Further processing...
         return success;
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="Template Method"
-              problem="Defining the skeleton of an algorithm in a base class while allowing subclasses to override specific steps."
-              benefits={[
-                "Reused common gate control logic across different hardware implementations",
-                "Simplified adding support for new hardware devices",
-                "Ensured consistent behavior while allowing device-specific customization"
-              ]}
-              codeSnippet={`public abstract class AbstractGateController : IGateController
-{
-    // Template methods that implement common algorithm
-    public async Task<bool> IsEntryGateClosed()
+}`,
+      category: "behavioral"
+    },
     {
-        return await GetInput(pinMappings.EntryGate.ClosedSensorPin) == true;
-    }
-
-    public async Task OpenEntryGate()
-    {
-        logger.LogDebug("Opening entry gate");
-        await SetOutput(pinMappings.EntryGate.ControlPin, true);
-    }
-
-    // Abstract methods to be implemented by concrete classes
-    protected abstract Task<bool> SetOutputOnDevice(int number, bool state);
-    protected abstract Task<bool> GetInputFromDevice(int number);
-}
-
-// Concrete implementation
-public class HardwareGateController : AbstractResilientGateController
-{
-    protected override async Task<bool> GetInputFromDevice(int number)
-    { 
-        // Add brief delay between operations
-        await Task.Delay(50);
-        using var client = new HardwareClient(this.options.Value.Host, this.options.Value.Port); 
-        return await client.GetDigitalInputAsync(number); 
-    }
-    
-    protected override async Task<bool> SetOutputOnDevice(int number, bool state)
-    {
-        using (var client = new HardwareClient(this.options.Value.Host, this.options.Value.Port))
-        {
-            await client.SetDigitalOutputAsync(number, state);
-            // Add delay after sending command
-            await Task.Delay(100);
-        }
-        return true;
-    }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="Observer Pattern"
-              problem="Defining a one-to-many dependency between objects so when one object changes state, all dependents are notified."
-              benefits={[
-                "Implemented loosely coupled event communication between system components",
-                "Created responsive user interactions based on asynchronous events",
-                "Enabled multiple components to react to the same events independently"
-              ]}
-              codeSnippet={`public class BiometricEventService : BackgroundService, IBiometricEventService
+      name: "Observer Pattern",
+      problem: "Defining a one-to-many dependency between objects so when one object changes state, all dependents are notified.",
+      benefits: [
+        "Implemented loosely coupled event communication between system components",
+        "Created responsive user interactions based on asynchronous events",
+        "Enabled multiple components to react to the same events independently"
+      ],
+      codeSnippet: `public class BiometricEventService : BackgroundService, IBiometricEventService
 {
     // Event for biometric verification - observer pattern
     public event EventHandler<BiometricVerificationEventArgs> BiometricVerificationEvent;
@@ -556,190 +360,21 @@ public class HardwareGateController : AbstractResilientGateController
             logger.LogError(ex, "Error processing event message");
         }
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="Command Pattern"
-              problem="Encapsulating a request as an object, allowing parameterization of clients with different requests."
-              benefits={[
-                "Encapsulated each access control step as a self-contained command",
-                "Enabled flexible sequencing and conditional execution of steps",
-                "Improved testability by testing commands individually"
-              ]}
-              codeSnippet={`// Each process step is effectively a command
-public interface IGateProcessStep
-{
-    Task<bool> Process(IVisitorContext context);
-}
-
-// Concrete command implementation
-public class BiometricScanStep : IBiometricScanStep
-{ 
-    private readonly IManualControl manualControl;
-    private readonly IGateController gateController;
-    private readonly IBiometricService biometricService;
-    
-    private readonly ProcessingOptions options;
-    private readonly ILogger<BiometricScanStep> logger;
-
-    public async Task<bool> Process(IVisitorContext context)
-    {
-        logger.LogInformation("Processing Step 5: Biometric Verification");
-        
-        if (context.IsStepProcessed(ProcessStep.BiometricScan))
-        {
-            logger.LogInformation("Step already processed, skipping");
-            return true;
-        }
-
-        await context.ActivateBiometricScannerAsync();
-
-        using IBiometricScanSubscription scanSubscription = context.CreateScanSubscription();
-        
-        var success = false;
-
-        await scanSubscription.Handle((scanResult) =>
-        {
-            // Process the result
-            success = scanResult == BiometricVerificationResult.Success;
-        }, this.options.BiometricScanTimeout);
-
-        if (!success)
-        {
-            logger.LogInformation("Visitor {PersonalId} biometric scan failed", context.Visitor.PersonalId);
-            await gateController.ActivateBiometricScanFailedSignal();
-            await manualControl.TriggerManualEntryGateControlAsync(context.Visitor, this);
-            context.ManualOverrideActive();
-        }
-
-        await context.StepProcessed(ProcessStep.BiometricScan, success);
-        return success;
+}`,
+      category: "behavioral"
     }
-}`}
-              category="behavioral"
-            />
-            
-            <PatternDetail 
-              name="State Pattern"
-              problem="Allowing an object to alter its behavior when its internal state changes."
-              benefits={[
-                "Created a self-managing visitor entity that maintains its own state",
-                "Implemented clear state transitions based on process outcomes",
-                "Ensured consistent state management across the application"
-              ]}
-              codeSnippet={`public class Visitor
-{
-    public VisitorStatus Status { get; private set; }
-    
-    public void StepProcessed(ProcessStep step, bool success)
-    {
-        if(this.Status == VisitorStatus.ManuallyOverridden)
-        {
-            throw new InvalidOperationException("Visitor process was manually overridden, cannot change state");
-        }
-        if (this.Status == VisitorStatus.Abandoned)
-        {
-            throw new InvalidOperationException("Abandoned visitors can't be processed");
-        }
+  ];
 
-        if (success)
-        {
-            if (stepsProcessed.Any(x => x.Step == step)) 
-                throw new Exception("Step already processed: " + step);
-                
-            stepsProcessed.Add(new CompletedStep(this, step, DateTime.Now));
-        }
-        
-        // State transitions based on current step and success
-        switch (step)
-        {
-            case ProcessStep.DocumentValidation:
-                Status = success ? VisitorStatus.DocumentValidated : VisitorStatus.DocumentInvalid;
-                break;
-            case ProcessStep.Permission:
-                Status = success ? VisitorStatus.PermissionGranted : VisitorStatus.PermissionDenied;
-                break;
-            case ProcessStep.EntryGate:
-                Status = success ? VisitorStatus.EntryCompleted : VisitorStatus.EntryFailed;
-                break;
-            // Additional state transitions...
-        }
-    }
-    
-    public void ManuallyOverridden() 
+  const architecturalPatterns = [
     {
-        this.Status = VisitorStatus.ManuallyOverridden;
-    }
-    
-    public void Abandoned()
-    {
-        this.Status = VisitorStatus.Abandoned;
-    }
-}`}
-              category="behavioral"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'architectural' && (
-          <>
-            <PatternDetail 
-              name="Hexagonal Architecture (Ports and Adapters)"
-              problem="Isolating the core application from external concerns to improve maintainability and testability."
-              benefits={[
-                "Achieved complete isolation of the domain model from external dependencies",
-                "Created a highly testable architecture with easy dependency substitution",
-                "Enabled flexible adaptation to different external systems"
-              ]}
-              codeSnippet={`// Port (interface) - primary port for the application core
-public interface IBiometricService
-{
-    Task<bool> DeleteUserAsync(string personalId);
-    Task<bool> ActivateBiometricVerificationAsync(string personalId);
-    Task<bool> DeactivateBiometricVerificationAsync(string personalId);
-}
-
-// Primary adapter - adapting the application to external world
-public class BiometricService : AbstractResilientBiometricService
-{
-    private readonly IBiometricDeviceManager deviceManager;
-    private readonly IBiometricUserManager userManager;  
-    
-    // Implementation...
-    
-    protected override async Task<bool> HttpActivateRequestAsync(string personalId)
-    {
-        return await deviceManager.EnableBiometricVerificationAsync(options.DeviceId);
-    }
-    // Other methods...
-}
-
-// Secondary adapter (mock for testing) - adapting external world to application
-public class MockBiometricService : IBiometricService
-{
-    // Mock implementation...
-}
-
-// Service registration with adapter selection
-services.AddSingleton<IBiometricService>(sp =>
-    sp.GetRequiredService<IOptions<TestingOptions>>().Value.UseMockServices.BiometricService
-        ? sp.GetRequiredService<MockBiometricService>()
-        : sp.GetRequiredService<BiometricService>()
-);`}
-              category="architectural"
-            />
-            
-            <PatternDetail 
-              name="Clean Architecture"
-              problem="Creating a separation of concerns with dependencies pointing inward toward the domain layer."
-              benefits={[
-                "Created a highly maintainable system with clear separation of concerns",
-                "Ensured that business rules are isolated from infrastructure details",
-                "Simplified testing by focusing on domain logic without external dependencies"
-              ]}
-              codeSnippet={`// Domain layer (innermost, no external dependencies)
+      name: "Clean Architecture",
+      problem: "Creating a separation of concerns with dependencies pointing inward toward the domain layer.",
+      benefits: [
+        "Created a highly maintainable system with clear separation of concerns",
+        "Ensured that business rules are isolated from infrastructure details",
+        "Simplified testing by focusing on domain logic without external dependencies"
+      ],
+      codeSnippet: `// Domain layer (innermost, no external dependencies)
 public interface IGateProcessStep
 {
     Task<bool> Process(IVisitorContext context);
@@ -768,47 +403,21 @@ public class BiometricScanStep : IBiometricScanStep
 public class HardwareGateController : AbstractResilientGateController
 {
     // Implementation of interfaces defined in inner layers...
-}
-
-// External interfaces layer (entry points to the system)
-public class Worker : BackgroundService
-{
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        // Main application flow
-        await resilientRetry.Execute(
-            async () =>
-            {
-                while (!stoppingToken.IsCancellationRequested)
-                {
-                    await ProcessVisitorEvents(stoppingToken);
-                    await Task.Delay(options.Value.WorkerInterval, stoppingToken);
-                }
-                return true;
-            },
-            "WorkerService",
-            "MainProcessingLoop",
-            TimeSpan.FromSeconds(5),
-            true // Critical operation
-        );
+}`,
+      category: "architectural"
     }
-}`}
-              category="architectural"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'resilience' && (
-          <>
-            <PatternDetail 
-              name="Circuit Breaker"
-              problem="Preventing cascading failures by detecting failures and stopping operation temporarily."
-              benefits={[
-                "Prevented cascading failures when external services were unavailable",
-                "Implemented automatic service recovery after temporary failures",
-                "Created different circuit breaker strategies for critical and non-critical operations"
-              ]}
-              codeSnippet={`public class ResilientRetry : IRetryPolicy
+  ];
+
+  const resiliencePatterns = [
+    {
+      name: "Circuit Breaker",
+      problem: "Preventing cascading failures by detecting failures and stopping operation temporarily.",
+      benefits: [
+        "Prevented cascading failures when external services were unavailable",
+        "Implemented automatic service recovery after temporary failures",
+        "Created different circuit breaker strategies for critical and non-critical operations"
+      ],
+      codeSnippet: `public class ResilientRetry : IRetryPolicy
 {
     public async Task<T> Execute<T>(
         Func<Task<T>> operation,
@@ -828,56 +437,40 @@ public class Worker : BackgroundService
                 BreakDuration = TimeSpan.FromMilliseconds(Math.Max(500, retryOptions.CircuitBreaker.DurationMs)),
                 OnOpened = args =>
                 {
-                    CircuitBreakerEvents
-                    .WithLabels(serviceName, operationName, "opened")
-                    .Inc();
                     logger.LogError(
-                        "Circuit opened for {ServiceName}.{OperationName} after {FailureCount} consecutive failures",
+                        "Circuit opened for {ServiceName}.{OperationName} after {FailureCount} failures",
                         serviceName, operationName, retryOptions.CircuitBreaker.FailureThreshold);
                     return ValueTask.CompletedTask;
-                },
-                // More event handlers...
+                }
             })
             .Build();
 
-        try
-        {
-            // Execute operation through the pipeline...
-            return await pipeline.ExecuteAsync(async cancellationToken =>
-            {
-                // Attempt operation with instrumentation
+        try {
+            // Execute operation through the resilience pipeline
+            return await pipeline.ExecuteAsync(async cancellationToken => {
                 return await operation();
             }, CancellationToken.None);
         }
-        catch (BrokenCircuitException)
-        {
+        catch (BrokenCircuitException) {
             // Handle circuit breaker open state
-            if (!isCritical)
-            {
-                // For non-critical operations, return default value
+            if (!isCritical) {
                 return default;
             }
-            
-            // For critical operations, throw exception
-            throw new CircuitBreakerException(
-                $"Service {serviceName} is currently unavailable. Operation: {operationName}",
-                operationKey,
-                CircuitState.Open);
+            throw new CircuitBreakerException();
         }
     }
-}`}
-              category="resilience"
-            />
-            
-            <PatternDetail 
-              name="Retry Pattern"
-              problem="Handling transient failures by automatically retrying a failed operation."
-              benefits={[
-                "Handled transient failures in external services automatically",
-                "Implemented exponential backoff to avoid overwhelming recovering services",
-                "Created differentiated retry strategies based on operation criticality"
-              ]}
-              codeSnippet={`public class ResilientRetry : IRetryPolicy
+}`,
+      category: "resilience"
+    },
+    {
+      name: "Retry Pattern",
+      problem: "Handling transient failures by automatically retrying a failed operation.",
+      benefits: [
+        "Handled transient failures in external services automatically",
+        "Implemented exponential backoff to avoid overwhelming recovering services",
+        "Created differentiated retry strategies based on operation criticality"
+      ],
+      codeSnippet: `public class ResilientRetry : IRetryPolicy
 {
     public async Task<T> Execute<T>(
         Func<Task<T>> operation,
@@ -894,115 +487,42 @@ public class Worker : BackgroundService
         var pipeline = new ResiliencePipelineBuilder()
             .AddRetry(new RetryStrategyOptions
             {
-                BackoffType = retryOptions.UseExponentialBackoff ? DelayBackoffType.Exponential : DelayBackoffType.Constant,
+                BackoffType = retryOptions.UseExponentialBackoff ? 
+                    DelayBackoffType.Exponential : DelayBackoffType.Constant,
                 Delay = baseDelay,
-                MaxRetryAttempts = isCritical ? int.MaxValue : retryOptions.MaxRetries,
+                MaxRetryAttempts = isCritical ? 
+                    int.MaxValue : retryOptions.MaxRetries,
                 MaxDelay = TimeSpan.FromMilliseconds(retryOptions.MaxDelayMs),
                 UseJitter = true,
-                // Other options...
                 OnRetry = args =>
                 {
-                    var errorMessage = args.Outcome.Exception?.Message ?? "No exception details available";
-
-                    if (args.AttemptNumber == 1)
-                    {
-                        logger.LogWarning(
-                            "Operation {ServiceName}.{OperationName} failed: {ErrorMessage}. Starting retry sequence.",
-                            serviceName, operationName, errorMessage);
-                    }
-                    else
-                    {
-                        logger.LogWarning(
-                            "Retry attempt {RetryCount} for {ServiceName}.{OperationName} after error: {ErrorMessage}",
-                            args.AttemptNumber, serviceName, operationName, errorMessage);
-                    }
-
-                    // Check if operation has exceeded the maximum retry duration
-                    var retryDuration = DateTime.UtcNow - operationStartTime;
-                    if (retryDuration > options.SafetyLimit)
-                    {
-                        logger.LogCritical(
-                            "Operation {ServiceName}.{OperationName} has been retrying for over {Duration} without success. Marking as unrecoverable.",
-                            serviceName, operationName, options.SafetyLimit);
-                       
-                        throw unrecoverableException;
-                    }
-
+                    var errorMessage = args.Outcome.Exception?.Message ?? 
+                        "No exception details";
+                    logger.LogWarning(
+                        "Retry attempt {RetryCount} for {Operation}: {Error}",
+                        args.AttemptNumber, operationName, errorMessage);
                     return ValueTask.CompletedTask;
                 }
             })
-            // Add circuit breaker...
             .Build();
         
         // Execute with pipeline...
     }
-}`}
-              category="resilience"
-            />
-            
-            <PatternDetail 
-              name="Timeout Pattern"
-              problem="Preventing operations from waiting indefinitely by setting maximum timeouts."
-              benefits={[
-                "Prevented system hangs due to unresponsive external services",
-                "Implemented graceful failure handling for user-facing operations",
-                "Created consistent timeout behavior across the application"
-              ]}
-              codeSnippet={`public async Task Handle(Action<BiometricVerificationResult> callback, TimeSpan timeout)
-{
-    // Create a TaskCompletionSource to handle the async event waiting
-    var tcs = new TaskCompletionSource<BiometricVerificationResult>();
-
-    // Create a cancellation token source for timeout
-    using var cts = new CancellationTokenSource(timeout);
-
-    try
-    {
-        // Register for cancellation
-        cts.Token.Register(() => {
-            try
-            {
-                tcs.TrySetResult(BiometricVerificationResult.Failure);
-                logger.LogWarning("Biometric verification timed out after '{Timeout}' for visitor {PersonalId}",
-                    timeout, context.Visitor.PersonalId);
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "Error during timeout cancellation");
-            }
-        }, false);
-
-        // Subscribe to events and wait for completion or timeout
-        // ...
-
-        // Wait for either the event to fire or the timeout to occur
-        BiometricVerificationResult scanResult = await tcs.Task;
-
-        // Call the callback with the result
-        callback(scanResult);
+}`,
+      category: "resilience"
     }
-    catch (Exception ex)
+  ];
+
+  const testingPatterns = [
     {
-        logger.LogError(ex, "Unexpected error in biometric scan subscription");
-        callback(BiometricVerificationResult.Failure);
-    }
-}`}
-              category="resilience"
-            />
-          </>
-        )}
-        
-        {activeCategory === 'testing' && (
-          <>
-            <PatternDetail 
-              name="Test Factory"
-              problem="Creating configurable test environments with all necessary dependencies."
-              benefits={[
-                "Created precisely configured test environments for different scenarios",
-                "Enabled integration tests with selective real/mock components",
-                "Simplified test setup and improved test readability"
-              ]}
-              codeSnippet={`public class ApplicationFactory : WebApplicationFactory<Program>
+      name: "Test Factory",
+      problem: "Creating configurable test environments with all necessary dependencies.",
+      benefits: [
+        "Created precisely configured test environments for different scenarios",
+        "Enabled integration tests with selective real/mock components",
+        "Simplified test setup and improved test readability"
+      ],
+      codeSnippet: `public class ApplicationFactory : WebApplicationFactory<Program>
 {
     // Configuration delegates that can be set by test classes
     private Action<IServiceCollection>? _serviceConfiguration;
@@ -1048,19 +568,18 @@ public class Worker : BackgroundService
             // More service configuration...
         });
     }
-}`}
-              category="testing"
-            />
-            
-            <PatternDetail 
-              name="Mock Objects"
-              problem="Creating test doubles that simulate the behavior of real objects in a controlled way."
-              benefits={[
-                "Created configurable mock implementations for reliable testing",
-                "Simulated various failure scenarios for robust error handling testing",
-                "Enabled testing of difficult-to-reproduce conditions"
-              ]}
-              codeSnippet={`public class MockBiometricScanSubscription : IBiometricScanSubscription
+}`,
+      category: "testing"
+    },
+    {
+      name: "Mock Objects",
+      problem: "Creating test doubles that simulate the behavior of real objects in a controlled way.",
+      benefits: [
+        "Created configurable mock implementations for reliable testing",
+        "Simulated various failure scenarios for robust error handling testing",
+        "Enabled testing of difficult-to-reproduce conditions"
+      ],
+      codeSnippet: `public class MockBiometricScanSubscription : IBiometricScanSubscription
 {
     private readonly ILogger<MockBiometricScanSubscription> logger;
     private bool? nextScanSuccessful;
@@ -1119,16 +638,18 @@ public class Worker : BackgroundService
             if (nextScanSuccessful.HasValue)
             {
                 bool isSuccessful = nextScanSuccessful.Value;
-                logger.LogInformation("Simulating {Result} biometric scan",
-                    isSuccessful ? "successful" : "failed");
-                callback(isSuccessful ? BiometricVerificationResult.Success : BiometricVerificationResult.Failure);
+                callback(isSuccessful ? 
+                    BiometricVerificationResult.Success : 
+                    BiometricVerificationResult.Failure);
                 nextScanSuccessful = null;
                 return;
             }
 
             // Default random behavior
             var scanResult = new Random().NextDouble() < 0.8;
-            callback(scanResult ? BiometricVerificationResult.Success : BiometricVerificationResult.Failure);
+            callback(scanResult ? 
+                BiometricVerificationResult.Success : 
+                BiometricVerificationResult.Failure);
         }
         catch (Exception ex)
         {
@@ -1136,71 +657,197 @@ public class Worker : BackgroundService
             callback(BiometricVerificationResult.Failure);
         }
     }
-}`}
-              category="testing"
-            />
+}`,
+      category: "testing"
+    }
+  ];
+
+  // Render patterns based on active category
+  const renderPatterns = () => {
+    switch (activeCategory) {
+      case 'creational':
+        return creationalPatterns.map((pattern, index) => (
+          <PatternDetail key={index} {...pattern} />
+        ));
+      case 'structural':
+        return structuralPatterns.map((pattern, index) => (
+          <PatternDetail key={index} {...pattern} />
+        ));
+      case 'behavioral':
+        return behavioralPatterns.map((pattern, index) => (
+          <PatternDetail key={index} {...pattern} />
+        ));
+      case 'architectural':
+        return architecturalPatterns.map((pattern, index) => (
+          <PatternDetail key={index} {...pattern} />
+        ));
+      case 'resilience':
+        return resiliencePatterns.map((pattern, index) => (
+          <PatternDetail key={index} {...pattern} />
+        ));
+      case 'testing':
+        return testingPatterns.map((pattern, index) => (
+          <PatternDetail key={index} {...pattern} />
+        ));
+      default:
+        return null;
+    }
+  };
+
+  // Render category description
+  const renderCategoryDescription = () => {
+    switch (activeCategory) {
+      case 'creational':
+        return (
+          <p className="text-gray-700">
+            Creational patterns deal with object creation mechanisms, trying to create objects in a manner 
+            suitable to the situation. These patterns provide flexibility in what gets created, how it gets 
+            created, and who creates it. They abstract the instantiation process, helping make a system independent
+            of how its objects are created, composed, and represented.
+          </p>
+        );
+      case 'structural':
+        return (
+          <p className="text-gray-700">
+            Structural patterns deal with object composition, creating relationships between objects to form 
+            larger structures. These patterns help ensure that when one part of a system changes, the entire 
+            structure doesn&apos;t need to change. They help build flexible, loosely coupled systems that can be
+            easily maintained and adapted to new requirements over time.
+          </p>
+        );
+      case 'behavioral':
+        return (
+          <p className="text-gray-700">
+            Behavioral patterns are concerned with the assignment of responsibilities between objects and how 
+            they communicate. These patterns help make complex flows more manageable and improve communication 
+            between different objects. They characterize how objects interact and distribute responsibility, 
+            increasing flexibility in carrying out this communication.
+          </p>
+        );
+      case 'architectural':
+        return (
+          <p className="text-gray-700">
+            Architectural patterns address fundamental structural organization of software systems. These 
+            high-level patterns define the overall shape and structure of applications and guide the 
+            relationships between major components. They provide reusable solutions to commonly occurring
+            organizational problems in software architecture.
+          </p>
+        );
+      case 'resilience':
+        return (
+          <p className="text-gray-700">
+            Resilience patterns help applications handle failures gracefully and continue functioning under 
+            adverse conditions. These patterns enable systems to recover from failures and maintain service 
+            even when components are degraded. They are essential for mission-critical systems that must maintain
+            high availability and reliability, even when faced with transient failures or unexpected conditions.
+          </p>
+        );
+      case 'testing':
+        return (
+          <p className="text-gray-700">
+            Testing patterns ensure software quality through systematic verification approaches. These patterns 
+            provide structured ways to create reliable tests and test environments for complex systems. They help
+            in creating maintainable, repeatable tests that can verify application behavior across various scenarios,
+            from unit testing to integration testing and end-to-end validation.
+          </p>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div>
+      {/* Header */}
+      <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-base font-semibold leading-7 text-indigo-600">Software Design</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Design Patterns Implementation
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Throughout my career as a software developer, I&apos;ve implemented numerous design patterns to solve 
+            complex problems with elegant, maintainable solutions. This catalog showcases practical examples 
+            of design patterns I&apos;ve used in real-world applications.
+          </p>
+          <p className="text-gray-700">
+            The distinctive aspects of my approach—particularly the explicit criticality classification, purpose-built 
+            testing tools, and manual override design—demonstrate my ability to adapt established patterns to meet 
+            unique requirements in specialized domains.
+          </p>
+        </div>
+      </div>
+      
+      {/* Main Content */}
+      <div className="bg-gray-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            {/* Introduction */}
+            <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">Introduction</h3>
+              <p className="text-gray-700 mb-4">
+                Design patterns represent proven solutions to common software design challenges. By leveraging these 
+                established patterns, I create robust, flexible code that can adapt to changing requirements and scale 
+                effectively. This catalog documents my hands-on experience with key patterns across different categories.
+              </p>
+              <p className="text-gray-700">
+                The patterns demonstrated here reflect not just theoretical knowledge, but practical experience implementing 
+                and refining these solutions in production systems. Each implementation has been battle-tested in 
+                mission-critical environments.
+              </p>
+            </div>
             
-            <PatternDetail 
-              name="Scenario Testing"
-              problem="Testing complex interaction scenarios to validate system behavior."
-              benefits={[
-                "Created a tool for comprehensive end-to-end testing",
-                "Enabled testing of complex interaction sequences",
-                "Provided interactive demonstration capability for stakeholders"
-              ]}
-              codeSnippet={`private async Task RunScenario(ApplicationFactory factory, ScenarioType scenario)
-{
-    Console.Clear();
-    Console.WriteLine($"Running scenario: {scenario}");
-    Console.WriteLine("═════════════════════════════════════════════════════");
-
-    using var scope = factory.GetServer().Services.CreateScope();
-
-    // Get services
-    var biometricService = scope.ServiceProvider.GetRequiredService<IBiometricService>();
-    var permissionService = scope.ServiceProvider.GetRequiredService<IPermissionService>();
-    var gateController = scope.ServiceProvider.GetRequiredService<IGateController>();
-    var biometricScan = scope.ServiceProvider.GetRequiredService<MockBiometricScanSubscription>();
-    var visitorEventSource = scope.ServiceProvider.GetRequiredService<IVisitorEventSource>();
-
-    // Create a test visitor
-    var visitor = new Visitor("TEST-" + Guid.NewGuid().ToString().Substring(0, 8), 1, 0, true, "Test Visitor");
-    
-    // Configure mocks for the specific scenario
-    ConfigureMocksForScenario(visitor, scenario, permissionService, gateController, biometricScan);
-
-    // Inject the visitor into the system
-    ((MockVisitorEventSource)visitorEventSource).WithNextVisitor(visitor);
-
-    Console.WriteLine("Starting visitor processing...");
-
-    try
-    {
-        // Wait for visitor processing to complete and verify results
-        await WaitForVisitorProcessingCompletion(visitor);
-        
-        // Show results
-        Console.WriteLine("\\nScenario completed!");
-        Console.WriteLine($"Final visitor status: {processedVisitor.Status}");
-
-        // Show which steps were processed
-        Console.WriteLine("\\nSteps processed:");
-        foreach (var step in Enum.GetValues<ProcessStep>())
-        {
-            string result = processedVisitor.IsStepProcessed(step) ? "✓" : "✗";
-            Console.WriteLine($"  {step}: {result}");
-        }
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"\\nError during scenario: {ex.Message}");
-    }
-}`}
-              category="testing"
-            />
-          </>
-        )}
+            {/* Pattern Category Navigation */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              <CategoryButton 
+                text="Creational" 
+                isActive={activeCategory === 'creational'} 
+                onClick={() => setActiveCategory('creational')} 
+              />
+              <CategoryButton 
+                text="Structural" 
+                isActive={activeCategory === 'structural'} 
+                onClick={() => setActiveCategory('structural')} 
+              />
+              <CategoryButton 
+                text="Behavioral" 
+                isActive={activeCategory === 'behavioral'} 
+                onClick={() => setActiveCategory('behavioral')} 
+              />
+              <CategoryButton 
+                text="Architectural" 
+                isActive={activeCategory === 'architectural'} 
+                onClick={() => setActiveCategory('architectural')} 
+              />
+              <CategoryButton 
+                text="Resilience" 
+                isActive={activeCategory === 'resilience'} 
+                onClick={() => setActiveCategory('resilience')} 
+              />
+              <CategoryButton 
+                text="Testing" 
+                isActive={activeCategory === 'testing'} 
+                onClick={() => setActiveCategory('testing')} 
+              />
+            </div>
+            
+            {/* Category Description */}
+            <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">
+                {activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} Patterns
+              </h3>
+              {renderCategoryDescription()}
+            </div>
+            
+            {/* Pattern Details */}
+            <div className="space-y-6">
+              {renderPatterns()}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default DesignPatternsPage;
