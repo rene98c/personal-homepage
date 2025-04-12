@@ -1,5 +1,6 @@
 import React from 'react';
-import { Server, Monitor,  Wifi,  Image, Mail, GitBranch, Database, CloudCog, Shield, Code } from 'lucide-react';
+import { Server, Monitor,   Wifi, Box, Image, Mail, GitBranch, Database, CloudCog,   Code } from 'lucide-react';
+import HomelabGallery from '@/components/homelab/HomelabGallery';
 
 const HomelabPage = () => {
   const homelabOverview = {
@@ -17,11 +18,11 @@ const HomelabPage = () => {
       description: "Three-node high-availability Proxmox VE cluster for seamless service migration and maximum uptime",
       icon: <Server className="h-6 w-6 text-indigo-600" />,
       details: [
-        "Three custom-built server nodes with Intel Xeon processors and ECC memory",
-        "Live migration capabilities for zero-downtime maintenance",
-        "Shared storage via NFS for VM disk images",
-        "Resource balancing across nodes for optimal performance",
-        "HA configuration ensures services continue running if a node fails"
+        "Three custom-built server nodes with Intel processors and storage redundancy",
+        "Primary 'lily' node with 32-core i9-13900K, 32GB RAM, 1TB SSD for VMs and 250GB SSD for OS",
+        "Secondary 'zara1' node with 12-core Xeon E-2236, 32GB ECC RAM, 1TB SSD for VMs, 120GB OS SSD, and 2x 1TB HDDs in ZFS mirror for backup",
+        "Tertiary 'zara2' node with 4-core Intel Pentium Gold, 8GB RAM, 1TB SSD, and 2x 1TB HDDs in ZFS mirror for backup replication",
+        "Live migration capabilities for zero-downtime maintenance"
       ]
     },
     {
@@ -29,11 +30,11 @@ const HomelabPage = () => {
       description: "Full desktop virtualization with GPU and USB passthrough for near-bare-metal performance",
       icon: <Monitor className="h-6 w-6 text-indigo-600" />,
       details: [
-        "GPU passthrough for graphics-intensive applications and gaming",
+        "Windows VM with dedicated GPU passthrough for graphics-intensive applications",
         "Complete USB device passthrough for peripherals",
-        "Windows and Linux virtual machines with seamless performance",
-        "Snapshot capabilities for system backup and rapid restoration",
-        "Easy migration between physical hosts when needed"
+        "VM snapshot capabilities for system backup and rapid restoration",
+        "Seamless performance nearly indistinguishable from bare metal",
+        "Easy migration between physical hosts for maintenance flexibility"
       ]
     },
     {
@@ -41,56 +42,56 @@ const HomelabPage = () => {
       description: "Virtualized networking with OPNsense providing advanced routing and security features",
       icon: <Wifi className="h-6 w-6 text-indigo-600" />,
       details: [
-        "OPNsense virtualized router with VLANs for network segmentation",
+        "Virtualized OPNsense router with full network isolation",
+        "VLAN segmentation for security separation between services",
         "Internal DNS server for local service discovery",
         "Traffic monitoring and quality of service (QoS) implementation",
-        "VPN server for secure remote access to home network",
-        "Custom firewall rules for enhanced security"
+        "VPN server for secure remote access to home network"
       ]
     },
     {
-      name: "Storage Solutions",
-      description: "Redundant storage setup for data reliability and accessibility",
+      name: "Backup System",
+      description: "Multi-layered backup strategy with local and cloud redundancy",
       icon: <Database className="h-6 w-6 text-indigo-600" />,
       details: [
-        "TrueNAS implementation for reliable file storage",
-        "ZFS filesystem with regular snapshots for data protection",
-        "Automated backup system for critical data",
-        "Multiple storage tiers (SSD for performance, HDD for capacity)",
-        "Network shares accessible from all devices on the home network"
+        "Local ZFS mirrored drives on both backup nodes for data redundancy",
+        "Cross-node replication for protection against node failures",
+        "Proxmox Backup Server for VM and container backups",
+        "Hourly offsite backups to Blackblaze cloud storage",
+        "Custom backup scripts for database dumps and configuration files"
       ]
     }
   ];
 
   const selfHostedServices = [
     {
-      name: "Personal Media",
-      icon: <Image className="h-5 w-5 text-indigo-600" />,
-      description: "Self-hosted photo and media management system for personal collections"
-    },
-    {
-      name: "Email Server",
+      name: "Email Server (Mailcow)",
       icon: <Mail className="h-5 w-5 text-indigo-600" />,
-      description: "Private email server with spam filtering and security protections"
+      description: "Complete email solution with spam filtering, DKIM, SPF, DMARC, and web interface"
     },
     {
-      name: "Git Repositories",
+      name: "Photo Management (Immich)",
+      icon: <Image className="h-5 w-5 text-indigo-600" />,
+      description: "Self-hosted Google Photos alternative for personal media collections with AI features"
+    },
+    {
+      name: "Git Server (Gitea)",
       icon: <GitBranch className="h-5 w-5 text-indigo-600" />,
-      description: "Self-hosted Git server for personal and professional project version control"
+      description: "Lightweight Git server for personal and professional project version control"
     },
     {
-      name: "Cloud Storage",
+      name: "File Sharing (Samba)",
       icon: <CloudCog className="h-5 w-5 text-indigo-600" />,
-      description: "Personal cloud storage solution for files, accessible remotely"
+      description: "Personal cloud storage and file sharing solution accessible across all devices"
     },
     {
-      name: "Security Systems",
-      icon: <Shield className="h-5 w-5 text-indigo-600" />,
-      description: "Network monitoring, intrusion detection, and security scanning tools"
+      name: "Documentation (Bookstack)",
+      icon: <Code className="h-5 w-5 text-indigo-600" />,
+      description: "Knowledge base for technical documentation and guides"
     },
     {
       name: "Development Environments",
-      icon: <Code className="h-5 w-5 text-indigo-600" />,
+      icon: <Box className="h-5 w-5 text-indigo-600" />,
       description: "Isolated development and testing environments for software projects"
     }
   ];
@@ -133,7 +134,7 @@ const HomelabPage = () => {
         </div>
       </div>
 
-      {/* Infrastructure Components */}
+      {/* Infrastructure Components - MOVED BEFORE GALLERY */}
       <div className="bg-gray-50 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
@@ -178,6 +179,9 @@ const HomelabPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Screenshot Gallery Section - NOW AFTER CORE COMPONENTS */}
+      <HomelabGallery />
 
       {/* Self-Hosted Services */}
       <div className="py-16 sm:py-24">
