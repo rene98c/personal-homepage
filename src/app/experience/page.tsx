@@ -1,5 +1,7 @@
 import React from 'react';
 import { Calendar, Briefcase, CheckCircle } from 'lucide-react';
+import { DownloadResumeButton } from '@/components/experience/DownloadResumeButton';
+import PDFResumeButton from '@/components/experience/PDFResumeButton';
 
 // Timeline component (inspired by examplestwui_timeline.js)
 const ExperienceTimeline = () => {
@@ -86,6 +88,12 @@ const ExperienceTimeline = () => {
             consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003,
             with expertise in building web services, backend systems, and user interfaces.
           </p>
+          
+          {/* Resume Download Section */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <DownloadResumeButton />
+            <PDFResumeButton />
+          </div>
         </div>
 
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
