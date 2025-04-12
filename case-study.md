@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This case study documents my development approach for creating SecureAccess - a mission-critical software system that integrates biometric verification, physical gate control, and permission systems to secure facility entrances. This project demonstrates how I successfully applied Domain-Driven Design principles, Clean Architecture, and resilience engineering to systems with physical components and high reliability requirements.
+This case study documents my development approach for creating SecureAccess - a mission-critical software system that integrates biometric verification, physical gate control, and permission systems to secure facility entrances. This project illustrates my hands-on application of Domain-Driven Design, Clean Architecture, and resilience engineering — tailored to real-world physical systems requiring uncompromising reliability.
 
 The methodical approach described represents my synthesis of established software engineering principles with practical implementation techniques, resulting in a robust, maintainable system delivered over approximately 15 days.
 

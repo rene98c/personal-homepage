@@ -7,7 +7,7 @@ export function StructuredData() {
     "@type": "Person",
     "name": "Rene Prost",
     "jobTitle": "Senior Software Developer",
-    "description": "C#/.NET specialist with over 20 years of experience building robust, maintainable software systems",
+    "description": "C#/.NET specialist with 20+ years of experience crafting robust, maintainable systems that power real-world solutions.",
     "url": "https://reneprost.ee",
     "sameAs": [
       "https://github.com/rene98c",

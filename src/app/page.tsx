@@ -25,7 +25,7 @@ const Hero = () => {
                 Rene Prost
               </h1>
               <p className="mt-6 text-xl font-medium text-pretty text-gray-700">
-                I&apos;m a C#/.NET specialist with over 20 years of experience building robust, maintainable software systems. 
+               C#/.NET specialist with 20+ years of experience crafting robust, maintainable systems that power real-world solutions.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <Link

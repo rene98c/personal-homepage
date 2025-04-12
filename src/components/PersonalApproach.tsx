@@ -11,7 +11,7 @@ const PersonalApproach = () => {
           </div>
           <div className="mx-auto mt-16 max-w-2xl">
             <p className="text-lg/8 text-gray-600 mb-6">
-              While technical skills are essential, I believe that exceptional coding ability is at the core of truly impactful software development. 
+              I believe exceptional coding is the foundation of impactful software — where clarity, focus, and flow converge to solve complex problems elegantly. 
               I express myself most fluently through code, where I often enter a flow state that allows me to create elegant solutions to complex problems. 
               Coding is an art form to me - I lose track of time when I&apos;m in the zone, fully immersed in crafting clean, efficient solutions.
             </p>
