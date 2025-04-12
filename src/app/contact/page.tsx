@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, AlertCircle } from 'lucide-react';
 
-// Contact page component (inspired by examplestwui_contact.js)
+// Contact page component
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,7 +12,13 @@ const ContactPage = () => {
     message: ''
   });
   
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formStatus, setFormStatus] = useState({
+    submitted: false,
+    error: false,
+    message: ''
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,24 +28,68 @@ const ContactPage = () => {
     }));
   };
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real implementation, you would handle form submission to a backend
-    console.log('Form submitted:', formData);
-    setFormSubmitted(true);
+    setIsSubmitting(true);
     
-    // Reset form after submission
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-    
-    // Reset submission status after 5 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 5000);
+    try {
+      // Call our API route
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+      
+      // Success
+      setFormStatus({
+        submitted: true,
+        error: false,
+        message: 'Message sent successfully! I\'ll get back to you as soon as possible.'
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setFormStatus({
+          submitted: false,
+          error: false,
+          message: ''
+        });
+      }, 5000);
+      
+    } catch (error) {
+      // Error
+      setFormStatus({
+        submitted: true,
+        error: true,
+        message: error instanceof Error ? error.message : 'An error occurred. Please try again later.'
+      });
+      
+      // Reset error status after 5 seconds
+      setTimeout(() => {
+        setFormStatus({
+          ...formStatus,
+          submitted: false
+        });
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -131,18 +181,24 @@ const ContactPage = () => {
         
         <form action="#" method="POST" className="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48" onSubmit={handleSubmit}>
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-            {formSubmitted && (
-              <div className="mb-6 rounded-md bg-green-50 p-4">
+            {formStatus.submitted && (
+              <div className={`mb-6 rounded-md ${formStatus.error ? 'bg-red-50' : 'bg-green-50'} p-4`}>
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                    </svg>
+                    {formStatus.error ? (
+                      <AlertCircle className="h-5 w-5 text-red-400" />
+                    ) : (
+                      <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                      </svg>
+                    )}
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-sm font-medium text-green-800">Message sent successfully</h3>
-                    <div className="mt-2 text-sm text-green-700">
-                      <p>Thank you for your message. I&apos;ll get back to you as soon as possible.</p>
+                    <h3 className={`text-sm font-medium ${formStatus.error ? 'text-red-800' : 'text-green-800'}`}>
+                      {formStatus.error ? 'Error' : 'Message sent successfully'}
+                    </h3>
+                    <div className={`mt-2 text-sm ${formStatus.error ? 'text-red-700' : 'text-green-700'}`}>
+                      <p>{formStatus.message}</p>
                     </div>
                   </div>
                 </div>
@@ -218,10 +274,11 @@ const ContactPage = () => {
             <div className="mt-8 flex justify-end">
               <button
                 type="submit"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex items-center"
+                disabled={isSubmitting}
+                className={`rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex items-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
                 <Send className="mr-2 h-4 w-4" />
-                Send message
+                {isSubmitting ? 'Sending...' : 'Send message'}
               </button>
             </div>
           </div>
