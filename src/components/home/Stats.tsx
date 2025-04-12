@@ -23,13 +23,15 @@ export const Stats = () => {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const currentRef = sectionRef.current; // Store ref value in a variable
 
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+  
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) { // Use the stored variable here
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -44,8 +46,8 @@ export const Stats = () => {
           <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
               <p className={`text-xl/8 text-gray-600 transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                I've been writing and developing software on the .NET platform in C# since 2003. Throughout my career, 
-                I've worked across a variety of industries including government systems, transportation, and enterprise solutions.
+                I&apos;ve been writing and developing software on the .NET platform in C# since 2003. Throughout my career, 
+                I&apos;ve worked across a variety of industries including government systems, transportation, and enterprise solutions.
               </p>
               <p className={`mt-10 max-w-xl text-base/7 text-gray-700 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 My approach to software development emphasizes clean architecture, design patterns, and resilient 
