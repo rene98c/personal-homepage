@@ -30,6 +30,42 @@ const CaseStudyPage = () => {
       <div className="bg-gray-50 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
+            {/* New Introduction Block */}
+            <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
+              <h3 className="text-xl font-semibold mb-4 text-indigo-700 border-b border-gray-200 pb-2">
+                Case Study: Building SecureAccess
+              </h3>
+              <p className="text-gray-700 mb-6 italic font-medium">
+                A mission-critical access control system integrating biometrics, physical gates, and permissions — built in 15 days.
+              </p>
+              
+              <h4 className="font-medium text-gray-800 mb-2">The Challenge</h4>
+              <p className="text-gray-700 mb-4">
+                A client needed a robust, fault-tolerant access control system that integrated biometric verification, physical gate control, and a permission service. The catch?
+              </p>
+              <ul className="list-disc pl-8 mb-6 space-y-1 text-gray-700">
+                <li>The hardware wasn't available during early development.</li>
+                <li>The system had to be operational within a month.</li>
+                <li>It needed to be resilient, auditable, and manually overridable — suitable for high-security environments.</li>
+                <li>There was no room for brittle code, guesswork, or integration surprises.</li>
+              </ul>
+              
+              <h4 className="font-medium text-gray-800 mb-2">The Approach</h4>
+              <p className="text-gray-700 mb-6">
+                I led the project from scratch, applying a domain-first design strategy and Clean Architecture principles. The system was built in 6 structured phases, each focused on a different layer of stability: from domain modeling, to resilience patterns, to scenario testing tools.
+              </p>
+              <p className="text-gray-700 mb-6">
+                The result was a fully testable, production-ready system that could run end-to-end — including simulated physical hardware — before the real devices ever arrived.
+              </p>
+              
+              <h4 className="font-medium text-gray-800 mb-2">Outcome Highlights</h4>
+              <ul className="list-disc pl-8 mb-3 space-y-1 text-gray-700">
+                <li>Delivered on time with 100% functional coverage.</li>
+                <li>Handled critical and non-critical failures with explicit retry and fallback policies.</li>
+                <li>Enabled scenario-based testing through a custom-built interactive tool.</li>
+              </ul>
+            </div>
+            
             {/* Executive Summary */}
             <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
               <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">Executive Summary</h3>
@@ -39,7 +75,6 @@ const CaseStudyPage = () => {
                 </p>
               ))}
             </div>
-            
             {/* Project Overview */}
             <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
               <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">Project Overview</h3>
