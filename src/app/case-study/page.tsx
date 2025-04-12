@@ -1,14 +1,13 @@
 import React from 'react';
-import { BookOpen } from 'lucide-react';
 import { PhaseSection } from '@/components/case-study/PhaseSection'; 
+import CompleteReferences from '@/components/case-study/CompleteReferences';
 
 // Import data from data directory
 import { projectOverview } from '@/data/case-study/project-overview';
 import { phases } from '@/data/case-study/phases';
 import { distinctiveAspects } from '@/data/case-study/distinctive-aspects';
 import { lessonsLearned } from '@/data/case-study/lessons-learned';
-import { conclusion, references } from '@/data/case-study/conclusion-references';
-
+import { conclusion } from '@/data/case-study/conclusion-references';
 
 // CaseStudyPage Component
 const CaseStudyPage = () => {
@@ -160,20 +159,8 @@ const CaseStudyPage = () => {
               ))}
             </div>
             
-            {/* References */}
-            <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 transition-all duration-200 hover:shadow-xl">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2 flex items-center">
-                <BookOpen className="w-5 h-5 mr-2 text-indigo-600" />
-                References
-              </h3>
-              <ul className="space-y-2">
-                {references.map((reference, index) => (
-                  <li key={index} className="text-gray-700">
-                    {reference.author} ({reference.year}). <span className="italic">{reference.title}</span>. {reference.publisher}.
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Complete References Section */}
+            <CompleteReferences />
           </div>
         </div>
       </div>
