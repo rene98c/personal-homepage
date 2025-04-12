@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, Code, Server, Database, Layout, BookOpen } from 'lucide-react';
-
+import PersonalApproach from '@/components/PersonalApproach';
 // Hero Section (inspired by examplestwui_hero.js)
 const Hero = () => {
   return (
@@ -445,6 +445,7 @@ const HomePage = () => {
       <Stats />
       <Features />
       <Philosophy />
+      <PersonalApproach />
       <SkillSection />
       <CTA />
     </>

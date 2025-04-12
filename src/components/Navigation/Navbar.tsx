@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Rene Prost</span>
-            <div className="h-8 w-auto text-2xl font-bold text-indigo-600">RP</div>
+            {/* <div className="h-8 w-auto text-2xl font-bold text-indigo-600">RP</div> */}
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -66,7 +66,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Rene Prost</span>
-                <div className="h-8 w-auto text-2xl font-bold text-indigo-600">RP</div>
+              {/*   <div className="h-8 w-auto text-2xl font-bold text-indigo-600">RP</div> */}
               </Link>
               <button
                 type="button"

@@ -9,10 +9,7 @@ const ExperienceTimeline = () => {
       company: 'Connected OÜ',
       period: 'January 2023 - June 2024',
       responsibilities: [
-        "Developed and maintained enterprise-level .NET applications",
-        "Designed and implemented clean architecture solutions",
-        "Created robust, resilient systems with comprehensive testing",
-        "Collaborated with cross-functional teams to deliver high-quality software"
+        "Developed and maintained enterprise-level .NET application",
       ]
     },
     {
@@ -20,10 +17,7 @@ const ExperienceTimeline = () => {
       company: 'Fujitsu Estonia AS',
       period: 'October 2019 - January 2023',
       responsibilities: [
-        "Designed and implemented various software systems",
-        "Created resilient, maintainable code with a focus on design patterns",
-        "Developed backend services and APIs for enterprise applications",
-        "Implemented comprehensive testing strategies"
+        "Designed and implemented various software systems"
       ]
     },
     {
@@ -31,10 +25,7 @@ const ExperienceTimeline = () => {
       company: 'Centre of Registers and Information Systems',
       period: 'April 2017 - September 2019',
       responsibilities: [
-        "Developed secure, scalable systems for government information management",
-        "Implemented robust data processing systems with high reliability requirements",
-        "Created clean, maintainable code with comprehensive unit and integration tests",
-        "Collaborated with stakeholders to ensure solutions met specific requirements"
+        "Developed secure, scalable systems for government information management"
       ]
     },
     {
@@ -46,6 +37,38 @@ const ExperienceTimeline = () => {
         "Implemented frontend solutions using various JavaScript frameworks",
         "Designed and optimized database schemas and queries",
         "Participated in full software development lifecycle from requirements to deployment"
+      ]
+    },
+    {
+      title: '.NET Software Developer',
+      company: 'Centre of Registers and Information Systems',
+      period: 'January 2008 - November 2012',
+      responsibilities: [
+        "Developed and maintained critical government information systems"
+      ]
+    },
+    {
+      title: '.NET Software Developer',
+      company: 'Softronic Baltic AS / Center of Registers and Information Systems',
+      period: 'December 2005 - December 2007',
+      responsibilities: [
+        "Developed .NET web applications and services",
+        "Implemented business logic and database integration",
+        "Created user interfaces following best practices",
+        "Participated in requirements analysis and system design",
+        "Collaborated in agile development processes"
+      ]
+    },
+    {
+      title: 'IT Specialist',
+      company: 'Estonian Air Force',
+      period: 'April 2004 - November 2005',
+      responsibilities: [
+        "Maintained PC hardware, software, and network infrastructure",
+        "Provided technical support and troubleshooting",
+        "Implemented and configured software systems",
+        "Ensured security and reliability of IT infrastructure",
+        "Documented technical procedures and system configurations"
       ]
     }
   ];
@@ -97,17 +120,6 @@ const ExperienceTimeline = () => {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-gray-200 pt-16">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Earlier Experience</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Prior to 2012, I worked in various roles that built the foundation for my software development career,
-              including positions at the Centre of Registers and Information Systems (2008-2012), Softronic Baltic AS (2005-2007),
-              and as an IT Specialist in the Estonian Air Force (2004-2005).
-            </p>
-          </div>
-        </div>
-        
         {/* Skills Section */}
         <div className="mt-16 border-t border-gray-200 pt-16">
           <div className="mx-auto max-w-2xl">
@@ -141,6 +153,10 @@ const ExperienceTimeline = () => {
                     <CheckCircle className="h-5 w-5 text-indigo-600 mr-2" />
                     <span className="text-gray-700">Cloud services (AWS, Azure)</span>
                   </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-indigo-600 mr-2" />
+                    <span className="text-gray-700">Database Design & Optimization</span>
+                  </li>
                 </ul>
               </div>
               
@@ -166,6 +182,10 @@ const ExperienceTimeline = () => {
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-indigo-600 mr-2" />
                     <span className="text-gray-700">Resilience Engineering</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-indigo-600 mr-2" />
+                    <span className="text-gray-700">SOLID Principles</span>
                   </li>
                 </ul>
               </div>
