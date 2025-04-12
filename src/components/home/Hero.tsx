@@ -44,10 +44,11 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-indigo-800 to-indigo-900 -z-20"></div>
       
       {/* White overlay that creates the diagonal shape - visible only on larger screens */}
+     
       <div className="absolute inset-0 -z-10 hidden md:block">
-        <div className="absolute top-0 left-0 h-full w-[65%] bg-white transform skew-x-[20deg] origin-top-right"></div>
-      </div>
-      
+  <div className="absolute top-0 left-[-10%] h-full w-[65%] bg-white transform skew-x-[20deg] origin-top-right"></div>
+</div>
+
       {/* Mobile-specific white overlay - rectangular, not diagonal */}
       <div className="absolute inset-0 -z-10 md:hidden">
         <div className="absolute top-0 left-0 h-[60%] w-full bg-white"></div>
