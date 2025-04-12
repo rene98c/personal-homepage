@@ -1,94 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Code, CheckCircle, AlertCircle, Award } from 'lucide-react';
+import React, { useState } from 'react'; 
 import { creationalPatterns } from '@/data/design-patterns/creational-patterns';
 import { structuralPatterns } from '@/data/design-patterns/structural-patterns';
 import { behavioralPatterns } from '@/data/design-patterns/behavioral-patterns';
 import { architecturalPatterns } from '@/data/design-patterns/architectural-patterns';
 import { resiliencePatterns } from '@/data/design-patterns/resilience-patterns';
 import { testingPatterns } from '@/data/design-patterns/testing-patterns';
+import PatternDetail from '@/components/design-patterns/PatternDetail';
+import CategoryButton from '@/components/design-patterns/CategoryButton';
 
-// Category Button Component
-const CategoryButton = ({ text, isActive, onClick }: { text: string, isActive: boolean, onClick: () => void }) => {
-  return (
-    <button
-      onClick={onClick}
-      className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-        isActive 
-          ? 'bg-indigo-600 text-white shadow-md' 
-          : 'bg-gray-200 text-gray-700 hover:bg-gray-300 hover:shadow-sm'
-      }`}
-    >
-      {text}
-    </button>
-  );
-};
-
-// Pattern Detail Component
-const PatternDetail = ({ name, problem, benefits, codeSnippet, category }: { name: string, problem: string, benefits: string[], codeSnippet: string, category: string }) => {
-  const getCategoryBorderColor = () => {
-    switch (category) {
-      case 'creational':
-        return 'border-t-amber-500';
-      case 'structural':
-        return 'border-t-green-500';
-      case 'behavioral':
-        return 'border-t-blue-500';
-      case 'architectural':
-        return 'border-t-purple-500';
-      case 'resilience':
-        return 'border-t-red-500';
-      case 'testing':
-        return 'border-t-indigo-500';
-      default:
-        return 'border-t-gray-500';
-    }
-  };
-
-  return (
-    <div className={`bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-100 transition-all duration-200 hover:shadow-xl ${getCategoryBorderColor()} border-t-4`}>
-      <div className="flex items-center gap-2 mb-4">
-        <Code className="w-5 h-5 text-indigo-600" />
-        <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
-      </div>
-      
-      <div className="mb-6">
-        <div className="flex items-start gap-2">
-          <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
-          <p className="text-gray-700">{problem}</p>
-        </div>
-      </div>
-      
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-3">
-          <Award className="w-5 h-5 text-green-600" />
-          <h4 className="text-lg font-medium text-gray-800">Benefits</h4>
-        </div>
-        <ul className="space-y-3">
-          {benefits.map((benefit, index) => (
-            <li key={index} className="flex items-start">
-              <CheckCircle className="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" />
-              <span className="text-gray-700">{benefit}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <div>
-        <h4 className="text-lg font-medium text-gray-800 mb-3">Implementation</h4>
-        <div className="bg-gray-900 border border-gray-700 text-gray-200 p-4 rounded overflow-x-auto">
-          <pre className="whitespace-pre-wrap">
-            <code className="text-sm">
-              {codeSnippet}
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+ 
 // Design Patterns Page Component
 const DesignPatternsPage = () => {
   const [activeCategory, setActiveCategory] = useState('creational');
