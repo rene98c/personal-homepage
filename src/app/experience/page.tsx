@@ -9,7 +9,7 @@ const ExperienceTimeline = () => {
       company: 'Connected OÜ',
       period: 'January 2023 - June 2024',
       responsibilities: [
-        "Developed and maintained enterprise-level .NET application",
+        "Developed and maintained enterprise-level .NET desktop application",
       ]
     },
     {
@@ -17,7 +17,7 @@ const ExperienceTimeline = () => {
       company: 'Fujitsu Estonia AS',
       period: 'October 2019 - January 2023',
       responsibilities: [
-        "Designed and implemented various software systems"
+        "Designed and maintained various software systems"
       ]
     },
     {
