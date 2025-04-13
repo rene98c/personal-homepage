@@ -1,7 +1,9 @@
 {
-    "title": "Kogemus",
-    "journeyTitle": "Professionaalne Teekond",
-    "description": "Rohkem kui 20-aastase tarkvaraarenduse kogemusega olen töötanud erinevates valdkondades ja projektides, pakkudes töökindlaid ja hästi läbimõeldud lahendusi. Minu karjäär on keskendunud .NET-arendusele alates 2003. aastast, hõlmates ekspertiisi veebiteenuste, taustsüsteemide ja kasutajaliideste loomisel.",
-    "keyResponsibilities": "Peamised Vastutusalad",
-    "downloadResume": "Laadi CV alla"
-  }
+  "title": "Kogemus",
+  "journeyTitle": "Professionaalne Teekond",
+  "description": "Rohkem kui 20-aastase tarkvaraarenduse kogemusega olen töötanud erinevates valdkondades ja projektides, pakkudes töökindlaid ja hästi läbimõeldud lahendusi. Minu karjäär on keskendunud .NET-arendusele alates 2003. aastast, hõlmates ekspertiisi veebiteenuste, taustsüsteemide ja kasutajaliideste loomisel.",
+  "keyResponsibilities": "Peamised Vastutusalad",
+  "downloadResume": "Laadi CV alla",
+  "downloadResumeText": "Laadi CV alla (Tekstina)",
+  "downloadResumePDF": "Laadi CV alla (PDF)"
+}

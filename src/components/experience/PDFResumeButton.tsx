@@ -1,10 +1,42 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileDown } from 'lucide-react';
 import { jsPDF } from 'jspdf';
+import { Locale, getDictionary } from '@/lib/dictionaries';
 
-const PDFResumeButton = () => {
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
+
+const PDFResumeButton = ({ lang }: { lang: Locale }) => {
+  const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load the dictionary
+  useEffect(() => {
+    async function loadDictionary() {
+      setIsLoading(true);
+      
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
+  
   // Function to generate PDF resume with all the expanded information
   const generatePDFResume = () => {
     const doc = new jsPDF();
@@ -59,6 +91,8 @@ const PDFResumeButton = () => {
       
       return bulletY + 2; // Return the new Y position after this entry
     };
+
+
     
     // Add job entries with expanded details
     let yPosition = 60;
@@ -332,13 +366,16 @@ const PDFResumeButton = () => {
     doc.save('Rene_Prost_Resume.pdf');
   };
 
+  // Get translation or use fallback
+  const buttonText = dictionary?.experience?.downloadResumePDF || "Download Resume (PDF)";
+
   return (
     <button
       onClick={generatePDFResume}
       className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 hover:-translate-y-1"
     >
       <FileDown className="mr-2 h-5 w-5" />
-      Download Resume (PDF)
+      {buttonText}
     </button>
   );
 };

@@ -1,12 +1,13 @@
 {
-    "title": "Tehniline Tööriistakast",
-    "subtitle": "Oskused ja Pädevused",
-    "sections": {
-      "technical": "Tehniline Ekspertiis",
-      "technologies": "Tehnoloogiad ja Tööriistad",
-      "databases": "Andmebaasid",
-      "frontend": "Kasutajaliides",
-      "cloud": "Pilv ja Majutus",
-      "methodologies": "Metoodikad"
-    }
+  "title": "Tehniline Tööriistakast",
+  "subtitle": "Oskused ja Pädevused",
+  "description": "Oma karjääri jooksul olen arendanud ekspertiisi paljudes erinevates tehnoloogiates, raamistikes ja metoodikates. Siin on detailne ülevaade minu tehnilistest oskustest.",
+  "sections": {
+    "technical": "Tehniline Ekspertiis",
+    "technologies": "Tehnoloogiad ja Tööriistad",
+    "databases": "Andmebaasid",
+    "frontend": "Kasutajaliides",
+    "cloud": "Pilv ja Majutus",
+    "methodologies": "Metoodikad"
   }
+}

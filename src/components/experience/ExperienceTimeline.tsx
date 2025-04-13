@@ -1,57 +1,18 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Calendar, Briefcase, CheckCircle } from 'lucide-react';
 import { DownloadResumeButton } from '@/components/experience/DownloadResumeButton';
 import PDFResumeButton from '@/components/experience/PDFResumeButton';
 import ExpandedSkillsSection from '@/components/experience/ExpandedSkillsSection';
 import CertificationsSection from '@/components/experience/CertificationsSection';
 import EducationSection from '@/components/experience/EducationSection';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import { Locale } from '@/lib/dictionaries';
 
-// Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
-
-// Timeline component for work experience
-const ExperienceTimeline = ({ 
-  lang, 
-  dictionary: propDictionary 
-}: { 
-  lang: Locale, 
-  dictionary?: any // eslint-disable-line @typescript-eslint/no-explicit-any
-}) => {
-  // State for loading the dictionary if not provided as prop
-  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);// eslint-disable-line @typescript-eslint/no-explicit-any
-  const [isLoading, setIsLoading] = useState(!propDictionary);
-
-  // Load the dictionary if not provided as prop
-  useEffect(() => {
-    if (propDictionary) {
-      setDictionary(propDictionary);
-      return;
-    }
-
-    async function loadDictionary() {
-      if (dictionaryCache[lang]) {
-        setDictionary(dictionaryCache[lang]);
-        setIsLoading(false);
-        return;
-      }
-
-      try {
-        const dict = await getDictionary(lang);
-        dictionaryCache[lang] = dict;
-        setDictionary(dict);
-      } catch (error) {
-        console.error('Failed to load dictionary:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    
-    loadDictionary();
-  }, [lang, propDictionary]);
-
+// Experience Timeline component that accepts a pre-loaded dictionary
+const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// eslint-disable-line @typescript-eslint/no-explicit-any
+  // Create experience timeline using the dictionary
   const experiences = [
     {
       title: '.NET Software Developer',
@@ -125,43 +86,23 @@ const ExperienceTimeline = ({
     }
   ];
 
-  // If still loading, show a loading state
-  if (isLoading) {
-    return (
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <div className="animate-pulse h-4 w-32 bg-gray-200 rounded"></div>
-            <div className="mt-4 animate-pulse h-8 w-64 bg-gray-200 rounded"></div>
-            <div className="mt-6 animate-pulse h-4 w-full bg-gray-200 rounded"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Get translations or fallback to default text
-  const experienceTitle = dictionary?.experience?.title || "Experience";
-  const journeyTitle = dictionary?.experience?.journeyTitle || "Professional Journey";
-  const journeyDesc = dictionary?.experience?.description || "With over 20 years of software development experience, I've worked across a variety of industries and projects, consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003, with expertise in building web services, backend systems, and user interfaces.";
-
   return (
     <>
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-600">{experienceTitle}</h2>
+            <h2 className="text-base font-semibold leading-7 text-indigo-600">{dictionary.experience.title}</h2>
             <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              {journeyTitle}
+              {dictionary.experience.journeyTitle}
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              {journeyDesc}
+              {dictionary.experience.description}
             </p>
             
             {/* Resume Download Section */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <DownloadResumeButton />
-              <PDFResumeButton />
+              <DownloadResumeButton lang={lang} />
+              <PDFResumeButton lang={lang} />
             </div>
           </div>
 
@@ -182,7 +123,7 @@ const ExperienceTimeline = ({
                     </p>
                   </div>
                   <div className="mt-4 bg-white shadow-sm ring-1 ring-gray-900/5 rounded-lg px-6 py-4">
-                    <h4 className="text-base font-semibold text-gray-900 mb-2">Key Responsibilities:</h4>
+                    <h4 className="text-base font-semibold text-gray-900 mb-2">{dictionary.experience.keyResponsibilities}:</h4>
                     <ul className="mt-2 space-y-1">
                       {exp.responsibilities.map((responsibility, idx) => (
                         <li key={idx} className="flex gap-x-2">
@@ -200,7 +141,7 @@ const ExperienceTimeline = ({
       </div>
       
       {/* New sections from the CV */}
-      <ExpandedSkillsSection   />
+      <ExpandedSkillsSection lang={lang} />
       <CertificationsSection lang={lang} />
       <EducationSection lang={lang} />
     </>

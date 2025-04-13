@@ -1,7 +1,9 @@
 {
-    "title": "Experience",
-    "journeyTitle": "Professional Journey",
-    "description": "With over 20 years of software development experience, I've worked across a variety of industries and projects, consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003, with expertise in building web services, backend systems, and user interfaces.",
-    "keyResponsibilities": "Key Responsibilities",
-    "downloadResume": "Download Resume"
-  }
+  "title": "Experience",
+  "journeyTitle": "Professional Journey",
+  "description": "With over 20 years of software development experience, I've worked across a variety of industries and projects, consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003, with expertise in building web services, backend systems, and user interfaces.",
+  "keyResponsibilities": "Key Responsibilities",
+  "downloadResume": "Download Resume",
+  "downloadResumeText": "Download Resume (Text)",
+  "downloadResumePDF": "Download Resume (PDF)"
+}

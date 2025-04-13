@@ -1,5 +1,5 @@
 import React from 'react'; 
-import {   getDictionary } from '@/lib/dictionaries';
+import { getDictionary } from '@/lib/dictionaries';
 import PersonalApproach from '@/components/PersonalApproach';
 import Hero from '@/components/home/Hero';
 import Stats from '@/components/home/Stats';
@@ -20,12 +20,12 @@ const HomePage = async ({ params }: any) => { // eslint-disable-line @typescript
       {/* For client components, we'll pass the lang parameter */}
       {/* They'll handle dictionary loading internally */}
       <Hero lang={lang} dictionary={dictionary} />
-      <Stats   />
-      <Features  />
-      <Philosophy  />
+      <Stats lang={lang} />
+      <Features lang={lang} />
+      <Philosophy lang={lang} />
       <PersonalApproach lang={lang} />
       <SkillSection lang={lang} />
-      <CTA   />
+      <CTA lang={lang} />
     </>
   );
 };
