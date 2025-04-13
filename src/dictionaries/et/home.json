@@ -30,7 +30,7 @@
       },
       "testing": {
         "title": "Testimine ja kvaliteet",
-        "description": "Rakendan põhjalikke testimisstrateegiaid, alates üksustestidest kuni integratsiooni- ja stsenaariumipõhiste testideni välja."
+        "description": "Rakendan põhjalikke testimisstrateegiaid, alates üksustestidest kuni integratsiooni- ja stsenaariumitestideni."
       }
     },
     "philosophy": {

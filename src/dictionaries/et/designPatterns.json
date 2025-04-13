@@ -16,7 +16,7 @@
   "behavioralDescription": "Käitumuslikud mustrid jaotavad vastutust objektide vahel ja kirjeldavad nende omavahelist suhtlust. Need mustrid muudavad keerulised protsessid hallatavamaks ja suurendavad suhtluse paindlikkust.",
   "architecturalDescription": "Arhitektuursed mustrid käsitlevad tarkvarasüsteemide põhilisi struktuurilisi korraldusi. Need kõrgtaseme mustrid määratlevad rakenduste üldise struktuuri ning suunavad komponentidevahelisi suhteid. Nad pakuvad taaskasutatavaid lahendusi sageli esinevatele organisatsioonilistele probleemidele tarkvaraarhitektuuris.",
   "resilienceDescription": "Vastupidavusmustrid võimaldavad rakendustel taluda tõrkeid ja jätkata tööd ka ebasoodsates tingimustes. Need mustrid tagavad kõrge kättesaadavuse ja töökindluse ka ajutiste vigade korral.",
-  "testingDescription": "Testimismustrid tagavad tarkvara kvaliteedi süstemaatiliste testimismeetodite kaudu. Need pakuvad struktureeritud viise usaldusväärsete testide loomiseks ning aitavad testida rakenduste käitumist erinevates stsenaariumides — alates üksustestidest kuni integratsiooni- ja lõpptestideni.",
+  "testingDescription": "Testimismustrid tagavad tarkvara kvaliteedi süstemaatiliste testimismeetodite kaudu. Need pakuvad struktureeritud viise usaldusväärsete testide loomiseks ning aitavad testida rakenduste käitumist erinevates stsenaariumides — alates üksustestidest kuni integratsiooni- ja lõpptestideni välja",
   "benefits": "Eelised",
   "implementation": "Rakendamine",
   "problem": "Probleem"
