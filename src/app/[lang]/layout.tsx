@@ -52,15 +52,17 @@ function isValidLang(lang: string): lang is Locale {
   return ['en', 'et'].includes(lang);
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: { lang: string };
 }) {
+
+    var awaitedParams = await params;
   // Validate lang param - fallback to 'en' if invalid
-  const lang = isValidLang(params.lang) ? params.lang : 'en';
+  const lang = isValidLang(awaitedParams.lang) ? awaitedParams.lang : 'en';
 
   return (
     <html lang={lang} className="h-full bg-white">

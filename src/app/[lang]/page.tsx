@@ -10,7 +10,7 @@ import CTA from '@/components/home/CTA';
 
 // Main Homepage Component
 const HomePage = async ({ params }: { params: { lang: Locale } }) => {
-  const { lang } = params;
+  const { lang } = await params;
   
   // For server components, we can fetch the dictionary directly
   const dictionary = await getDictionary(lang);
