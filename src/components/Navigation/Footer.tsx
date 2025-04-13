@@ -1,15 +1,19 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import { Github, Linkedin, Mail, Globe } from 'lucide-react';
 
-// Footer component inspired by examplestwui_footer.js
 const Footer = () => {
+  const { t } = useTranslation('common');
+
   const navigation = {
     main: [
-      { name: 'Home', href: '/' },
-      { name: 'Experience', href: '/experience' },
-      { name: 'Case Study', href: '/case-study' },
-      { name: 'Design Patterns', href: '/design-patterns' },
-      { name: 'Contact', href: '/contact' },
+      { name: t('navigation.home'), href: '/' },
+      { name: t('navigation.experience'), href: '/experience' },
+      { name: t('navigation.caseStudy'), href: '/case-study' },
+      { name: t('navigation.designPatterns'), href: '/design-patterns' },
+      { name: t('navigation.contact'), href: '/contact' },
     ],
     social: [
       {
@@ -56,7 +60,7 @@ const Footer = () => {
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-          &copy; {new Date().getFullYear()} Rene Prost. All rights reserved.
+          &copy; {new Date().getFullYear()} Rene Prost. {t('footer.allRightsReserved')}.
         </p>
       </div>
     </footer>

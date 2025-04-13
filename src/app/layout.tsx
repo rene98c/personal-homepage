@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navigation/Navbar';
 import Footer from '@/components/Navigation/Footer';
 import './globals.css';
+import { appWithTranslation } from 'next-i18next';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -41,13 +42,15 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+function RootLayout({
   children,
+  params: { locale }
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
   return (
-    <html lang="en" className="h-full bg-white">
+    <html lang={locale || 'en'} className="h-full bg-white">
       <body className={`${inter.className} h-full antialiased`}>
         <StructuredData />
         <Analytics />
@@ -65,3 +68,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default appWithTranslation(RootLayout);

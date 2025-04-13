@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 export const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const [viewportHeight, setViewportHeight] = useState('100vh');
   const maxHeight = '1440px'; // Set a reasonable maximum height
+  const { t } = useTranslation(['common', 'home']);
 
   // Effect to handle viewport height changes
   useEffect(() => {
@@ -75,20 +77,20 @@ export const Hero = () => {
                 <div className="mt-0 sm:mt-0 lg:mt-0">
                   <a href="#" className={`inline-flex space-x-6 transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
                     <span className="rounded-full bg-indigo-600/10 px-3 py-1 text-sm/6 font-semibold text-indigo-600 ring-1 ring-indigo-600/10 ring-inset btn-glow">
-                      C# / .NET Specialist
+                      {t('home:hero.specialist')}
                     </span>
                     <span className="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600 text-glow">
-                      <span>20+ Years Experience</span>
+                      <span>{t('home:hero.experience')}</span>
                     </span>
                   </a>
                 </div>
                 
                 <h1 className={`mt-6 md:mt-10 text-4xl md:text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} text-glow`}>
-                  Rene Prost
+                  {t('home:hero.title')}
                 </h1>
                 
                 <p className={`mt-4 md:mt-6 text-lg md:text-xl font-medium text-pretty text-gray-700 transition-all duration-700 delay-150 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} text-glow`}>
-                  I solve complex engineering challenges using domain-driven design and clean architecture.
+                  {t('home:hero.subtitle')}
                 </p>
                 
                 <div className={`mt-6 md:mt-10 flex items-center gap-x-6 transition-opacity duration-700 delay-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -96,10 +98,10 @@ export const Hero = () => {
                     href="/case-study"
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm btn-glow transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-1 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    View Case Study
+                    {t('common:buttons.viewCaseStudy')}
                   </Link>
                   <Link href="/contact" className="text-sm/6 font-semibold text-gray-900 group text-glow">
-                    Contact Me 
+                    {t('common:buttons.contactMe')} 
                     <span className="inline-block transition-all duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                 </div>

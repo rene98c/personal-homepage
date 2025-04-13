@@ -1,19 +1,30 @@
 {
   "navigation": {
-    "home": "",
-    "experience": "",
-    "caseStudy": "",
-    "designPatterns": "",
-    "blog": "",
-    "contact": "",
-    "homelab": ""
-  },
-  "buttons": {
-    "readMore": "",
-    "contactMe": "",
-    "download": ""
+    "home": "Home",
+    "experience": "Experience",
+    "blog": "Blog",
+    "caseStudy": "Case Study",
+    "designPatterns": "Design Patterns",
+    "homelab": "Homelab",
+    "contact": "Contact"
   },
   "footer": {
-    "copyright": "© {year} All rights reserved"
+    "allRightsReserved": "All rights reserved",
+    "getInTouch": "Get in touch"
+  },
+  "buttons": {
+    "viewCaseStudy": "View Case Study",
+    "contactMe": "Contact Me",
+    "readMore": "Read more",
+    "downloadResume": "Download Resume",
+    "downloadResumePDF": "Download Resume (PDF)",
+    "downloadResumeText": "Download Resume (Text)",
+    "sendMessage": "Send message",
+    "sending": "Sending..."
+  },
+  "languageSelector": {
+    "language": "Language",
+    "english": "English",
+    "estonian": "Estonian"
   }
-} 
+}
