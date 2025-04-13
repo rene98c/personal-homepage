@@ -9,7 +9,7 @@ const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescri
 
 export const DownloadResumeButton = ({ lang }: { lang: Locale }) => {
   const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
-  const [isLoading, setIsLoading] = useState(true);
+  const [, setIsLoading] = useState(true);
 
   // Load the dictionary
   useEffect(() => {

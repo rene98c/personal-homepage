@@ -1,7 +1,5 @@
 'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+ 
 import { Calendar, Briefcase, CheckCircle } from 'lucide-react';
 import { DownloadResumeButton } from '@/components/experience/DownloadResumeButton';
 import PDFResumeButton from '@/components/experience/PDFResumeButton';
@@ -141,7 +139,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       </div>
       
       {/* New sections from the CV */}
-      <ExpandedSkillsSection lang={lang} />
+      <ExpandedSkillsSection  />
       <CertificationsSection lang={lang} />
       <EducationSection lang={lang} />
     </>

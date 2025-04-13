@@ -10,7 +10,7 @@ const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescri
 export const CTA = ({ lang }: { lang: Locale }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
-  const [isLoading, setIsLoading] = useState(true);
+  const [, setIsLoading] = useState(true);
   const sectionRef = useRef(null);
 
   // Load the dictionary
