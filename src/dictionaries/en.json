@@ -125,5 +125,13 @@
     "subtitle": "Academic Foundation",
     "attended": "Attended",
     "completed": "Completed"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Thoughts on software development, architecture, resilience engineering, and the evolving role of AI in our craft.",
+    "unedited": "Unedited",
+    "readMore": "Read more",
+    "minRead": "min read",
+    "backToAllArticles": "Back to all articles"
   }
 }

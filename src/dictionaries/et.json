@@ -125,5 +125,13 @@
     "subtitle": "Akadeemiline Alus",
     "attended": "Õppis",
     "completed": "Lõpetas"
+  },
+  "blog": {
+    "title": "Blogi",
+    "description": "Mõtted tarkvaraarenduse, arhitektuuri, vastupidavuse ehitamise ja tehisintellekti areneva rolli kohta meie valdkonnas.",
+    "unedited": "Toimetamata",
+    "readMore": "Loe edasi",
+    "minRead": "min lugemine",
+    "backToAllArticles": "Tagasi kõigi artiklite juurde"
   }
 }
