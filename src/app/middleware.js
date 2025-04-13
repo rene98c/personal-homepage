@@ -18,7 +18,7 @@ function getLocale(request) {
   // Default to defaultLocale if no match is found
   try {
     return match(languages, supportedLocales, defaultLocale);
-  } catch (error) {
+  } catch  {
     return defaultLocale;
   }
 }
