@@ -1,30 +1,19 @@
 {
   "navigation": {
-    "home": "Avaleht",
-    "experience": "Kogemus",
-    "blog": "Blogi",
-    "caseStudy": "Juhtumiuuring",
-    "designPatterns": "Disainimustrid",
-    "homelab": "Kodulabor",
-    "contact": "Kontakt"
-  },
-  "footer": {
-    "allRightsReserved": "Kõik õigused kaitstud",
-    "getInTouch": "Võta ühendust"
+    "home": "",
+    "experience": "",
+    "caseStudy": "",
+    "designPatterns": "",
+    "blog": "",
+    "contact": "",
+    "homelab": ""
   },
   "buttons": {
-    "viewCaseStudy": "Vaata juhtumiuuringut",
-    "contactMe": "Võta ühendust",
-    "readMore": "Loe edasi",
-    "downloadResume": "Laadi alla CV",
-    "downloadResumePDF": "Laadi alla CV (PDF)",
-    "downloadResumeText": "Laadi alla CV (Tekst)",
-    "sendMessage": "Saada sõnum",
-    "sending": "Saadan..."
+    "readMore": "",
+    "contactMe": "",
+    "download": ""
   },
-  "languageSelector": {
-    "language": "Keel",
-    "english": "Inglise",
-    "estonian": "Eesti"
+  "footer": {
+    "copyright": "© {year} Kõik õigused kaitstud"
   }
-}
+} 

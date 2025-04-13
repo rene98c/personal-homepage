@@ -1,76 +1,15 @@
 {
   "hero": {
-    "specialist": "C# / .NET Specialist",
-    "experience": "20+ Years Experience",
-    "title": "Rene Prost",
-    "subtitle": "I solve complex engineering challenges using domain-driven design and clean architecture."
+    "title": "",
+    "subtitle": "",
+    "description": ""
   },
-  "stats": {
-    "title": "Professional Journey",
-    "description1": "I've been writing and developing software on the .NET platform in C# since 2003. Throughout my career, I've worked across a variety of industries including government systems, transportation, and enterprise solutions.",
-    "description2": "My approach to software development emphasizes clean architecture, design patterns, and resilient systems that can adapt to changing requirements. I believe in building software that not only meets current needs but is flexible enough to evolve over time.",
-    "yearsExperience": "Years of Experience",
-    "projectsInvolved": "Projects Involved With",
-    "technologiesMastered": "Technologies Mastered"
-  },
-  "features": {
-    "title": "Technical Excellence",
-    "subtitle": "My Core Competencies",
-    "cleanArchitecture": {
-      "title": "Clean Architecture",
-      "description": "I build systems with clear separation of concerns, keeping the domain model at the center and infrastructure details at the edges. This approach ensures maintainability and testability."
-    },
-    "designPatterns": {
-      "title": "Design Patterns",
-      "description": "I leverage established design patterns to solve complex problems efficiently, creating robust and flexible codebases."
-    },
-    "resilienceEngineering": {
-      "title": "Resilience Engineering",
-      "description": "I design systems that gracefully handle failures, using circuit breakers, retry policies, and graceful degradation."
-    },
-    "testingQuality": {
-      "title": "Testing & Quality",
-      "description": "I implement comprehensive testing strategies, from unit tests to integration tests and scenario-based validation."
-    }
-  },
-  "philosophy": {
-    "title": "My Approach",
-    "subtitle": "Professional Philosophy",
-    "description": "The distinctive aspects of my approach—particularly the explicit criticality classification, purpose-built testing tools, and manual override design—demonstrate my ability to adapt established patterns to meet unique requirements in specialized domains.",
-    "items": [
-      {
-        "title": "Architecture First",
-        "description": "I believe in establishing a solid architectural foundation before diving into implementation details. This approach ensures scalable, maintainable systems that can adapt to changing requirements."
-      },
-      {
-        "title": "Resilient by Design",
-        "description": "I build systems with resilience baked in from the start, not as an afterthought. Circuit breakers, retry policies, and graceful degradation are integral to my implementation approach."
-      },
-      {
-        "title": "Practical Patterns",
-        "description": "I leverage established design patterns to solve complex problems, but always with a practical mindset. The goal is clean, maintainable code that solves real business problems efficiently."
-      },
-      {
-        "title": "Testable Solutions",
-        "description": "I design systems with testability in mind, implementing comprehensive testing strategies across unit, integration, and scenario-based approaches."
-      }
-    ]
-  },
-  "personalApproach": {
-    "title": "Personal Perspective",
-    "subtitle": "Beyond the Code",
-    "paragraph1": "I believe exceptional coding is the foundation of impactful software — where clarity, focus, and flow converge to solve complex problems elegantly. I express myself most fluently through code, where I often enter a flow state that allows me to create elegant solutions to complex problems. Coding is an art form to me - I lose track of time when I'm in the zone, fully immersed in crafting clean, efficient solutions.",
-    "paragraph2": "While I may find verbal communication challenging at times, I excel at expressing complex technical concepts in written form. I leverage various tools, including AI, to articulate my ideas clearly and effectively when collaborating with others.",
-    "paragraph3": "I'm based in a beautiful rural area near the city of Tartu, Estonia. This location offers me the perfect balance between focused work environment and access to a vibrant tech community when needed.",
-    "paragraph4": "Outside of coding, I enjoy exploring new technologies, reading about software architecture, and continuously enhancing my skills to stay at the forefront of the industry. While I'm currently engaged in a professional role, I'm always open to discussing interesting projects and opportunities."
+  "about": {
+    "title": "",
+    "description": ""
   },
   "skills": {
-    "title": "Technical Capabilities",
-    "subtitle": "Comprehensive Skill Set",
-    "description": "Throughout my career, I've developed expertise in a wide range of technologies, frameworks, and methodologies. Here's a detailed overview of my technical skills."
-  },
-  "cta": {
-    "title": "See how I translate creative thinking into elegant code",
-    "description": "Check out my case study on building a mission-critical access control system to see how I apply creative problem-solving and technical excellence in practice."
+    "title": "",
+    "description": ""
   }
-}
+} 

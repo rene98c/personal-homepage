@@ -3,25 +3,22 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'next-i18next';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import LanguageSwitcher from './LanguageSwitcher';
 
 // Navbar component inspired by examplestwui_header2.js
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { t } = useTranslation('common');
 
   const navigation = [
-    { name: t('navigation.home'), href: '/', current: pathname === '/' },
-    { name: t('navigation.experience'), href: '/experience', current: pathname === '/experience' },
-    { name: t('navigation.blog'), href: '/blog', current: pathname === '/blog' || pathname.startsWith('/blog/') },
-    { name: t('navigation.caseStudy'), href: '/case-study', current: pathname === '/case-study' },
-    { name: t('navigation.designPatterns'), href: '/design-patterns', current: pathname === '/design-patterns' },
-    { name: t('navigation.homelab'), href: '/homelab', current: pathname === '/homelab' },
-    { name: t('navigation.contact'), href: '/contact', current: pathname === '/contact' },
+    { name: 'Home', href: '/', current: pathname === '/' },
+    { name: 'Experience', href: '/experience', current: pathname === '/experience' },
+    { name: 'Blog', href: '/blog', current: pathname === '/blog' || pathname.startsWith('/blog/') },
+    { name: 'Case Study', href: '/case-study', current: pathname === '/case-study' },
+    { name: 'Design Patterns', href: '/design-patterns', current: pathname === '/design-patterns' },
+    { name: 'Homelab', href: '/homelab', current: pathname === '/homelab' },
+    { name: 'Contact', href: '/contact', current: pathname === '/contact' },
   ];
 
   return (
@@ -29,6 +26,7 @@ const Navbar = () => {
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
+            
             <span className="sr-only">Rene Prost</span>
             <Image 
               src="/logo.png" 
@@ -60,13 +58,12 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-6">
-          <LanguageSwitcher />
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a 
             href="mailto:rene@bdec.ee" 
             className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
-            {t('footer.getInTouch')} <span aria-hidden="true">&rarr;</span>
+            Get in touch <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -111,16 +108,13 @@ const Navbar = () => {
                       {item.name}
                     </Link>
                   ))}
-                  <div className="py-3 px-3">
-                    <LanguageSwitcher />
-                  </div>
                 </div>
                 <div className="py-6">
                   <a
                     href="mailto:rene@bdec.ee"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    {t('footer.getInTouch')}
+                    Get in touch
                   </a>
                 </div>
               </div>
