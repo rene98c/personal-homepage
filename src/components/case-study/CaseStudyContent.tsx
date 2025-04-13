@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Locale, getDictionary } from '@/lib/dictionaries';
 import { PhaseSection } from '@/components/case-study/PhaseSection'; 
 import CompleteReferences from '@/components/case-study/CompleteReferences';
 
@@ -9,14 +12,81 @@ import { distinctiveAspects } from '@/data/case-study/distinctive-aspects';
 import { lessonsLearned } from '@/data/case-study/lessons-learned';
 import { conclusion } from '@/data/case-study/conclusion-references';
 
-// CaseStudyPage Component
-const CaseStudyPage = () => {
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
+
+// CaseStudyContent Component
+const CaseStudyContent = ({ 
+  lang, 
+  dictionary: propDictionary 
+}: { 
+  lang: Locale, 
+  dictionary?: any 
+}) => {
+  // State for loading the dictionary if not provided as prop
+  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);
+  const [isLoading, setIsLoading] = useState(!propDictionary);
+
+  // Load the dictionary if not provided as prop
+  useEffect(() => {
+    if (propDictionary) {
+      setDictionary(propDictionary);
+      return;
+    }
+
+    async function loadDictionary() {
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang, propDictionary]);
+
+  // Get translations or fallback to default text
+  const caseStudyTitle = dictionary?.caseStudy?.title || "Case Study";
+  const methodicalApproachTitle = dictionary?.caseStudy?.methodicalApproach || "The Methodical Approach: Step-by-Step (15 Days Total)";
+  const distinctiveAspectsTitle = dictionary?.caseStudy?.distinctiveAspects || "Distinctive Aspects and Innovations";
+  const lessonsLearnedTitle = dictionary?.caseStudy?.lessonsLearned || "Lessons Learned and Best Practices";
+  const successFactorsTitle = dictionary?.caseStudy?.successFactors || "Key Success Factors";
+  const challengesTitle = dictionary?.caseStudy?.challenges || "Challenges and Solutions";
+  const conclusionTitle = dictionary?.caseStudy?.conclusion || "Conclusion";
+  const referencesTitle = dictionary?.caseStudy?.references || "References";
+
+  // If still loading, show a loading state
+  if (isLoading) {
+    return (
+      <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="text-base font-semibold leading-7 text-indigo-600 animate-pulse">
+            <div className="h-5 w-24 bg-indigo-100 rounded mx-auto"></div>
+          </div>
+          <div className="mt-2 h-8 w-96 bg-gray-200 rounded mx-auto animate-pulse"></div>
+          <div className="mt-6 h-4 w-full bg-gray-200 rounded animate-pulse"></div>
+          <div className="mt-2 h-4 w-5/6 bg-gray-200 rounded animate-pulse"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Header Section */}
       <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-base font-semibold leading-7 text-indigo-600">Case Study</p>
+          <p className="text-base font-semibold leading-7 text-indigo-600">{caseStudyTitle}</p>
           <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             {projectOverview.title}
           </h2>
@@ -33,7 +103,7 @@ const CaseStudyPage = () => {
             {/* New Introduction Block */}
             <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
               <h3 className="text-xl font-semibold mb-4 text-indigo-700 border-b border-gray-200 pb-2">
-                Case Study: Building SecureAccess
+                {caseStudyTitle}: Building SecureAccess
               </h3>
               <p className="text-gray-700 mb-6 italic font-medium">
                 A mission-critical access control system integrating biometrics, physical gates, and permissions — built in 15 days.
@@ -104,7 +174,7 @@ const CaseStudyPage = () => {
               </p>
             </div>
             
-            <h3 className="text-2xl font-semibold mb-6 text-gray-900 border-b border-gray-300 pb-2">The Methodical Approach: Step-by-Step (15 Days Total)</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-gray-900 border-b border-gray-300 pb-2">{methodicalApproachTitle}</h3>
             
             {/* Phase Sections */}
             {phases.map((phase, index) => (
@@ -116,12 +186,13 @@ const CaseStudyPage = () => {
                 steps={phase.steps}
                 results={phase.results}
                 codeSnippet={phase.codeSnippet}
+                lang={lang}
               />
             ))}
             
             {/* Distinctive Aspects */}
             <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">Distinctive Aspects and Innovations</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">{distinctiveAspectsTitle}</h3>
               
               <div className="space-y-4">
                 {distinctiveAspects.map((aspect) => (
@@ -154,10 +225,10 @@ const CaseStudyPage = () => {
             
             {/* Lessons Learned */}
             <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">Lessons Learned and Best Practices</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">{lessonsLearnedTitle}</h3>
               
               <div className="mb-6">
-                <h4 className="font-medium text-gray-800 mb-3">Key Success Factors</h4>
+                <h4 className="font-medium text-gray-800 mb-3">{successFactorsTitle}</h4>
                 <ol className="list-decimal pl-10 space-y-2">
                   {lessonsLearned.successFactors.map((factor, index) => (
                     <li key={index} className="text-gray-700">
@@ -168,7 +239,7 @@ const CaseStudyPage = () => {
               </div>
               
               <div>
-                <h4 className="font-medium text-gray-800 mb-3">Challenges and Solutions</h4>
+                <h4 className="font-medium text-gray-800 mb-3">{challengesTitle}</h4>
                 <div className="space-y-4">
                   {lessonsLearned.challenges.map((item, index) => (
                     <div key={index}>
@@ -186,7 +257,7 @@ const CaseStudyPage = () => {
             
             {/* Conclusion */}
             <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 mb-8 transition-all duration-200 hover:shadow-xl">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">Conclusion</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 border-b border-gray-200 pb-2">{conclusionTitle}</h3>
               {conclusion.paragraphs.map((paragraph, index) => (
                 <p key={index} className="text-gray-700 mb-4">
                   {paragraph}
@@ -195,7 +266,7 @@ const CaseStudyPage = () => {
             </div>
             
             {/* Complete References Section */}
-            <CompleteReferences />
+            <CompleteReferences lang={lang} title={referencesTitle} />
           </div>
         </div>
       </div>
@@ -203,4 +274,4 @@ const CaseStudyPage = () => {
   );
 };
 
-export default CaseStudyPage;
+export default CaseStudyContent;

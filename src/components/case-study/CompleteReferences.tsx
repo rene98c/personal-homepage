@@ -1,10 +1,53 @@
-'use client'
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { BookOpen, ChevronDown, ChevronRight } from 'lucide-react';
+import { Locale, getDictionary } from '@/lib/dictionaries';
+
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
 
 // Complete references component
-const CompleteReferences = () => {
+const CompleteReferences = ({ 
+  lang,
+  title
+}: { 
+  lang?: Locale,
+  title?: string
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [dictionary, setDictionary] = useState<any | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load the dictionary if language is provided
+  useEffect(() => {
+    if (!lang) {
+      setIsLoading(false);
+      return;
+    }
+
+    async function loadDictionary() {
+      setIsLoading(true);
+      
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
   
   // Combined references from both documents
   const references = [
@@ -162,6 +205,23 @@ const CompleteReferences = () => {
     }
   ];
 
+  // Get translations or fallback to default text
+  const referencesTitle = title || dictionary?.caseStudy?.references || "References";
+  const clickToView = dictionary?.caseStudy?.clickToViewReferences || "Click to view the complete list of references that informed this work.";
+  const architectureCategory = dictionary?.caseStudy?.architectureCategory || "Architecture & Design";
+  const developmentCategory = dictionary?.caseStudy?.developmentCategory || "Software Development Process";
+  const resilienceCategory = dictionary?.caseStudy?.resilienceCategory || "Resilience & DevOps";
+  const methodologiesCategory = dictionary?.caseStudy?.methodologiesCategory || "Methodologies & Best Practices";
+  const footerText = dictionary?.caseStudy?.referencesFooter || "These references represent the academic and professional foundations of the methodologies, patterns, and approaches demonstrated in the case study and throughout this portfolio.";
+
+  // Map category names to their translations
+  const categoryTranslations: Record<string, string> = {
+    "Architecture & Design": architectureCategory,
+    "Software Development Process": developmentCategory,
+    "Resilience & DevOps": resilienceCategory,
+    "Methodologies & Best Practices": methodologiesCategory
+  };
+
   return (
     <div className="bg-white shadow-lg border border-gray-100 rounded-lg p-6 transition-all duration-200 hover:shadow-xl">
       <div 
@@ -170,7 +230,7 @@ const CompleteReferences = () => {
       >
         <h3 className="text-xl font-semibold text-gray-800 flex items-center">
           <BookOpen className="w-5 h-5 mr-2 text-indigo-600" />
-          References
+          {referencesTitle}
         </h3>
         {isExpanded ? 
           <ChevronDown className="w-5 h-5 text-gray-600" /> : 
@@ -180,7 +240,7 @@ const CompleteReferences = () => {
 
       {!isExpanded && (
         <p className="mt-2 text-gray-600 text-sm italic">
-          Click to view the complete list of references that informed this work.
+          {clickToView}
         </p>
       )}
       
@@ -188,7 +248,9 @@ const CompleteReferences = () => {
         <div className="mt-4 space-y-6">
           {references.map((category, categoryIndex) => (
             <div key={categoryIndex}>
-              <h4 className="font-medium text-indigo-600 mb-3">{category.category}</h4>
+              <h4 className="font-medium text-indigo-600 mb-3">
+                {categoryTranslations[category.category] || category.category}
+              </h4>
               <ul className="space-y-2">
                 {category.items.map((reference, refIndex) => (
                   <li key={refIndex} className="text-gray-700">
@@ -202,8 +264,7 @@ const CompleteReferences = () => {
           ))}
           
           <div className="pt-4 text-sm text-gray-600 border-t border-gray-200 mt-8">
-            <p>These references represent the academic and professional foundations of the methodologies, 
-            patterns, and approaches demonstrated in the case study and throughout this portfolio.</p>
+            <p>{footerText}</p>
           </div>
         </div>
       )}
