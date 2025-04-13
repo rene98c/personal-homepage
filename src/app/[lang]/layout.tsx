@@ -60,8 +60,9 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
+  const awaitedParams = await params;
   // Validate lang param - fallback to 'en' if invalid
-  const lang = isValidLang(params.lang) ? params.lang : 'en';
+  const lang = isValidLang(awaitedParams.lang) ? awaitedParams.lang : 'en';
   
   // Load dictionary on the server to pass to client components
   const dictionary = await getDictionary(lang);
