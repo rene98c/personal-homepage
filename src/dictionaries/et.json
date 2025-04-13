@@ -3,7 +3,7 @@
     "home": "Avaleht",
     "experience": "Kogemus",
     "blog": "Blogi",
-    "caseStudy": "Juhtumiuuring",
+    "caseStudy": "Projektinäide",
     "designPatterns": "Disainimustrid",
     "homelab": "Kodulabor",
     "contact": "Kontakt",
@@ -13,7 +13,7 @@
     "hero": {
       "title": "Rene Prost",
       "subtitle": "Lahendan keerukaid insenertehnilisi väljakutseid, kasutades domeenipõhist disaini ja puhast arhitektuuri.",
-      "cta": "Vaata juhtumiuuringut",
+      "cta": "Vaata Projektinäidet",
       "secondaryCta": "Võta ühendust"
     },
     "stats": {
@@ -75,8 +75,8 @@
     },
     "cta": {
       "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
-      "description": "Tutvu minu juhtumiuuringuga kriitilise ligipääsukontrolli süsteemi ehitamise kohta, et näha, kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
-      "primary": "Vaata juhtumiuuringut",
+      "description": "Tutvu minu Projektinäitega kriitilise ligipääsukontrolli süsteemi ehitamise kohta, et näha, kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
+      "primary": "Vaata projektinäidet",
       "secondary": "Võta ühendust"
     }
   },
@@ -135,7 +135,7 @@
     "backToAllArticles": "Tagasi kõigi artiklite juurde"
   },
   "caseStudy": {
-    "title": "Juhtumiuuring",
+    "title": "Projektinäide",
     "methodicalApproach": "Metoodiline Lähenemine: Samm-Sammult (Kokku 15 Päeva)",
     "distinctiveAspects": "Eristuvad Aspektid ja Innovatsioon",
     "lessonsLearned": "Õppetunnid ja Parimad Praktikad",
@@ -152,7 +152,7 @@
     "developmentCategory": "Tarkvaraarenduse Protsess",
     "resilienceCategory": "Vastupidavus ja DevOps",
     "methodologiesCategory": "Metoodikad ja Parimad Praktikad",
-    "referencesFooter": "Need viited esindavad akadeemilisi ja professionaalseid aluseid metoodikatest, mustritest ja lähenemisviisidest, mida juhtumiuuringus ja kogu portfoolios demonstreeritakse."
+    "referencesFooter": "Need viited esindavad akadeemilisi ja professionaalseid aluseid metoodikatest, mustritest ja lähenemisviisidest, mida projektinäite ja kogu portfoolios demonstreeritakse."
   },
   "designPatterns": {
     "title": "Disainimustrid",

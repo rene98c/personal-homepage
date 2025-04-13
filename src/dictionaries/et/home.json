@@ -2,7 +2,7 @@
   "hero": {
       "title": "Rene Prost",
       "subtitle": "Lahendan keerukaid insenertehnilisi väljakutseid, kasutades domeenipõhist disaini ja puhast arhitektuuri.",
-      "cta": "Vaata juhtumiuuringut",
+      "cta": "Vaata projektinäide",
       "secondaryCta": "Võta ühendust"
     },
     "stats": {
@@ -64,8 +64,8 @@
     },
     "cta": {
       "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
-      "description": "Tutvu minu juhtumiuuringuga kriitilise ligipääsukontrolli süsteemi ehitamise kohta, ehk kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
-      "primary": "Vaata juhtumiuuringut",
+      "description": "Tutvu minu projektinäitega kriitilise ligipääsukontrolli süsteemi ehitamise kohta, ehk kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
+      "primary": "Vaata projektinäidet",
       "secondary": "Võta ühendust"
     }
   } 

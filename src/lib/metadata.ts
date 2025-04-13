@@ -141,13 +141,13 @@ export async function generateBlogPageMetadata(locale: Locale): Promise<Metadata
 export async function generateCaseStudyMetadata(locale: Locale): Promise<Metadata> {
   return await generateLocalizedMetadata({
     title_en: 'Case Study: Building Mission-Critical Access Control System',
-    title_et: 'Juhtumiuuring: Kriitilise ligipääsukontrolli süsteemi ehitamine',
+    title_et: 'Projekt: Kriitilise ligipääsukontrolli süsteemi ehitamine',
     description_en: 'A detailed case study of SecureAccess - a mission-critical software system integrating biometric verification, access control, and permission systems.',
-    description_et: 'Üksikasjalik juhtumiuuring SecureAccess süsteemist - kriitilise tähtsusega tarkvarasüsteem, mis integreerib biomeetrilise tuvastamise, ligipääsukontrolli ja õiguste haldamise.',
+    description_et: 'Üksikasjalik projektinäide SecureAccess süsteemist - kriitilise tähtsusega tarkvarasüsteem, mis integreerib biomeetrilise tuvastamise, ligipääsukontrolli ja õiguste haldamise.',
     path: 'case-study',
     locale,
     keywords_en: ['case study', 'access control', 'biometric verification'],
-    keywords_et: ['juhtumiuuring', 'ligipääsukontroll', 'biomeetriline tuvastamine'],
+    keywords_et: ['projekt', 'ligipääsukontroll', 'biomeetriline tuvastamine'],
   });
 }
 
