@@ -139,7 +139,7 @@ const CaseStudyContent = ({
               </p>
               <ul className="list-disc pl-8 mb-6 space-y-1 text-gray-700">
                 <li>The hardware wasn&apos;t available during early development.</li>
-                <li>The project complexity warranted a 2-month development cycle, but client requirements demanded completion in just 4 weeks.</li>
+                {/* <li>The project complexity warranted a 2-month development cycle, but client requirements demanded completion in just 4 weeks.</li> */}
                 <li>It needed to be resilient, auditable, and manually overridable — suitable for high-security environments.</li>
                 <li>There was no room for brittle code, guesswork, or integration surprises.</li>
               </ul>
