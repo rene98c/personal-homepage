@@ -1,7 +1,46 @@
-import React from 'react';
-import { Award, Calendar, Check } from 'lucide-react';
+'use client';
 
-const CertificationsSection = () => {
+import React, { useEffect, useState } from 'react';
+import { Award, Calendar, Check } from 'lucide-react';
+import { Locale, getDictionary } from '@/lib/dictionaries';
+
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
+
+const CertificationsSection = ({ lang }: { lang?: Locale }) => {
+  const [dictionary, setDictionary] = useState<any | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load the dictionary if language is provided
+  useEffect(() => {
+    if (!lang) {
+      setIsLoading(false);
+      return;
+    }
+
+    async function loadDictionary() {
+      setIsLoading(true);
+      
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
+
   const certifications = [
     {
       name: "Developing and Implementing Web Applications with Microsoft Visual C# .NET",
@@ -30,17 +69,22 @@ const CertificationsSection = () => {
     }
   ];
 
+  // Default texts if dictionary is not loaded
+  const title = dictionary?.certifications?.title || "Professional Development";
+  const subtitle = dictionary?.certifications?.subtitle || "Certifications & Training";
+  const description = dictionary?.certifications?.description || 
+    "I've invested in formal training and certifications to complement my practical experience, ensuring my technical knowledge stays current and comprehensive.";
+
   return (
     <div className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Professional Development</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">{title}</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Certifications & Training
+            {subtitle}
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            I&apos;ve invested in formal training and certifications to complement my practical experience,
-            ensuring my technical knowledge stays current and comprehensive.
+            {description}
           </p>
         </div>
 

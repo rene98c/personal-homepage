@@ -1,7 +1,46 @@
-import React from 'react';
-import { GraduationCap, Calendar, BookOpen } from 'lucide-react';
+'use client';
 
-const EducationSection = () => {
+import React, { useEffect, useState } from 'react';
+import { GraduationCap, Calendar, BookOpen } from 'lucide-react';
+import { Locale, getDictionary } from '@/lib/dictionaries';
+
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
+
+const EducationSection = ({ lang }: { lang?: Locale }) => {
+  const [dictionary, setDictionary] = useState<any | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load the dictionary if language is provided
+  useEffect(() => {
+    if (!lang) {
+      setIsLoading(false);
+      return;
+    }
+
+    async function loadDictionary() {
+      setIsLoading(true);
+      
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
+
   const education = [
     {
       institution: "Estonian University of Life Sciences",
@@ -19,13 +58,17 @@ const EducationSection = () => {
     }
   ];
 
+  // Default texts if dictionary is not loaded
+  const title = dictionary?.education?.title || "Education Background";
+  const subtitle = dictionary?.education?.subtitle || "Academic Foundation";
+
   return (
     <div className="bg-gray-50 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Education Background</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">{title}</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Academic Foundation
+            {subtitle}
           </p>
         </div>
 
@@ -46,7 +89,7 @@ const EducationSection = () => {
                   <p className="text-md text-gray-700">{edu.degree}</p>
                   {!edu.completed && (
                     <span className="inline-flex items-center rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20 mt-1">
-                      Attended
+                      {dictionary?.education?.attended || "Attended"}
                     </span>
                   )}
                 </div>

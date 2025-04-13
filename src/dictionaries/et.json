@@ -106,5 +106,24 @@
       "cloud": "Pilv ja Majutus",
       "methodologies": "Metoodikad"
     }
+  },
+  "experience": {
+    "title": "Kogemus",
+    "journeyTitle": "Professionaalne Teekond",
+    "description": "Rohkem kui 20-aastase tarkvaraarenduse kogemusega olen töötanud erinevates tööstusharudes ja projektides, pakkudes järjekindlalt töökindlaid, hästi disainitud lahendusi. Minu karjäär on keskendunud .NET arendusele alates 2003. aastast, ekspertiisiga veebiteenuste, taustasüsteemide ja kasutajaliideste loomisel.",
+    "keyResponsibilities": "Peamised Vastutusalad",
+    "downloadResume": "Laadi CV alla"
+  },
+  "certifications": {
+    "title": "Professionaalne Areng",
+    "subtitle": "Sertifikaadid ja Koolitused",
+    "description": "Olen investeerinud formaalsetesse koolitustesse ja sertifitseerimistesse, et täiendada oma praktilist kogemust, tagades, et minu tehnilised teadmised oleksid ajakohased ja põhjalikud.",
+    "issuedBy": "Väljastaja"
+  },
+  "education": {
+    "title": "Hariduslik Taust",
+    "subtitle": "Akadeemiline Alus",
+    "attended": "Õppis",
+    "completed": "Lõpetas"
   }
 }
