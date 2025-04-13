@@ -5,7 +5,7 @@ import { Code, Database, Server, Globe, Cloud, Cog } from 'lucide-react';
 import { Locale, getDictionary } from '@/lib/dictionaries';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 // Define proper types for our skills
 type SimpleSkill = string;
@@ -22,8 +22,8 @@ const isLanguageSkill = (skill: Skill): skill is LanguageSkill => {
 };
 
 const ExpandedSkillsSection = ({ lang }: { lang?: Locale }) => {
-  const [dictionary, setDictionary] = useState<any | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
+  const [, setIsLoading] = useState(true);
 
   // Load the dictionary if language is provided
   useEffect(() => {

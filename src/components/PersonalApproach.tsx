@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { Locale, getDictionary } from '@/lib/dictionaries';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 // Personal Approach section to add to the homepage
 const PersonalApproach = ({ lang }: { lang: Locale }) => {
-  const [dictionary, setDictionary] = useState<any | null>(null);
+  const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
   const [isLoading, setIsLoading] = useState(true);
 
   // Load the dictionary

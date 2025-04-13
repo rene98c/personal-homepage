@@ -6,17 +6,17 @@ import { Server, Monitor, Wifi, Box, Image, Mail, GitBranch, Database, CloudCog,
 import HomelabGallery from '@/components/homelab/HomelabGallery';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 const HomelabContent = ({ 
   lang, 
   dictionary: propDictionary 
 }: { 
   lang: Locale, 
-  dictionary?: any 
+  dictionary?: any // eslint-disable-line @typescript-eslint/no-explicit-any
 }) => {
   // State for loading the dictionary if not provided as prop
-  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);
+  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);// eslint-disable-line @typescript-eslint/no-explicit-any
   const [isLoading, setIsLoading] = useState(!propDictionary);
 
   // Load the dictionary if not provided as prop

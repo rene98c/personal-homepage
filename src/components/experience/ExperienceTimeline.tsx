@@ -10,7 +10,7 @@ import EducationSection from '@/components/experience/EducationSection';
 import { Locale, getDictionary } from '@/lib/dictionaries';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 // Timeline component for work experience
 const ExperienceTimeline = ({ 
@@ -18,10 +18,10 @@ const ExperienceTimeline = ({
   dictionary: propDictionary 
 }: { 
   lang: Locale, 
-  dictionary?: any 
+  dictionary?: any // eslint-disable-line @typescript-eslint/no-explicit-any
 }) => {
   // State for loading the dictionary if not provided as prop
-  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);
+  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);// eslint-disable-line @typescript-eslint/no-explicit-any
   const [isLoading, setIsLoading] = useState(!propDictionary);
 
   // Load the dictionary if not provided as prop

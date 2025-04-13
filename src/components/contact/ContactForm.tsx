@@ -5,7 +5,7 @@ import { Mail, Github, Linkedin, MapPin, Send, AlertCircle } from 'lucide-react'
 import { Locale } from '@/lib/dictionaries';
 
 // Contact form component that accepts a pre-loaded dictionary
-const ContactForm = ({ lang, dictionary }: { lang: Locale, dictionary: any }) => {
+const ContactForm = ({  dictionary }: { lang: Locale, dictionary: any }) => {// eslint-disable-line @typescript-eslint/no-explicit-any
   const [formData, setFormData] = useState({
     name: '',
     email: '',

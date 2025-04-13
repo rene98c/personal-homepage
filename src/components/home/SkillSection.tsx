@@ -5,12 +5,12 @@ import { BookOpen, CheckCircle, Code, Database, Layout, Server } from "lucide-re
 import { Locale, getDictionary } from '@/lib/dictionaries';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 // Skills Section
 export const SkillSection = ({ lang }: { lang?: Locale }) => {
-  const [dictionary, setDictionary] = useState<any | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
+  const [, setIsLoading] = useState(true);
 
   // Load the dictionary if language is provided
   useEffect(() => {

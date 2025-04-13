@@ -12,7 +12,7 @@ import PatternDetail from '@/components/design-patterns/PatternDetail';
 import CategoryButton from '@/components/design-patterns/CategoryButton';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 // Design Patterns Content Component
 const DesignPatternsContent = ({ 
@@ -20,10 +20,10 @@ const DesignPatternsContent = ({
   dictionary: propDictionary 
 }: { 
   lang: Locale, 
-  dictionary?: any 
+  dictionary?: any // eslint-disable-line @typescript-eslint/no-explicit-any
 }) => {
   // State for loading the dictionary if not provided as prop
-  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);
+  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);// eslint-disable-line @typescript-eslint/no-explicit-any
   const [isLoading, setIsLoading] = useState(!propDictionary);
   const [activeCategory, setActiveCategory] = useState('creational');
 
@@ -88,8 +88,7 @@ const DesignPatternsContent = ({
   };
 
   // Get translations or fallback to default text
-  const designPatternsTitle = dictionary?.designPatterns?.title || "Design Patterns";
-  const designPatternsSubtitle = dictionary?.designPatterns?.subtitle || "Design Patterns Implementation";
+  const designPatternsTitle = dictionary?.designPatterns?.title || "Design Patterns"; 
   const designPatternsDescription = dictionary?.designPatterns?.description || 
     "Throughout my career as a software developer, I've implemented numerous design patterns to solve complex problems with elegant, maintainable solutions. This catalog showcases practical examples of design patterns I've used in real-world applications.";
   const introTitle = dictionary?.designPatterns?.introTitle || "Introduction";

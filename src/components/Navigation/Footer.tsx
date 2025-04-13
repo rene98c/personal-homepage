@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, Globe } from 'lucide-react';
 import { Locale } from '@/lib/dictionaries';
 
 // Footer component that accepts a pre-loaded dictionary
-const Footer = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {
+const Footer = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// eslint-disable-line @typescript-eslint/no-explicit-any
   // Create navigation items using the dictionary
   const navigation = [
     { name: dictionary.common.home, href: `/${lang}` },

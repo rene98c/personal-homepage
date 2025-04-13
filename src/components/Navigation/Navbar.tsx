@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { Locale } from '@/lib/dictionaries';
 
 // Navbar component that accepts a pre-loaded dictionary
-const Navbar = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {
+const Navbar = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// eslint-disable-line @typescript-eslint/no-explicit-any
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 

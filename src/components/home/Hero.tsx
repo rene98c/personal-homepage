@@ -6,22 +6,22 @@ import Link from 'next/link';
 import { Locale, getDictionary } from '@/lib/dictionaries';
 
 // Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
+const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
 export const Hero = ({ 
   lang, 
   dictionary: propDictionary 
 }: { 
   lang: Locale, 
-  dictionary?: any 
+  dictionary?: any // eslint-disable-line @typescript-eslint/no-explicit-any
 }) => {
   const [loaded, setLoaded] = useState(false);
   const [viewportHeight, setViewportHeight] = useState('100vh');
   const maxHeight = '1440px'; // Set a reasonable maximum height
   
   // State for loading the dictionary if not provided as prop
-  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);
-  const [dictionaryLoading, setDictionaryLoading] = useState(!propDictionary);
+  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);// eslint-disable-line @typescript-eslint/no-explicit-any
+  const [, setDictionaryLoading] = useState(!propDictionary);
 
   // Load the dictionary if not provided as prop
   useEffect(() => {
