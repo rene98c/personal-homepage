@@ -5,7 +5,7 @@ import ContactForm from '@/components/contact/ContactForm';
 
 // Contact page component - This is a Server Component
 const ContactPage = async ({ params }: { params: { lang: Locale } }) => {
-  const { lang } = params;
+  const { lang } = await params;
   
   // Load dictionary on the server
   const dictionary = await getDictionary(lang);

@@ -12,7 +12,7 @@
   "home": {
     "hero": {
       "title": "Rene Prost",
-      "subtitle": "Lahendan keerulisi inseneeria väljakutseid kasutades domeenipõhist disaini ja puhast arhitektuuri.",
+      "subtitle": "Tegelen keerukate insenerialaste väljakutsetega, rakendades domeenipõhist disaini ja puhast arhitektuuri.",
       "cta": "Vaata juhtumiuuringut",
       "secondaryCta": "Võta ühendust"
     },
@@ -68,10 +68,10 @@
     "personal": {
       "title": "Isiklik perspektiiv",
       "subtitle": "Väljapool koodi",
-      "description1": "Usun, et erakordne kodeerimine on mõjusa tarkvara alus – kus selgus, fookus ja voolavus koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendun kõige ladusalt läbi koodi, kus satun sageli voolavusseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele probleemidele. Kodeerimine on minu jaoks kunsti vorm – ma kaotan ajataju, kui olen tsoonis, täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
-      "description2": "Kuigi võin leida verbaalset suhtlemist mõnikord väljakutsuvaks, olen osav keeruliste tehniliste kontseptsioonide väljendamisel kirjalikus vormis. Kasutan teistega koostöö tegemisel oma ideede selgeks ja tõhusaks väljendamiseks erinevaid tööriistu, sealhulgas tehisintellekti.",
-      "description3": "Asun Tartu linna lähedal kaunis maapiirkonnas, Eestis. See asukoht pakub mulle täiuslikku tasakaalu keskendunud töökeskkonna ja vajadusel ligipääsu elujõulisele tehnoloogiakogukonnale.",
-      "description4": "Väljaspool kodeerimist naudin uute tehnoloogiate uurimist, tarkvara arhitektuuri lugemist ja oma oskuste pidevat täiendamist, et püsida tööstuse esirinnas. Kuigi olen praegu professionaalses rollis, olen alati avatud huvitavate projektide ja võimaluste arutamiseks."
+      "description1": "Usun, et erakordne programmeerimine on mõjusa tarkvara alus – seal, kus selgus, fookus ja voog koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendan end kõige loomulikumalt läbi koodi – tihti satun vooseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele ülesannetele. Programmeerimine on minu jaoks kunstivorm – kaotan ajataju, kui olen 'tsoonis' ja täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
+      "description2": "Kuigi verbaalne suhtlus võib mulle kohati keeruline tunduda, oskan keerukaid tehnilisi mõisteid hästi kirjalikult edasi anda. Kasutan erinevaid tööriistu – sealhulgas tehisintellekti –, et oma ideid koostöös selgelt ja tulemuslikult väljendada.",
+      "description3": "Elan Eestis, kaunis maapiirkonnas Tartu linna lähedal. See asukoht pakub ideaalset tasakaalu keskendumist soodustava töökeskkonna ja vajadusel elava tehnoloogiakogukonna vahel.",
+      "description4": "Väljaspool programmeerimist naudin uute tehnoloogiate avastamist, tarkvaraarhitektuuri uurimist ning pidevat enesetäiendamist, et püsida valdkonna tipus. Kuigi töötan hetkel professionaalses rollis, olen alati avatud huvitavatele projektidele ja koostöövõimalustele."
     },
     "cta": {
       "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
@@ -82,7 +82,7 @@
   },
   "contact": {
     "title": "Võta ühendust",
-    "description": "Kuigi olen praegu professionaalses rollis, olen avatud huvitavate projektide, tehniliste väljakutsete arutamiseks või ühenduste loomiseks teiste arendajatega. Eelistan kirjalikku suhtlust, kus saan tehnilisi ideid selgelt ja mõtestatult väljendada.",
+    "description": "Kuigi tegutsen hetkel professionaalses rollis, olen avatud huvitavatele projektidele, tehnilistele väljakutsetele ja kontaktide loomisele teiste arendajatega. Eelistan kirjalikku suhtlust, mis võimaldab mul tehnilisi ideid selgelt ja läbimõeldult väljendada.",
     "note": "Loen iga sõnumit isiklikult. Ära muretse formaalsuste pärast — ütle lihtsalt tere 👋",
     "form": {
       "name": "Nimi",
@@ -110,14 +110,14 @@
   "experience": {
     "title": "Kogemus",
     "journeyTitle": "Professionaalne Teekond",
-    "description": "Rohkem kui 20-aastase tarkvaraarenduse kogemusega olen töötanud erinevates tööstusharudes ja projektides, pakkudes järjekindlalt töökindlaid, hästi disainitud lahendusi. Minu karjäär on keskendunud .NET arendusele alates 2003. aastast, ekspertiisiga veebiteenuste, taustasüsteemide ja kasutajaliideste loomisel.",
+    "description": "Rohkem kui 20-aastase tarkvaraarenduse kogemusega olen töötanud erinevates valdkondades ja projektides, pakkudes töökindlaid ja hästi läbimõeldud lahendusi. Minu karjäär on keskendunud .NET-arendusele alates 2003. aastast, hõlmates ekspertiisi veebiteenuste, taustsüsteemide ja kasutajaliideste loomisel.",
     "keyResponsibilities": "Peamised Vastutusalad",
     "downloadResume": "Laadi CV alla"
   },
   "certifications": {
     "title": "Professionaalne Areng",
     "subtitle": "Sertifikaadid ja Koolitused",
-    "description": "Olen investeerinud formaalsetesse koolitustesse ja sertifitseerimistesse, et täiendada oma praktilist kogemust, tagades, et minu tehnilised teadmised oleksid ajakohased ja põhjalikud.",
+    "description": "Mõned varasemad koolitused ja sertifikaadid on toetanud minu praktilise kogemuse kujunemist.",
     "issuedBy": "Väljastaja"
   },
   "education": {
@@ -128,7 +128,7 @@
   },
   "blog": {
     "title": "Blogi",
-    "description": "Mõtted tarkvaraarenduse, arhitektuuri, vastupidavuse ehitamise ja tehisintellekti areneva rolli kohta meie valdkonnas.",
+    "description": "Mõtted tarkvaraarendusest, süsteemiarhitektuurist, vastupidavuse kujundamisest ja tehisintellekti kasvavast mõjust meie töös.",
     "unedited": "Toimetamata",
     "readMore": "Loe edasi",
     "minRead": "min lugemine",
@@ -157,7 +157,7 @@
   "designPatterns": {
     "title": "Disainimustrid",
     "subtitle": "Disainimustrite Rakendamine",
-    "description": "Kogu oma tarkvaraarendaja karjääri jooksul olen rakendanud arvukalt disainimustreid, et lahendada keerulisi probleeme elegantse ja hooldatava koodiga. See kataloog näitab praktilisi näiteid disainimustritest, mida olen kasutanud reaalsetes rakendustes.",
+    "description": "Oma tarkvaraarendaja karjääri jooksul olen kasutanud arvukalt disainimustreid keerukate probleemide lahendamiseks elegantse ja hooldatava koodiga. See kataloog toob esile praktilised näited mustritest, mida olen rakendanud reaalsetes projektides.",
     "introTitle": "Sissejuhatus",
     "introDescription": "Disainimustrid on tõestatud lahendused sagedastele tarkvaradisaini väljakutsetele. Kasutades neid väljatöötatud mustreid, loon tugevat, paindlikku koodi, mis suudab kohaneda muutuvate nõuetega ja efektiivselt skaleeruda. See kataloog dokumenteerib minu praktilist kogemust oluliste mustritega erinevates kategooriates.",
     "introDescription2": "Siin näidatud mustrid peegeldavad mitte ainult teoreetilisi teadmisi, vaid praktilist kogemust nende lahenduste rakendamisel ja täiustamisel tootmissüsteemides. Iga implementatsioon on end tõestanud kriitilistes keskkondades.",
@@ -179,13 +179,13 @@
   },
   "homelab": {
     "title": "Minu Koduserveri Seadistus",
-    "description": "Isiklik mängumaa tehnoloogia uurimiseks, teenuste majutamiseks ja pidevaks õppimiseks",
+    "description": "Keskkond tehnoloogiaga katsetamiseks, teenuste majutamiseks ja pidevaks enesetäiendamiseks.",
     "personalProject": "Isiklik Projekt",
-    "intro1": "Kuigi pilveteenused pakuvad mugavust ja usaldusväärsust, hoian ma isiklikku koduserveri keskkonda, et katsetada tehnoloogiaid, majutada oma teenuseid ja omada täielikku kontrolli oma andmete üle. See projekt ühendab minu tehnoloogiakirge praktilise õppimisega viisil, mida kommertskeskkonnad sageli ei võimalda.",
-    "intro2": "Minu koduserver on aja jooksul arenenud ühest serverist mitme sõlmpunktiga kõrge saadavusega klasteriks, mis toetab erinevaid isiklikke ja professionaalseid teenuseid. See on pidev õppimiskogemus, mis täiendab minu professionaalset tarkvaraarendustööd praktiliste infrastruktuuri teadmistega.",
+    "intro1": "Kuigi pilveteenused pakuvad mugavust ja usaldusväärsust, olen loonud isikliku koduserveri keskkonna, et katsetada tehnoloogiaid, majutada oma teenuseid ja säilitada täielik kontroll oma andmete üle. See projekt ühendab minu tehnoloogiakire praktilise õppega viisil, mida kommertskeskkonnad sageli ei võimalda.",
+    "intro2": "Aja jooksul on minu koduserver arenenud ühest masinast mitme sõlmega kõrge saadavusega klasteriks, mis toetab erinevaid isiklikke ja professionaalseid teenuseid. See on pidev õppimiskogemus, mis täiendab minu professionaalset tarkvaraarendust praktilise infrastruktuuri alase teadmisega.",
     "infrastructure": "Infrastruktuur",
     "coreComponents": "Põhikomponendid",
-    "infrastructureDescription": "Minu koduserver on ehitatud usaldusväärse riistvara, virtualiseerimise ja võrgutehnoloogiate alusel, mis töötavad koos, et luua paindlik ja võimas keskkond.",
+    "infrastructureDescription": "Minu koduserver põhineb usaldusväärsel riistvaral, virtualiseerimisel ja võrgutehnoloogiatel, mis koos loovad paindliku ja võimsa keskkonna.",
     "proxmoxCluster": "Proxmox Klaster",
     "proxmoxDesc": "Kolme sõlmega kõrge käideldavusega Proxmox VE klaster teenuste sujuvaks migreerimiseks ja maksimaalseks tööajaks",
     "proxmoxDetail1": "Kolm kohandatud ehitatud serverisõlme Intel protsessoritega ja salvestuse liiasusega",
@@ -234,9 +234,9 @@
     "devEnvironmentsDesc": "Isoleeritud arendus- ja testimiskeskkonnad tarkvaraprojektide jaoks",
     "motivation": "Motivatsioon",
     "whyMaintainHomelab": "Miks Ma Hoian Koduserveri Keskkonda",
-    "motivationParagraph1": "Koduserveri keskkonna hoidmine pole vajalikkuse või kuluefektiivsuse küsimus – see on kirg tehnoloogia vastu ja pidev õppimine. Komponentide uurimise, serverite ehitamise, virtualiseerimise konfigureerimise ja teenuste rakendamise protsess pakub praktilisi kogemusi, mis täiendavad minu professionaalset tööd.",
-    "motivationParagraph2": "Kuigi oleks lihtsam kasutada pilveteenuseid, väärtustan ma täielikku kontrolli oma andmete üle ja sügavat arusaama infrastruktuurist, mis tuleb kõige ise ehitamisest. See on tehniline mänguväljak, kus saan katsetada uusi tehnoloogiaid, konfiguratsioone ja seadistusi viisidel, mis poleks tootmiskeskkonnas võimalikud.",
-    "motivationParagraph3": "See projekt on täiendanud minu arusaama süsteemiarhitektuurist ja infrastruktuurist viisidel, mis tõlgenduvad otseselt minu töösse tarkvaraarendajana. Omades lähedast teadmist, kuidas alusüsteemid töötavad, aitab mul ehitada tõhusamat, usaldusväärsemat tarkvara.",
+    "motivationParagraph1": "Koduserveri keskkonna hoidmine ei ole vajadusest või kuluefektiivsusest tingitud – see on kirg tehnoloogia vastu ja pidev eneseareng. Komponentide uurimine, serverite ehitamine, virtualiseerimise seadistamine ja teenuste juurutamine pakuvad väärtuslikku praktilist kogemust, mis täiendab minu professionaalset tööd.",
+    "motivationParagraph2": "Kuigi pilveteenuseid oleks lihtsam kasutada, hindan ma täielikku kontrolli oma andmete üle ja sügavat arusaama infrastruktuurist, mis tuleb kõike ise üles ehitades. See on minu tehniline mänguväljak, kus saan katsetada uusi tehnoloogiaid, konfiguratsioone ja seadistusi viisidel, mis poleks tootmiskeskkonnas võimalikud.",
+    "motivationParagraph3": "See projekt on oluliselt laiendanud minu arusaama süsteemiarhitektuurist ja infrastruktuurist viisil, mis avaldub otseselt minu töös tarkvaraarendajana. Lähedane teadmine sellest, kuidas alusüsteemid toimivad, aitab mul luua tõhusamat ja töökindlamat tarkvara.",
     "skillsDeveloped": "Arendatud Oskused:",
     "learningOutcome1": "Sügav arusaam virtualiseerimise tehnoloogiatest ja nende piirangutest",
     "learningOutcome2": "Praktiline kogemus kõrge käideldavusega konfiguratsioonide ja tõrkesiirdega",

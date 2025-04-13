@@ -3,7 +3,7 @@ import { Locale, getDictionary } from '@/lib/dictionaries';
 import HomelabContent from '@/components/homelab/HomelabContent';
 
 const HomelabPage = async ({ params }: { params: { lang: Locale } }) => {
-  const { lang } = params;
+  const { lang } = await params;
   const dictionary = await getDictionary(lang);
 
   return (

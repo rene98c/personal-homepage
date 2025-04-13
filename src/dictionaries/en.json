@@ -110,14 +110,14 @@
   "experience": {
     "title": "Experience",
     "journeyTitle": "Professional Journey",
-    "description": "With over 20 years of software development experience, I've worked across a variety of industries and projects, consistently delivering robust, well-designed solutions. My career has focused on .NET development since 2003, with expertise in building web services, backend systems, and user interfaces.",
+    "description": "With over 20 years of software development experience, I've worked across various industries and projects, consistently delivering robust and thoughtfully designed solutions. Since 2003, my career has been centered on .NET development, with expertise in building web services, backend systems, and user interfaces.",
     "keyResponsibilities": "Key Responsibilities",
     "downloadResume": "Download Resume"
   },
   "certifications": {
     "title": "Professional Development",
     "subtitle": "Certifications & Training",
-    "description": "I've invested in formal training and certifications to complement my practical experience, ensuring my technical knowledge stays current and comprehensive.",
+    "description": "Some early training and certifications have supported the development of my hands-on experience.",
     "issuedBy": "Issued by"
   },
   "education": {
