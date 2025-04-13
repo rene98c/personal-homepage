@@ -1,5 +1,4 @@
 // src/app/[lang]/layout.tsx
-import type { Metadata } from 'next';
 import { Analytics } from "@vercel/analytics/react";
 import { StructuredData } from '@/components/StructuredData';
 import { Inter } from 'next/font/google';
@@ -7,50 +6,26 @@ import Navbar from '@/components/Navigation/Navbar';
 import Footer from '@/components/Navigation/Footer';
 import '../globals.css';
 import { Locale, getDictionary } from '@/lib/dictionaries';
+import { generateRootLayoutMetadata } from '@/lib/metadata';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Rene Prost - Software Developer Portfolio',
-  description: 'Senior C#/.NET developer with 20+ years of experience building robust, maintainable software systems, specializing in Clean Architecture and Design Patterns.',
-  keywords: 'software developer, C#, .NET, design patterns, clean architecture, backend development, Rene Prost',
-  authors: [{ name: 'Rene Prost' }],
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://reneprost.ee',
-    siteName: 'Rene Prost - Software Developer Portfolio',
-    title: 'Rene Prost - Senior C#/.NET Developer',
-    description: 'C#/.NET specialist with expertise in robust, maintainable software systems and clean architecture',
-    images: [
-      {
-        url: 'https://reneprost.ee/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Rene Prost - Software Developer'
-      }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Rene Prost - Senior C#/.NET Developer',
-    description: 'C#/.NET specialist with expertise in robust, maintainable software systems and clean architecture',
-    images: ['https://reneprost.ee/og-image.jpg']
-  },
-  robots: {
-    index: true,
-    follow: true
-  }
-};
-
-export async function generateStaticParams() {
-  // Generate versions for all supported languages
-  return [{ lang: 'en' }, { lang: 'et' }];
+// Generate dynamic metadata based on the language
+export async function generateMetadata({ params }: { params: { lang: string } }) {
+  // Ensure lang is a valid locale
+  const awaitedParams = await params;
+  const lang = isValidLang(awaitedParams.lang) ? awaitedParams.lang : 'en';
+  return generateRootLayoutMetadata(lang as Locale);
 }
 
 // Validate that the lang param is a supported locale
 function isValidLang(lang: string): lang is Locale {
   return ['en', 'et'].includes(lang);
+}
+
+export async function generateStaticParams() {
+  // Generate versions for all supported languages
+  return [{ lang: 'en' }, { lang: 'et' }];
 }
 
 export default async function RootLayout({
