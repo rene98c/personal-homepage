@@ -76,7 +76,7 @@ export const Hero = () => {
               </h1>
               
               <p className={`mt-4 md:mt-6 text-lg md:text-xl font-medium text-pretty text-gray-700 transition-all duration-700 delay-150 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                C#/.NET specialist with 20+ years of experience crafting robust, maintainable systems that power real-world solutions.
+                I solve complex engineering challenges using domain-driven design and clean architecture.
               </p>
               
               <div className={`mt-6 md:mt-10 flex items-center gap-x-6 transition-opacity duration-700 delay-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}>

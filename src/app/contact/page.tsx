@@ -129,6 +129,9 @@ const ContactPage = () => {
               interesting projects, technical challenges, or connecting with fellow developers. 
               I prefer written communication where I can articulate technical ideas clearly and thoughtfully.
             </p>
+            <p className="mt-4 text-lg leading-8 text-indigo-600 italic">
+              I read every message personally. Don&apos;t worry about formalities — just say hello 👋
+            </p>
             <dl className="mt-10 space-y-6 text-base leading-7 text-gray-600">
               <div className="flex gap-x-4">
                 <dt className="flex-none">

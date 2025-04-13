@@ -13,6 +13,7 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/', current: pathname === '/' },
     { name: 'Experience', href: '/experience', current: pathname === '/experience' },
+    { name: 'Blog', href: '/blog', current: pathname === '/blog' || pathname.startsWith('/blog/') },
     { name: 'Case Study', href: '/case-study', current: pathname === '/case-study' },
     { name: 'Design Patterns', href: '/design-patterns', current: pathname === '/design-patterns' },
     { name: 'Homelab', href: '/homelab', current: pathname === '/homelab' },
