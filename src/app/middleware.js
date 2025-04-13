@@ -4,7 +4,7 @@ import Negotiator from 'negotiator';
 
 // Define supported locales
 const supportedLocales = ['en', 'et']; // English and Estonian
-const defaultLocale = 'en';
+const defaultLocale = 'et';
 
 // Get the preferred locale from the request
 function getLocale(request) {
