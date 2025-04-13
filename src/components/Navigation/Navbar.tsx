@@ -1,57 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe } from 'lucide-react';
 import Image from 'next/image';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import { Locale } from '@/lib/dictionaries';
 
-// Pre-load dictionaries to avoid needing to await in client components
-const dictionaryCache: Record<string, any> = {};
-
-// Navbar component 
-const Navbar = ({ lang }: { lang: Locale }) => {
+// Navbar component that accepts a pre-loaded dictionary
+const Navbar = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dictionary, setDictionary] = useState<any | null>(null);
   const pathname = usePathname();
-
-  // Load the dictionary
-  useEffect(() => {
-    async function loadDictionary() {
-      if (dictionaryCache[lang]) {
-        setDictionary(dictionaryCache[lang]);
-        return;
-      }
-
-      try {
-        const dict = await getDictionary(lang);
-        dictionaryCache[lang] = dict;
-        setDictionary(dict);
-      } catch (error) {
-        console.error('Failed to load dictionary:', error);
-      }
-    }
-    
-    loadDictionary();
-  }, [lang]);
 
   // Get the path without the language prefix
   const pathWithoutLang = pathname.replace(`/${lang}`, '');
 
-  // Default navigation (when dictionary isn't loaded yet)
-  const defaultNavigation = [
-    { name: 'Home', href: `/${lang}`, current: pathWithoutLang === '' },
-    { name: 'Experience', href: `/${lang}/experience`, current: pathWithoutLang === '/experience' },
-    { name: 'Blog', href: `/${lang}/blog`, current: pathWithoutLang === '/blog' || pathWithoutLang.startsWith('/blog/') },
-    { name: 'Case Study', href: `/${lang}/case-study`, current: pathWithoutLang === '/case-study' },
-    { name: 'Design Patterns', href: `/${lang}/design-patterns`, current: pathWithoutLang === '/design-patterns' },
-    { name: 'Homelab', href: `/${lang}/homelab`, current: pathWithoutLang === '/homelab' },
-    { name: 'Contact', href: `/${lang}/contact`, current: pathWithoutLang === '/contact' },
-  ];
-
-  // Use dictionary if available, otherwise fall back to default navigation
-  const navigation = dictionary ? [
+  // Create navigation items using the dictionary
+  const navigation = [
     { name: dictionary.common.home, href: `/${lang}`, current: pathWithoutLang === '' },
     { name: dictionary.common.experience, href: `/${lang}/experience`, current: pathWithoutLang === '/experience' },
     { name: dictionary.common.blog, href: `/${lang}/blog`, current: pathWithoutLang === '/blog' || pathWithoutLang.startsWith('/blog/') },
@@ -59,7 +24,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
     { name: dictionary.common.designPatterns, href: `/${lang}/design-patterns`, current: pathWithoutLang === '/design-patterns' },
     { name: dictionary.common.homelab, href: `/${lang}/homelab`, current: pathWithoutLang === '/homelab' },
     { name: dictionary.common.contact, href: `/${lang}/contact`, current: pathWithoutLang === '/contact' },
-  ] : defaultNavigation;
+  ];
 
   // Languages for the language switcher
   const languages = [
@@ -134,7 +99,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
             href={`mailto:rene@bdec.ee`} 
             className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
-            {dictionary ? dictionary.common.getInTouch : 'Get in touch'} <span aria-hidden="true">&rarr;</span>
+            {dictionary.common.getInTouch} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -204,7 +169,7 @@ const Navbar = ({ lang }: { lang: Locale }) => {
                     href="mailto:rene@bdec.ee"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    {dictionary ? dictionary.common.getInTouch : 'Get in touch'}
+                    {dictionary.common.getInTouch}
                   </a>
                 </div>
               </div>

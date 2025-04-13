@@ -1,54 +1,19 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Github, Linkedin, Mail, Globe } from 'lucide-react';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import { Locale } from '@/lib/dictionaries';
 
-// Pre-load dictionaries to avoid waiting in client components
-const dictionaryCache: Record<string, any> = {};
-
-// Footer component
-const Footer = ({ lang }: { lang: Locale }) => {
-  const [dictionary, setDictionary] = useState<any | null>(null);
-
-  // Load the dictionary
-  useEffect(() => {
-    async function loadDictionary() {
-      if (dictionaryCache[lang]) {
-        setDictionary(dictionaryCache[lang]);
-        return;
-      }
-
-      try {
-        const dict = await getDictionary(lang);
-        dictionaryCache[lang] = dict;
-        setDictionary(dict);
-      } catch (error) {
-        console.error('Failed to load dictionary:', error);
-      }
-    }
-    
-    loadDictionary();
-  }, [lang]);
-
-  // Default navigation when dictionary isn't loaded yet
-  const defaultNavigation = [
-    { name: 'Home', href: `/${lang}` },
-    { name: 'Experience', href: `/${lang}/experience` },
-    { name: 'Case Study', href: `/${lang}/case-study` },
-    { name: 'Design Patterns', href: `/${lang}/design-patterns` },
-    { name: 'Contact', href: `/${lang}/contact` },
-  ];
-
-  // Use dictionary if available, otherwise fall back to default navigation
-  const navigation = dictionary ? [
+// Footer component that accepts a pre-loaded dictionary
+const Footer = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {
+  // Create navigation items using the dictionary
+  const navigation = [
     { name: dictionary.common.home, href: `/${lang}` },
     { name: dictionary.common.experience, href: `/${lang}/experience` },
     { name: dictionary.common.caseStudy, href: `/${lang}/case-study` },
     { name: dictionary.common.designPatterns, href: `/${lang}/design-patterns` },
     { name: dictionary.common.contact, href: `/${lang}/contact` },
-  ] : defaultNavigation;
+  ];
 
   const social = [
     {

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Mail, Github, Linkedin, MapPin, Send, AlertCircle } from 'lucide-react';
 import { Locale } from '@/lib/dictionaries';
 
-// Contact form component
+// Contact form component that accepts a pre-loaded dictionary
 const ContactForm = ({ lang, dictionary }: { lang: Locale, dictionary: any }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,8 +20,6 @@ const ContactForm = ({ lang, dictionary }: { lang: Locale, dictionary: any }) =>
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

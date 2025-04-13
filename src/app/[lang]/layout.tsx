@@ -1,3 +1,4 @@
+// src/app/[lang]/layout.tsx
 import type { Metadata } from 'next';
 import { Analytics } from "@vercel/analytics/react";
 import { StructuredData } from '@/components/StructuredData';
@@ -5,7 +6,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navigation/Navbar';
 import Footer from '@/components/Navigation/Footer';
 import '../globals.css';
-import { Locale } from '@/lib/dictionaries';
+import { Locale, getDictionary } from '@/lib/dictionaries';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -59,10 +60,11 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
-
-    var awaitedParams = await params;
   // Validate lang param - fallback to 'en' if invalid
-  const lang = isValidLang(awaitedParams.lang) ? awaitedParams.lang : 'en';
+  const lang = isValidLang(params.lang) ? params.lang : 'en';
+  
+  // Load dictionary on the server to pass to client components
+  const dictionary = await getDictionary(lang);
 
   return (
     <html lang={lang} className="h-full bg-white">
@@ -71,13 +73,13 @@ export default async function RootLayout({
         <Analytics />
         
         <div className="min-h-screen flex flex-col">
-          <Navbar lang={lang} />
+          <Navbar lang={lang} dictionary={dictionary} />
           
           <main className="flex-grow">
             {children}
           </main>
           
-          <Footer lang={lang} />
+          <Footer lang={lang} dictionary={dictionary} />
         </div>
       </body>
     </html>
