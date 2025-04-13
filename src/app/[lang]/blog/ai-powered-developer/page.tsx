@@ -1,8 +1,9 @@
 import React from 'react';
-import { Locale, getDictionary } from '@/lib/dictionaries';
-import AIPoweredDeveloperPost from '@/components/blog/posts/AIPoweredDeveloperPost';
+import {   getDictionary } from '@/lib/dictionaries';
+import AIPoweredDeveloperPost from '@/components/blog/posts/AiPoweredDeveloperPost';
 
-const AIPoweredDeveloperPage = async ({ params }: { params: { lang: Locale } }) => {
+
+const AIPoweredDeveloperPage = async ({ params }: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
   const { lang } = params;
   const dictionary = await getDictionary(lang);
 

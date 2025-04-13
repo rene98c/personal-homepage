@@ -7,7 +7,7 @@ import { Locale, getDictionary } from '@/lib/dictionaries';
 // Pre-load dictionaries to avoid waiting in client components
 const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
-const AIPoweredDeveloperPost = ({ 
+export const AIPoweredDeveloperPost = ({ 
   lang, 
   dictionary: propDictionary 
 }: { 

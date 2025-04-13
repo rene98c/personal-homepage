@@ -1,8 +1,8 @@
 import React from 'react';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import {  getDictionary } from '@/lib/dictionaries';
 import RawThoughtsBlogPost from '@/components/blog/posts/RawThoughtsBlogPost';
 
-const RawThoughtsBlogPostPage = async ({ params }: { params: { lang: Locale } }) => {
+const RawThoughtsBlogPostPage = async ({ params }: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
   const { lang } = params;
   const dictionary = await getDictionary(lang);
 

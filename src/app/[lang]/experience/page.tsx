@@ -1,9 +1,9 @@
 import React from 'react';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import {   getDictionary } from '@/lib/dictionaries';
 import ExperienceTimeline from '@/components/experience/ExperienceTimeline';
 
 // Experience page component
-const ExperiencePage = async ({ params }: { params: { lang: Locale } }) => {
+const ExperiencePage = async ({ params }: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
 

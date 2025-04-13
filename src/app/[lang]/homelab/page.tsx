@@ -1,8 +1,8 @@
 import React from 'react';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import { getDictionary } from '@/lib/dictionaries';
 import HomelabContent from '@/components/homelab/HomelabContent';
 
-const HomelabPage = async ({ params }: { params: { lang: Locale } }) => {
+const HomelabPage = async ({ params }: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
 

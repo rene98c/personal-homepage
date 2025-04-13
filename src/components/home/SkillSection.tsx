@@ -21,7 +21,10 @@ export const SkillSection = ({ lang }: { lang?: Locale }) => {
 
     async function loadDictionary() {
       setIsLoading(true);
-      
+      if (!lang) {
+        setIsLoading(false);
+        return;
+      }
       if (dictionaryCache[lang]) {
         setDictionary(dictionaryCache[lang]);
         setIsLoading(false);

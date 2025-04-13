@@ -1,8 +1,8 @@
 import React from 'react';
-import { Locale, getDictionary } from '@/lib/dictionaries';
+import {   getDictionary } from '@/lib/dictionaries';
 import CaseStudyContent from '@/components/case-study/CaseStudyContent';
 
-const CaseStudyPage = async ({ params }: { params: { lang: Locale } }) => {
+const CaseStudyPage = async ({ params }: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
 

@@ -200,7 +200,7 @@ const ExperienceTimeline = ({
       </div>
       
       {/* New sections from the CV */}
-      <ExpandedSkillsSection lang={lang} />
+      <ExpandedSkillsSection   />
       <CertificationsSection lang={lang} />
       <EducationSection lang={lang} />
     </>
