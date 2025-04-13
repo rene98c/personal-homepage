@@ -19,7 +19,7 @@
     "stats": {
       "title": "Professionaalne teekond",
       "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sealhulgas valitsussüsteemid, transport ja ettevõtete lahendused.",
-      "description2": "Minu lähenemine tarkvaraarendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on ka piisavalt paindlik, et aja jooksul areneda.",
+      "description2": "Minu lähenemine tarkvara arendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on ka piisavalt paindlik, et aja jooksul areneda.",
       "experience": "Aastat kogemust",
       "projects": "Projektides osalenud",
       "technologies": "Tehnoloogiat valdamas"
@@ -41,7 +41,7 @@
       },
       "testing": {
         "title": "Testimine ja kvaliteet",
-        "description": "Rakendan põhjalikke testimisstrateegiaid, alates ühiktestidest kuni integratsioonitestide ja stsenaariumipõhise valideerimiseni."
+        "description": "Rakendan põhjalikke testimisstrateegiaid, alates üksustestidest kuni integratsiooni- ja stsenaariumipõhiste testideni välja."
       }
     },
     "philosophy": {
@@ -54,7 +54,7 @@
       },
       "item2": {
         "title": "Vastupidav disain",
-        "description": "Ehitan süsteeme, kuhu vastupidavus on sisse ehitatud algusest peale, mitte järelmõttena. Katkestusringid, kordusstrateegia ja sujuv degradatsioon on minu rakenduslähenemise lahutamatud osad."
+        "description": "Ehitan süsteeme, kuhu vastupidavus on sisse ehitatud algusest peale, mitte järelmõttena. katkestusahelad, kordusstrateegia ja sujuv degradatsioon on minu rakenduslähenemise lahutamatud osad."
       },
       "item3": {
         "title": "Praktilised mustrid",
@@ -110,7 +110,7 @@
   "experience": {
     "title": "Kogemus",
     "journeyTitle": "Professionaalne Teekond",
-    "description": "Rohkem kui 20-aastase tarkvaraarenduse kogemusega olen töötanud erinevates valdkondades ja projektides, pakkudes töökindlaid ja hästi läbimõeldud lahendusi. Minu karjäär on keskendunud .NET-arendusele alates 2003. aastast, hõlmates ekspertiisi veebiteenuste, taustsüsteemide ja kasutajaliideste loomisel.",
+    "description": "Rohkem kui 20-aastase tarkvara arenduse kogemusega olen töötanud erinevates valdkondades ja projektides, pakkudes töökindlaid ja hästi läbimõeldud lahendusi. Minu karjäär on keskendunud .NET-arendusele alates 2003. aastast, hõlmates ekspertiisi veebiteenuste, taustsüsteemide ja kasutajaliideste loomisel.",
     "keyResponsibilities": "Peamised Vastutusalad",
     "downloadResume": "Laadi CV alla"
   },
@@ -123,12 +123,12 @@
   "education": {
     "title": "Hariduslik Taust",
     "subtitle": "Akadeemiline Alus",
-    "attended": "Õppis",
-    "completed": "Lõpetas"
+    "attended": "Õppinud",
+    "completed": "Lõpetanud"
   },
   "blog": {
     "title": "Blogi",
-    "description": "Mõtted tarkvaraarendusest, süsteemiarhitektuurist, vastupidavuse kujundamisest ja tehisintellekti kasvavast mõjust meie töös.",
+    "description": "Mõtted tarkvara arendusest, süsteemiarhitektuurist, vastupidavuse kujundamisest ja tehisintellekti kasvavast mõjust meie töös.",
     "unedited": "Toimetamata",
     "readMore": "Loe edasi",
     "minRead": "min lugemine",
@@ -149,7 +149,7 @@
     "results": "Tulemused",
     "codeImplementation": "Koodi Implementatsioon",
     "architectureCategory": "Arhitektuur ja Disain",
-    "developmentCategory": "Tarkvaraarenduse Protsess",
+    "developmentCategory": "Tarkvara arenduse Protsess",
     "resilienceCategory": "Vastupidavus ja DevOps",
     "methodologiesCategory": "Metoodikad ja Parimad Praktikad",
     "referencesFooter": "Need viited esindavad akadeemilisi ja professionaalseid aluseid metoodikatest, mustritest ja lähenemisviisidest, mida projektinäite ja kogu portfoolios demonstreeritakse."
@@ -182,7 +182,7 @@
     "description": "Keskkond tehnoloogiaga katsetamiseks, teenuste majutamiseks ja pidevaks enesetäiendamiseks.",
     "personalProject": "Isiklik Projekt",
     "intro1": "Kuigi pilveteenused pakuvad mugavust ja usaldusväärsust, olen loonud isikliku koduserveri keskkonna, et katsetada tehnoloogiaid, majutada oma teenuseid ja säilitada täielik kontroll oma andmete üle. See projekt ühendab minu tehnoloogiakire praktilise õppega viisil, mida kommertskeskkonnad sageli ei võimalda.",
-    "intro2": "Aja jooksul on minu koduserver arenenud ühest masinast mitme sõlmega kõrge saadavusega klasteriks, mis toetab erinevaid isiklikke ja professionaalseid teenuseid. See on pidev õppimiskogemus, mis täiendab minu professionaalset tarkvaraarendust praktilise infrastruktuuri alase teadmisega.",
+    "intro2": "Aja jooksul on minu koduserver arenenud ühest masinast mitme sõlmega kõrge saadavusega klasteriks, mis toetab erinevaid isiklikke ja professionaalseid teenuseid. See on pidev õppimiskogemus, mis täiendab minu professionaalset tarkvara arendust praktilise infrastruktuuri alase teadmisega.",
     "infrastructure": "Infrastruktuur",
     "coreComponents": "Põhikomponendid",
     "infrastructureDescription": "Minu koduserver põhineb usaldusväärsel riistvaral, virtualiseerimisel ja võrgutehnoloogiatel, mis koos loovad paindliku ja võimsa keskkonna.",

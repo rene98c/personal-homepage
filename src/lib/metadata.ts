@@ -129,7 +129,7 @@ export async function generateBlogPageMetadata(locale: Locale): Promise<Metadata
     title_en: 'Blog - Rene Prost',
     title_et: 'Blogi - Rene Prost',
     description_en: 'Thoughts on software development, architecture, and resilience engineering.',
-    description_et: 'Mõtisklused tarkvaraarendusest, arhitektuurist ja vastupidavuse kujundamisest.',
+    description_et: 'Mõtisklused tarkvara arendusest, arhitektuurist ja vastupidavuse kujundamisest.',
     path: 'blog',
     locale,
     keywords_en: ['blog', 'software architecture', 'clean code'],

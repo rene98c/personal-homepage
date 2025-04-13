@@ -3,7 +3,7 @@
     "description": "Keskkond tehnoloogiaga katsetamiseks, teenuste majutamiseks ja pidevaks enesetäiendamiseks.",
     "personalProject": "Isiklik Projekt",
     "intro1": "Kuigi pilveteenused pakuvad mugavust ja usaldusväärsust, olen loonud isikliku koduserveri keskkonna, et katsetada tehnoloogiaid, majutada oma teenuseid ja säilitada täielik kontroll oma andmete üle. See projekt ühendab minu tehnoloogiakire praktilise õppega viisil, mida kommertskeskkonnad sageli ei võimalda.",
-    "intro2": "Aja jooksul on minu koduserver arenenud ühest masinast mitme sõlmega kõrge saadavusega klasteriks, mis toetab erinevaid isiklikke ja professionaalseid teenuseid. See on pidev õppimiskogemus, mis täiendab minu professionaalset tarkvaraarendust praktilise infrastruktuuri alase teadmisega.",
+    "intro2": "Aja jooksul on minu koduserver arenenud ühest masinast mitme sõlmega kõrge saadavusega klasteriks, mis toetab erinevaid isiklikke ja professionaalseid teenuseid. See on pidev õppimiskogemus, mis täiendab minu professionaalset tarkvara arendust praktilise infrastruktuuri alase teadmisega.",
     "infrastructure": "Infrastruktuur",
     "coreComponents": "Põhikomponendid",
     "infrastructureDescription": "Minu koduserver põhineb usaldusväärsel riistvaral, virtualiseerimisel ja võrgutehnoloogiatel, mis koos loovad paindliku ja võimsa keskkonna.",

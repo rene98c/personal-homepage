@@ -2,13 +2,13 @@
   "hero": {
       "title": "Rene Prost",
       "subtitle": "Lahendan keerukaid insenertehnilisi väljakutseid, kasutades domeenipõhist disaini ja puhast arhitektuuri.",
-      "cta": "Vaata projektinäide",
+      "cta": "Vaata projektinäidet",
       "secondaryCta": "Võta ühendust"
     },
     "stats": {
       "title": "Professionaalne teekond",
       "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sh avalik sektor, transport ja ettevõtete lahendused.",
-      "description2": "Minu lähenemine tarkvaraarendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on piisavalt paindlik, et ajas areneda.",
+      "description2": "Minu lähenemine tarkvara arendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on piisavalt paindlik, et ajas areneda.",
       "experience": "Aastat kogemust",
       "projects": "Projektides osalenud",
       "technologies": "Valdatud tehnoloogiad"
@@ -30,7 +30,7 @@
       },
       "testing": {
         "title": "Testimine ja kvaliteet",
-        "description": "Rakendan põhjalikke testimisstrateegiaid, alates üksustestidest kuni integratsiooni- ja stsenaariumitestideni."
+        "description": "Rakendan põhjalikke testimisstrateegiaid, alates üksustestidest kuni integratsiooni- ja stsenaariumipõhiste testideni välja."
       }
     },
     "philosophy": {
@@ -57,10 +57,10 @@
     "personal": {
       "title": "Isiklik perspektiiv",
       "subtitle": "Väljapool koodi",
-      "description1": "Usun, et erakordne kodeerimine on mõjusa tarkvara alus – kus selgus, fookus ja voolavus koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendun kõige ladusalt läbi koodi, kus satun sageli voolavusseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele probleemidele. Kodeerimine on minu jaoks kunsti vorm – ma kaotan ajataju, kui olen tsoonis, täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
+      "description1": "Usun, et erakordne kodeerimine on mõjusa tarkvara alus – kus selgus, fookus ja voolavus koonduvad, et lahendada keerulisi probleeme elegantselt. Ma väljendan end kõige loomulikumalt läbi koodi, kus sageli satun voolavusse, mis võimaldab mul luua elegantseid lahendusi keerulistele ülesannetele. Kodeerimine on minu jaoks kunstivorm – ma kaotan ajataju, kui olen 'tsoonis' ja täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
       "description2": "Kuigi verbaalne suhtlus võib mulle kohati keeruline tunduda, oskan keerukaid tehnilisi mõisteid hästi kirjalikult edasi anda. Kasutan erinevaid tööriistu – sealhulgas tehisintellekti –, et oma ideid koostöös teistega selgelt ja tõhusalt edasi anda.",
       "description3": "Elan Eestis, Tartu lähedal maal. See on rahulik ja inspireeriv keskkond, mis sobib hästi nii tööks kui puhkuseks.",
-      "description4": "Väljaspool kodeerimist naudin uute tehnoloogiate avastamist ja tarkvara arhitektuuri uurimist. Täiendan pidevalt oma oskusi, et püsida valdkonna tipus. Kuigi olen praegu hõivatud professionaalses rollis, olen alati avatud huvitavate projektide / võimaluste arutamiseks."
+      "description4": "Kodeerimisest vabal ajal naudin uute tehnoloogiate avastamist ja tarkvaraarhitektuuri uurimist. Arendan pidevalt oma oskusi, et olla kursis valdkonna arengutega. Kuigi olen praegu hõivatud professionaalses rollis, olen alati avatud huvitavate projektide / võimaluste arutamiseks."
     },
     "cta": {
       "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
