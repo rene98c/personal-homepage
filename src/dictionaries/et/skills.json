@@ -1,0 +1,12 @@
+{
+    "title": "Tehniline Tööriistakast",
+    "subtitle": "Oskused ja Pädevused",
+    "sections": {
+      "technical": "Tehniline Ekspertiis",
+      "technologies": "Tehnoloogiad ja Tööriistad",
+      "databases": "Andmebaasid",
+      "frontend": "Kasutajaliides",
+      "cloud": "Pilv ja Majutus",
+      "methodologies": "Metoodikad"
+    }
+  }

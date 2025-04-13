@@ -1,0 +1,15 @@
+{
+    "title": "Võta ühendust",
+    "description": "Kuigi tegutsen hetkel professionaalses rollis, olen avatud huvitavatele projektidele, tehnilistele väljakutsetele ja kontaktide loomisele teiste arendajatega. Eelistan kirjalikku suhtlust, mis võimaldab mul tehnilisi ideid selgelt ja läbimõeldult väljendada.",
+    "note": "Loen iga sõnumit isiklikult. Ära muretse formaalsuste pärast — ütle lihtsalt tere 👋",
+    "form": {
+      "name": "Nimi",
+      "email": "E-post",
+      "subject": "Teema",
+      "message": "Sõnum",
+      "submit": "Saada sõnum",
+      "sending": "Saadan...",
+      "success": "Sõnum edukalt saadetud",
+      "error": "Viga"
+    }
+  }

@@ -1,0 +1,13 @@
+{
+    "title": "Technical Toolkit",
+    "subtitle": "Skills & Expertise",
+    "description": "Throughout my career, I've developed expertise in a wide range of technologies, frameworks, and methodologies. Here's a detailed overview of my technical skills.",
+    "sections": {
+      "technical": "Technical Expertise",
+      "technologies": "Technologies & Tools",
+      "databases": "Databases",
+      "frontend": "Front-End",
+      "cloud": "Cloud & Hosting",
+      "methodologies": "Methodologies"
+    }
+  }

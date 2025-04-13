@@ -1,0 +1,71 @@
+{
+    "hero": {
+      "title": "Rene Prost",
+      "subtitle": "Tegelen keerukate insenerialaste väljakutsetega, rakendades domeenipõhist disaini ja puhast arhitektuuri.",
+      "cta": "Vaata juhtumiuuringut",
+      "secondaryCta": "Võta ühendust"
+    },
+    "stats": {
+      "title": "Professionaalne teekond",
+      "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sealhulgas valitsussüsteemid, transport ja ettevõtete lahendused.",
+      "description2": "Minu lähenemine tarkvaraarendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on ka piisavalt paindlik, et aja jooksul areneda.",
+      "experience": "Aastat kogemust",
+      "projects": "Projektides osalenud",
+      "technologies": "Tehnoloogiat valdamas"
+    },
+    "features": {
+      "title": "Tehniline tippkvaliteet",
+      "subtitle": "Minu põhipädevused",
+      "cleanArchitecture": {
+        "title": "Puhas arhitektuur",
+        "description": "Ehitan süsteeme selge kohustuste eristamisega, hoides domeenimudelit keskmes ja infrastruktuuri detaile servades. See lähenemine tagab hooldatavuse ja testitavuse."
+      },
+      "designPatterns": {
+        "title": "Disainimustrid",
+        "description": "Kasutan kehtestatud disainimustreid, et lahendada keerulisi probleeme tõhusalt, luues tugeva ja paindliku koodibaasi."
+      },
+      "resilience": {
+        "title": "Vastupidavuse inseneeria",
+        "description": "Disainin süsteeme, mis tulevad hästi toime tõrgetega, kasutades katkestusringe, korduskatseid ja sujuvat degradatsiooni."
+      },
+      "testing": {
+        "title": "Testimine ja kvaliteet",
+        "description": "Rakendan põhjalikke testimisstrateegiaid, alates ühiktestidest kuni integratsioonitestide ja stsenaariumipõhise valideerimiseni."
+      }
+    },
+    "philosophy": {
+      "title": "Minu lähenemine",
+      "subtitle": "Professionaalne filosoofia",
+      "description": "Minu lähenemise eristuvad aspektid – eriti selgesõnaline kriitilisuse klassifikatsioon, sihtotstarbeline testimistööriistad ja käsitsi alistamise disain – näitavad minu võimet kohandada kehtestatud mustreid spetsiaalsete valdkondade erinõuete täitmiseks.",
+      "item1": {
+        "title": "Arhitektuur esmalt",
+        "description": "Usun tugeva arhitektuurilise aluse loomisesse enne rakenduslikesse detailidesse süvenemist. See lähenemine tagab skaleeritavad, hooldatavad süsteemid, mis saavad kohaneda muutuvate nõuetega."
+      },
+      "item2": {
+        "title": "Vastupidav disain",
+        "description": "Ehitan süsteeme, kuhu vastupidavus on sisse ehitatud algusest peale, mitte järelmõttena. Katkestusringid, kordusstrateegia ja sujuv degradatsioon on minu rakenduslähenemise lahutamatud osad."
+      },
+      "item3": {
+        "title": "Praktilised mustrid",
+        "description": "Kasutan kehtestatud disainimustreid keeruliste probleemide lahendamiseks, kuid alati praktilise meelelaadiga. Eesmärk on puhas, hooldatav kood, mis lahendab reaalseid äriprobleeme tõhusalt."
+      },
+      "item4": {
+        "title": "Testitavad lahendused",
+        "description": "Disainin süsteeme testitavust silmas pidades, rakendades põhjalikke testimisstrateegiaid üksus-, integratsiooni- ja stsenaariumipõhiste lähenemiste lõikes."
+      }
+    },
+    "personal": {
+      "title": "Isiklik perspektiiv",
+      "subtitle": "Väljapool koodi",
+      "description1": "Usun, et erakordne programmeerimine on mõjusa tarkvara alus – seal, kus selgus, fookus ja voog koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendan end kõige loomulikumalt läbi koodi – tihti satun vooseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele ülesannetele. Programmeerimine on minu jaoks kunstivorm – kaotan ajataju, kui olen 'tsoonis' ja täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
+      "description2": "Kuigi verbaalne suhtlus võib mulle kohati keeruline tunduda, oskan keerukaid tehnilisi mõisteid hästi kirjalikult edasi anda. Kasutan erinevaid tööriistu – sealhulgas tehisintellekti –, et oma ideid koostöös selgelt ja tulemuslikult väljendada.",
+      "description3": "Elan Eestis, kaunis maapiirkonnas Tartu linna lähedal. See asukoht pakub ideaalset tasakaalu keskendumist soodustava töökeskkonna ja vajadusel elava tehnoloogiakogukonna vahel.",
+      "description4": "Väljaspool programmeerimist naudin uute tehnoloogiate avastamist, tarkvaraarhitektuuri uurimist ning pidevat enesetäiendamist, et püsida valdkonna tipus. Kuigi töötan hetkel professionaalses rollis, olen alati avatud huvitavatele projektidele ja koostöövõimalustele."
+    },
+    "cta": {
+      "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
+      "description": "Tutvu minu juhtumiuuringuga kriitilise ligipääsukontrolli süsteemi ehitamise kohta, et näha, kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
+      "primary": "Vaata juhtumiuuringut",
+      "secondary": "Võta ühendust"
+    }
+  }

@@ -1,0 +1,15 @@
+{
+    "title": "Get in touch",
+    "description": "While I'm currently engaged in a professional role, I'm open to discussing interesting projects, technical challenges, or connecting with fellow developers. I prefer written communication where I can articulate technical ideas clearly and thoughtfully.",
+    "note": "I read every message personally. Don't worry about formalities — just say hello 👋",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully",
+      "error": "Error"
+    }
+  }

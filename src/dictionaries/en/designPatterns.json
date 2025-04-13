@@ -1,0 +1,22 @@
+{
+    "title": "Design Patterns",
+    "description": "Throughout my career as a software developer, I've implemented numerous design patterns to solve complex problems with elegant, maintainable solutions. This catalog showcases practical examples of design patterns I've used in real-world applications.",
+    "introTitle": "Introduction",
+    "introDescription": "Design patterns represent proven solutions to common software design challenges. By leveraging these established patterns, I create robust, flexible code that can adapt to changing requirements and scale effectively. This catalog documents my hands-on experience with key patterns across different categories.",
+    "introDescription2": "The patterns demonstrated here reflect not just theoretical knowledge, but practical experience implementing and refining these solutions in production systems. Each implementation has been battle-tested in mission-critical environments.",
+    "creational": "Creational",
+    "structural": "Structural",
+    "behavioral": "Behavioral",
+    "architectural": "Architectural",
+    "resilience": "Resilience",
+    "testing": "Testing",
+    "creationalDescription": "Creational patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. These patterns provide flexibility in what gets created, how it gets created, and who creates it. They abstract the instantiation process, helping make a system independent of how its objects are created, composed, and represented.",
+    "structuralDescription": "Structural patterns deal with object composition, creating relationships between objects to form larger structures. These patterns help ensure that when one part of a system changes, the entire structure doesn't need to change. They help build flexible, loosely coupled systems that can be easily maintained and adapted to new requirements over time.",
+    "behavioralDescription": "Behavioral patterns are concerned with the assignment of responsibilities between objects and how they communicate. These patterns help make complex flows more manageable and improve communication between different objects. They characterize how objects interact and distribute responsibility, increasing flexibility in carrying out this communication.",
+    "architecturalDescription": "Architectural patterns address fundamental structural organization of software systems. These high-level patterns define the overall shape and structure of applications and guide the relationships between major components. They provide reusable solutions to commonly occurring organizational problems in software architecture.",
+    "resilienceDescription": "Resilience patterns help applications handle failures gracefully and continue functioning under adverse conditions. These patterns enable systems to recover from failures and maintain service even when components are degraded. They are essential for mission-critical systems that must maintain high availability and reliability, even when faced with transient failures or unexpected conditions.",
+    "testingDescription": "Testing patterns ensure software quality through systematic verification approaches. These patterns provide structured ways to create reliable tests and test environments for complex systems. They help in creating maintainable, repeatable tests that can verify application behavior across various scenarios, from unit testing to integration testing and end-to-end validation.",
+    "benefits": "Benefits",
+    "implementation": "Implementation",
+    "problem": "Problem"
+  }
