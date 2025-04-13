@@ -4,7 +4,7 @@ import ContactForm from '@/components/contact/ContactForm';
 
 // Contact page component
 const ContactPage = async ({ params }: { params: { lang: Locale } }) => {
-  const { lang } = params;
+  const { lang } = await params;
   const dictionary = await getDictionary(lang);
 
   return (

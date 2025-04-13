@@ -1,9 +1,67 @@
 'use client';
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Code, AlertCircle, Award, CheckCircle } from 'lucide-react';
+import { Locale, getDictionary } from '@/lib/dictionaries';
 
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
 
-export const PatternDetail = ({ name, problem, benefits, codeSnippet, category }: { name: string, problem: string, benefits: string[], codeSnippet: string, category: string }) => {
+interface PatternDetailProps {
+  name: string;
+  problem: string;
+  benefits: string[];
+  codeSnippet: string;
+  category: string;
+  lang?: Locale;
+}
+
+export const PatternDetail = ({ 
+  name, 
+  problem, 
+  benefits, 
+  codeSnippet, 
+  category,
+  lang
+}: PatternDetailProps) => {
+  const [dictionary, setDictionary] = useState<any | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load the dictionary if language is provided
+  useEffect(() => {
+    if (!lang) {
+      setIsLoading(false);
+      return;
+    }
+
+    async function loadDictionary() {
+      setIsLoading(true);
+      
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
+
+  // Get translations or fallback to default text
+  const benefitsLabel = dictionary?.designPatterns?.benefits || "Benefits";
+  const implementationLabel = dictionary?.designPatterns?.implementation || "Implementation";
+  const problemLabel = dictionary?.designPatterns?.problem || "Problem";
+
   const getCategoryBorderColor = () => {
     switch (category) {
       case 'creational':
@@ -33,14 +91,17 @@ export const PatternDetail = ({ name, problem, benefits, codeSnippet, category }
       <div className="mb-6">
         <div className="flex items-start gap-2">
           <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
-          <p className="text-gray-700">{problem}</p>
+          <div>
+            <p className="text-sm font-medium text-gray-500 mb-1">{problemLabel}</p>
+            <p className="text-gray-700">{problem}</p>
+          </div>
         </div>
       </div>
       
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-3">
           <Award className="w-5 h-5 text-green-600" />
-          <h4 className="text-lg font-medium text-gray-800">Benefits</h4>
+          <h4 className="text-lg font-medium text-gray-800">{benefitsLabel}</h4>
         </div>
         <ul className="space-y-3">
           {benefits.map((benefit, index) => (
@@ -53,7 +114,7 @@ export const PatternDetail = ({ name, problem, benefits, codeSnippet, category }
       </div>
       
       <div>
-        <h4 className="text-lg font-medium text-gray-800 mb-3">Implementation</h4>
+        <h4 className="text-lg font-medium text-gray-800 mb-3">{implementationLabel}</h4>
         <div className="bg-gray-900 border border-gray-700 text-gray-200 p-4 rounded overflow-x-auto">
           <pre className="whitespace-pre-wrap">
             <code className="text-sm">
@@ -66,4 +127,4 @@ export const PatternDetail = ({ name, problem, benefits, codeSnippet, category }
   );
 };
 
-export default PatternDetail; 
+export default PatternDetail;

@@ -1,6 +1,6 @@
 import React from 'react';
- 
-  // Category Button Component
+
+// Category Button Component
 export const CategoryButton = ({ text, isActive, onClick }: { text: string, isActive: boolean, onClick: () => void }) => {
   return (
     <button
@@ -15,4 +15,5 @@ export const CategoryButton = ({ text, isActive, onClick }: { text: string, isAc
     </button>
   );
 }; 
+
 export default CategoryButton;

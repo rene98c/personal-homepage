@@ -20,6 +20,8 @@ const ContactForm = ({ lang, dictionary }: { lang: Locale, dictionary: any }) =>
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
