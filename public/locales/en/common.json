@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "",
+    "experience": "",
+    "caseStudy": "",
+    "designPatterns": "",
+    "blog": "",
+    "contact": "",
+    "homelab": ""
+  },
+  "buttons": {
+    "readMore": "",
+    "contactMe": "",
+    "download": ""
+  },
+  "footer": {
+    "copyright": "© {year} All rights reserved"
+  }
+} 

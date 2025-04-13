@@ -1,0 +1,17 @@
+{
+  "title": "",
+  "subtitle": "",
+  "form": {
+    "name": "",
+    "email": "",
+    "subject": "",
+    "message": "",
+    "submit": "",
+    "success": "",
+    "error": ""
+  },
+  "social": {
+    "title": "",
+    "description": ""
+  }
+} 
