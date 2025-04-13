@@ -1,32 +1,82 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import Image from 'next/image';
+import { Locale, getDictionary } from '@/lib/dictionaries';
 
-// Navbar component inspired by examplestwui_header2.js
-const Navbar = () => {
+// Pre-load dictionaries to avoid needing to await in client components
+const dictionaryCache: Record<string, any> = {};
+
+// Navbar component 
+const Navbar = ({ lang }: { lang: Locale }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dictionary, setDictionary] = useState<any | null>(null);
   const pathname = usePathname();
 
-  const navigation = [
-    { name: 'Home', href: '/', current: pathname === '/' },
-    { name: 'Experience', href: '/experience', current: pathname === '/experience' },
-    { name: 'Blog', href: '/blog', current: pathname === '/blog' || pathname.startsWith('/blog/') },
-    { name: 'Case Study', href: '/case-study', current: pathname === '/case-study' },
-    { name: 'Design Patterns', href: '/design-patterns', current: pathname === '/design-patterns' },
-    { name: 'Homelab', href: '/homelab', current: pathname === '/homelab' },
-    { name: 'Contact', href: '/contact', current: pathname === '/contact' },
+  // Load the dictionary
+  useEffect(() => {
+    async function loadDictionary() {
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
+
+  // Get the path without the language prefix
+  const pathWithoutLang = pathname.replace(`/${lang}`, '');
+
+  // Default navigation (when dictionary isn't loaded yet)
+  const defaultNavigation = [
+    { name: 'Home', href: `/${lang}`, current: pathWithoutLang === '' },
+    { name: 'Experience', href: `/${lang}/experience`, current: pathWithoutLang === '/experience' },
+    { name: 'Blog', href: `/${lang}/blog`, current: pathWithoutLang === '/blog' || pathWithoutLang.startsWith('/blog/') },
+    { name: 'Case Study', href: `/${lang}/case-study`, current: pathWithoutLang === '/case-study' },
+    { name: 'Design Patterns', href: `/${lang}/design-patterns`, current: pathWithoutLang === '/design-patterns' },
+    { name: 'Homelab', href: `/${lang}/homelab`, current: pathWithoutLang === '/homelab' },
+    { name: 'Contact', href: `/${lang}/contact`, current: pathWithoutLang === '/contact' },
   ];
+
+  // Use dictionary if available, otherwise fall back to default navigation
+  const navigation = dictionary ? [
+    { name: dictionary.common.home, href: `/${lang}`, current: pathWithoutLang === '' },
+    { name: dictionary.common.experience, href: `/${lang}/experience`, current: pathWithoutLang === '/experience' },
+    { name: dictionary.common.blog, href: `/${lang}/blog`, current: pathWithoutLang === '/blog' || pathWithoutLang.startsWith('/blog/') },
+    { name: dictionary.common.caseStudy, href: `/${lang}/case-study`, current: pathWithoutLang === '/case-study' },
+    { name: dictionary.common.designPatterns, href: `/${lang}/design-patterns`, current: pathWithoutLang === '/design-patterns' },
+    { name: dictionary.common.homelab, href: `/${lang}/homelab`, current: pathWithoutLang === '/homelab' },
+    { name: dictionary.common.contact, href: `/${lang}/contact`, current: pathWithoutLang === '/contact' },
+  ] : defaultNavigation;
+
+  // Languages for the language switcher
+  const languages = [
+    { code: 'en', name: 'English' },
+    { code: 'et', name: 'Eesti' },
+  ];
+
+  // Function to get the URL with the switched language
+  const getLanguageSwitchUrl = (newLang: string) => {
+    return `/${newLang}${pathWithoutLang}`;
+  };
 
   return (
     <header className="bg-white">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            
+          <Link href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Rene Prost</span>
             <Image 
               src="/logo.png" 
@@ -58,12 +108,33 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
+          {/* Language Switcher */}
+          <div className="relative group">
+            <button className="flex items-center px-3 py-2 text-sm font-semibold text-gray-900 hover:text-indigo-600 border border-gray-200 rounded-md">
+              <Globe className="h-5 w-5 mr-1" />
+              <span>{languages.find(l => l.code === lang)?.name}</span>
+            </button>
+            <div className="absolute right-0 w-32 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              <div className="py-1">
+                {languages.map(language => (
+                  <Link
+                    key={language.code}
+                    href={getLanguageSwitchUrl(language.code)}
+                    className={`block px-4 py-2 text-sm ${lang === language.code ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-100'}`}
+                  >
+                    {language.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <a 
-            href="mailto:rene@bdec.ee" 
+            href={`mailto:rene@bdec.ee`} 
             className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
-            Get in touch <span aria-hidden="true">&rarr;</span>
+            {dictionary ? dictionary.common.getInTouch : 'Get in touch'} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -74,7 +145,7 @@ const Navbar = () => {
           <div className="fixed inset-0 z-50"></div>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5">
+                <Link href={`/${lang}`} className="-m-1.5 p-1.5">
                 <span className="sr-only">Rene Prost</span>
                 <Image 
                   src="/logo.png" 
@@ -110,11 +181,30 @@ const Navbar = () => {
                   ))}
                 </div>
                 <div className="py-6">
+                  {/* Language options in mobile menu */}
+                  <div className="mb-4">
+                    <p className="px-3 text-sm font-medium text-gray-500 mb-2">Language / Keel</p>
+                    <div className="space-y-1">
+                      {languages.map(language => (
+                        <Link
+                          key={language.code}
+                          href={getLanguageSwitchUrl(language.code)}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`flex items-center -mx-3 rounded-lg px-3 py-2 text-base font-semibold leading-7 ${
+                            lang === language.code ? 'bg-indigo-50 text-indigo-600' : 'text-gray-900 hover:bg-gray-50'
+                          }`}
+                        >
+                          <Globe className="h-5 w-5 mr-2 text-indigo-600" />
+                          {language.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                   <a
                     href="mailto:rene@bdec.ee"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Get in touch
+                    {dictionary ? dictionary.common.getInTouch : 'Get in touch'}
                   </a>
                 </div>
               </div>

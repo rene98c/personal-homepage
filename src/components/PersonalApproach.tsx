@@ -1,5 +1,43 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Locale, getDictionary } from '@/lib/dictionaries';
+
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
+
 // Personal Approach section to add to the homepage
-const PersonalApproach = () => {
+const PersonalApproach = ({ lang }: { lang: Locale }) => {
+  const [dictionary, setDictionary] = useState<any | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load the dictionary
+  useEffect(() => {
+    async function loadDictionary() {
+      setIsLoading(true);
+      
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang]);
+
+  // Default content to show while dictionary is loading
+  if (isLoading || !dictionary) {
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -10,32 +48,48 @@ const PersonalApproach = () => {
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl">
-            <p className="text-lg/8 text-gray-600 mb-6">
-              I believe exceptional coding is the foundation of impactful software — where clarity, focus, and flow converge to solve complex problems elegantly. 
-              I express myself most fluently through code, where I often enter a flow state that allows me to create elegant solutions to complex problems. 
-              Coding is an art form to me - I lose track of time when I&apos;m in the zone, fully immersed in crafting clean, efficient solutions.
-            </p>
-            
-            <p className="text-lg/8 text-gray-600 mb-6">
-              While I may find verbal communication challenging at times, I excel at expressing complex technical concepts in written form. 
-              I leverage various tools, including AI, to articulate my ideas clearly and effectively when collaborating with others.
-            </p>
-            
-            <p className="text-lg/8 text-gray-600 mb-6">
-              I&apos;m based in a beautiful rural area near the city of Tartu, Estonia. This location offers
-              me the perfect balance between focused work environment and access to a vibrant tech community
-              when needed.
-            </p>
-            
-            <p className="text-lg/8 text-gray-600">
-              Outside of coding, I enjoy exploring new technologies, reading about software architecture, and 
-              continuously enhancing my skills to stay at the forefront of the industry. While I&apos;m currently engaged
-              in a professional role, I&apos;m always open to discussing interesting projects and opportunities.
-            </p>
+            {/* Loading skeleton */}
+            <div className="animate-pulse">
+              <div className="h-4 bg-gray-200 rounded mb-6"></div>
+              <div className="h-4 bg-gray-200 rounded mb-6"></div>
+              <div className="h-4 bg-gray-200 rounded mb-6"></div>
+              <div className="h-4 bg-gray-200 rounded"></div>
+            </div>
           </div>
         </div>
       </div>
     );
-  };
-  
-  export default PersonalApproach;
+  }
+
+  return (
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base/7 font-semibold text-indigo-600">{dictionary.home.personal.title}</h2>
+          <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
+            {dictionary.home.personal.subtitle}
+          </p>
+        </div>
+        <div className="mx-auto mt-16 max-w-2xl">
+          <p className="text-lg/8 text-gray-600 mb-6">
+            {dictionary.home.personal.description1}
+          </p>
+          
+          <p className="text-lg/8 text-gray-600 mb-6">
+            {dictionary.home.personal.description2}
+          </p>
+          
+          <p className="text-lg/8 text-gray-600 mb-6">
+            {dictionary.home.personal.description3}
+          </p>
+          
+          <p className="text-lg/8 text-gray-600">
+            {dictionary.home.personal.description4}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PersonalApproach;

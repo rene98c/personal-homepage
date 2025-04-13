@@ -3,11 +3,53 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Locale, getDictionary } from '@/lib/dictionaries';
 
-export const Hero = () => {
+// Pre-load dictionaries to avoid waiting in client components
+const dictionaryCache: Record<string, any> = {};
+
+export const Hero = ({ 
+  lang, 
+  dictionary: propDictionary 
+}: { 
+  lang: Locale, 
+  dictionary?: any 
+}) => {
   const [loaded, setLoaded] = useState(false);
   const [viewportHeight, setViewportHeight] = useState('100vh');
   const maxHeight = '1440px'; // Set a reasonable maximum height
+  
+  // State for loading the dictionary if not provided as prop
+  const [dictionary, setDictionary] = useState<any | null>(propDictionary || null);
+  const [dictionaryLoading, setDictionaryLoading] = useState(!propDictionary);
+
+  // Load the dictionary if not provided as prop
+  useEffect(() => {
+    if (propDictionary) {
+      setDictionary(propDictionary);
+      return;
+    }
+
+    async function loadDictionary() {
+      if (dictionaryCache[lang]) {
+        setDictionary(dictionaryCache[lang]);
+        setDictionaryLoading(false);
+        return;
+      }
+
+      try {
+        const dict = await getDictionary(lang);
+        dictionaryCache[lang] = dict;
+        setDictionary(dict);
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+      } finally {
+        setDictionaryLoading(false);
+      }
+    }
+    
+    loadDictionary();
+  }, [lang, propDictionary]);
 
   // Effect to handle viewport height changes
   useEffect(() => {
@@ -37,6 +79,17 @@ export const Hero = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  // Default texts to use if dictionary is not loaded yet
+  const defaultTexts = {
+    title: "Rene Prost",
+    subtitle: "I solve complex engineering challenges using domain-driven design and clean architecture.",
+    cta: "View Case Study",
+    secondaryCta: "Contact Me"
+  };
+
+  // Get texts from dictionary or use defaults
+  const texts = dictionary?.home?.hero || defaultTexts;
 
   return (
     <>
@@ -84,22 +137,22 @@ export const Hero = () => {
                 </div>
                 
                 <h1 className={`mt-6 md:mt-10 text-4xl md:text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} text-glow`}>
-                  Rene Prost
+                  {texts.title}
                 </h1>
                 
                 <p className={`mt-4 md:mt-6 text-lg md:text-xl font-medium text-pretty text-gray-700 transition-all duration-700 delay-150 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} text-glow`}>
-                  I solve complex engineering challenges using domain-driven design and clean architecture.
+                  {texts.subtitle}
                 </p>
                 
                 <div className={`mt-6 md:mt-10 flex items-center gap-x-6 transition-opacity duration-700 delay-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
                   <Link
-                    href="/case-study"
+                    href={`/${lang}/case-study`}
                     className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm btn-glow transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-1 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    View Case Study
+                    {texts.cta}
                   </Link>
-                  <Link href="/contact" className="text-sm/6 font-semibold text-gray-900 group text-glow">
-                    Contact Me 
+                  <Link href={`/${lang}/contact`} className="text-sm/6 font-semibold text-gray-900 group text-glow">
+                    {texts.secondaryCta} 
                     <span className="inline-block transition-all duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                 </div>

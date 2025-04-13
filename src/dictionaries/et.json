@@ -1,0 +1,110 @@
+{
+  "common": {
+    "home": "Avaleht",
+    "experience": "Kogemus",
+    "blog": "Blogi",
+    "caseStudy": "Juhtumiuuring",
+    "designPatterns": "Disainimustrid",
+    "homelab": "Kodulabor",
+    "contact": "Kontakt",
+    "getInTouch": "Võta ühendust"
+  },
+  "home": {
+    "hero": {
+      "title": "Rene Prost",
+      "subtitle": "Lahendan keerulisi inseneeria väljakutseid kasutades domeenipõhist disaini ja puhast arhitektuuri.",
+      "cta": "Vaata juhtumiuuringut",
+      "secondaryCta": "Võta ühendust"
+    },
+    "stats": {
+      "title": "Professionaalne teekond",
+      "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sealhulgas valitsussüsteemid, transport ja ettevõtete lahendused.",
+      "description2": "Minu lähenemine tarkvaraarendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on ka piisavalt paindlik, et aja jooksul areneda.",
+      "experience": "Aastat kogemust",
+      "projects": "Projektides osalenud",
+      "technologies": "Tehnoloogiat valdamas"
+    },
+    "features": {
+      "title": "Tehniline tippkvaliteet",
+      "subtitle": "Minu põhipädevused",
+      "cleanArchitecture": {
+        "title": "Puhas arhitektuur",
+        "description": "Ehitan süsteeme selge kohustuste eristamisega, hoides domeenimudelit keskmes ja infrastruktuuri detaile servades. See lähenemine tagab hooldatavuse ja testitavuse."
+      },
+      "designPatterns": {
+        "title": "Disainimustrid",
+        "description": "Kasutan kehtestatud disainimustreid, et lahendada keerulisi probleeme tõhusalt, luues tugeva ja paindliku koodibaasi."
+      },
+      "resilience": {
+        "title": "Vastupidavuse inseneeria",
+        "description": "Disainin süsteeme, mis tulevad hästi toime tõrgetega, kasutades katkestusringe, korduskatseid ja sujuvat degradatsiooni."
+      },
+      "testing": {
+        "title": "Testimine ja kvaliteet",
+        "description": "Rakendan põhjalikke testimisstrateegiaid, alates ühiktestidest kuni integratsioonitestide ja stsenaariumipõhise valideerimiseni."
+      }
+    },
+    "philosophy": {
+      "title": "Minu lähenemine",
+      "subtitle": "Professionaalne filosoofia",
+      "description": "Minu lähenemise eristuvad aspektid – eriti selgesõnaline kriitilisuse klassifikatsioon, sihtotstarbeline testimistööriistad ja käsitsi alistamise disain – näitavad minu võimet kohandada kehtestatud mustreid spetsiaalsete valdkondade erinõuete täitmiseks.",
+      "item1": {
+        "title": "Arhitektuur esmalt",
+        "description": "Usun tugeva arhitektuurilise aluse loomisesse enne rakenduslikesse detailidesse süvenemist. See lähenemine tagab skaleeritavad, hooldatavad süsteemid, mis saavad kohaneda muutuvate nõuetega."
+      },
+      "item2": {
+        "title": "Vastupidav disain",
+        "description": "Ehitan süsteeme, kuhu vastupidavus on sisse ehitatud algusest peale, mitte järelmõttena. Katkestusringid, kordusstrateegia ja sujuv degradatsioon on minu rakenduslähenemise lahutamatud osad."
+      },
+      "item3": {
+        "title": "Praktilised mustrid",
+        "description": "Kasutan kehtestatud disainimustreid keeruliste probleemide lahendamiseks, kuid alati praktilise meelelaadiga. Eesmärk on puhas, hooldatav kood, mis lahendab reaalseid äriprobleeme tõhusalt."
+      },
+      "item4": {
+        "title": "Testitavad lahendused",
+        "description": "Disainin süsteeme testitavust silmas pidades, rakendades põhjalikke testimisstrateegiaid üksus-, integratsiooni- ja stsenaariumipõhiste lähenemiste lõikes."
+      }
+    },
+    "personal": {
+      "title": "Isiklik perspektiiv",
+      "subtitle": "Väljapool koodi",
+      "description1": "Usun, et erakordne kodeerimine on mõjusa tarkvara alus – kus selgus, fookus ja voolavus koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendun kõige ladusalt läbi koodi, kus satun sageli voolavusseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele probleemidele. Kodeerimine on minu jaoks kunsti vorm – ma kaotan ajataju, kui olen tsoonis, täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
+      "description2": "Kuigi võin leida verbaalset suhtlemist mõnikord väljakutsuvaks, olen osav keeruliste tehniliste kontseptsioonide väljendamisel kirjalikus vormis. Kasutan teistega koostöö tegemisel oma ideede selgeks ja tõhusaks väljendamiseks erinevaid tööriistu, sealhulgas tehisintellekti.",
+      "description3": "Asun Tartu linna lähedal kaunis maapiirkonnas, Eestis. See asukoht pakub mulle täiuslikku tasakaalu keskendunud töökeskkonna ja vajadusel ligipääsu elujõulisele tehnoloogiakogukonnale.",
+      "description4": "Väljaspool kodeerimist naudin uute tehnoloogiate uurimist, tarkvara arhitektuuri lugemist ja oma oskuste pidevat täiendamist, et püsida tööstuse esirinnas. Kuigi olen praegu professionaalses rollis, olen alati avatud huvitavate projektide ja võimaluste arutamiseks."
+    },
+    "cta": {
+      "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
+      "description": "Tutvu minu juhtumiuuringuga kriitilise ligipääsukontrolli süsteemi ehitamise kohta, et näha, kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
+      "primary": "Vaata juhtumiuuringut",
+      "secondary": "Võta ühendust"
+    }
+  },
+  "contact": {
+    "title": "Võta ühendust",
+    "description": "Kuigi olen praegu professionaalses rollis, olen avatud huvitavate projektide, tehniliste väljakutsete arutamiseks või ühenduste loomiseks teiste arendajatega. Eelistan kirjalikku suhtlust, kus saan tehnilisi ideid selgelt ja mõtestatult väljendada.",
+    "note": "Loen iga sõnumit isiklikult. Ära muretse formaalsuste pärast — ütle lihtsalt tere 👋",
+    "form": {
+      "name": "Nimi",
+      "email": "E-post",
+      "subject": "Teema",
+      "message": "Sõnum",
+      "submit": "Saada sõnum",
+      "sending": "Saadan...",
+      "success": "Sõnum edukalt saadetud",
+      "error": "Viga"
+    }
+  },
+  "skills": {
+    "title": "Tehniline Tööriistakast",
+    "subtitle": "Oskused ja Pädevused",
+    "sections": {
+      "technical": "Tehniline Ekspertiis",
+      "technologies": "Tehnoloogiad ja Tööriistad",
+      "databases": "Andmebaasid",
+      "frontend": "Kasutajaliides",
+      "cloud": "Pilv ja Majutus",
+      "methodologies": "Metoodikad"
+    }
+  }
+}
