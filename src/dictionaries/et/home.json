@@ -1,70 +1,70 @@
 {
   "hero": {
-    "title": "Rene Prost",
-    "subtitle": "Tegelen keerukate insenerialaste väljakutsetega, rakendades domeenipõhist disaini ja puhast arhitektuuri.",
+   "title": "Rene Prost",
+    "subtitle": "Lahendan keerukaid insenertehnilisi väljakutseid, kasutades domeenipõhist disaini ja puhast arhitektuuri.",
     "cta": "Vaata juhtumiuuringut",
     "secondaryCta": "Võta ühendust"
   },
   "stats": {
     "title": "Professionaalne teekond",
-    "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sealhulgas valitsussüsteemid, transport ja ettevõtete lahendused.",
-    "description2": "Minu lähenemine tarkvaraarendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on ka piisavalt paindlik, et aja jooksul areneda.",
+    "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sh riigisüsteemid, transport ja ärilahendused.",
+    "description2": "Minu lähenemine tarkvaraarendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on ka paindlik, et ajas areneda.",
     "experience": "Aastat kogemust",
     "projects": "Projektides osalenud",
-    "technologies": "Tehnoloogiat valdamas"
+    "technologies": "Valdatud tehnoloogiad"
   },
   "features": {
-    "title": "Tehniline tippkvaliteet",
+    "title": "Tehniline tipptase",
     "subtitle": "Minu põhipädevused",
     "cleanArchitecture": {
       "title": "Puhas arhitektuur",
-      "description": "Ehitan süsteeme selge kohustuste eristamisega, hoides domeenimudelit keskmes ja infrastruktuuri detaile servades. See lähenemine tagab hooldatavuse ja testitavuse."
+      "description": "Ehitan süsteeme selge vastutuse jaotusega, hoides domeenimudelit keskmes ja infrastruktuuri detaile servades. See lähenemine tagab hooldatavuse ja testitavuse."
     },
     "designPatterns": {
       "title": "Disainimustrid",
       "description": "Kasutan kehtestatud disainimustreid, et lahendada keerulisi probleeme tõhusalt, luues tugeva ja paindliku koodibaasi."
     },
     "resilience": {
-      "title": "Vastupidavuse inseneeria",
-      "description": "Disainin süsteeme, mis tulevad hästi toime tõrgetega, kasutades katkestusringe, korduskatseid ja sujuvat degradatsiooni."
+      "title": "Vastupidav disain",
+      "description": "Disainin süsteeme, mis tulevad hästi toime tõrgetega, kasutades katkestusahelaid, korduskatseid ja sujuvat degradatsiooni."
     },
     "testing": {
       "title": "Testimine ja kvaliteet",
-      "description": "Rakendan põhjalikke testimisstrateegiaid, alates ühiktestidest kuni integratsioonitestide ja stsenaariumipõhise valideerimiseni."
+      "description": "Rakendan põhjalikke testimisstrateegiaid, alates üksustestidest kuni integratsioonitestide ja stsenaariumipõhise valideerimiseni."
     }
   },
   "philosophy": {
     "title": "Minu lähenemine",
     "subtitle": "Professionaalne filosoofia",
-    "description": "Minu lähenemise eristuvad aspektid – eriti selgesõnaline kriitilisuse klassifikatsioon, sihtotstarbeline testimistööriistad ja käsitsi alistamise disain – näitavad minu võimet kohandada kehtestatud mustreid spetsiaalsete valdkondade erinõuete täitmiseks.",
+    "description": "Minu lähenemise eripärad – nagu kriitilisuse selgesõnaline klassifikatsioon, sihtotstarbelised testimistööriistad ja manuaalse ülekirjutamise disain – näitavad minu võimet kohandada kehtestatud mustreid vastavalt spetsiifilistele valdkondlikele nõuetele.",
     "item1": {
       "title": "Arhitektuur esmalt",
-      "description": "Usun tugeva arhitektuurilise aluse loomisesse enne rakenduslikesse detailidesse süvenemist. See lähenemine tagab skaleeritavad, hooldatavad süsteemid, mis saavad kohaneda muutuvate nõuetega."
+      "description": "Usun tugeva arhitektuurilise aluse loomisesse enne rakenduslike detailidega tegelemist. See lähenemine tagab skaleeritavad ja hooldatavad süsteemid, mis saavad kohaneda muutuvate nõuetega."
     },
     "item2": {
       "title": "Vastupidav disain",
-      "description": "Ehitan süsteeme, kuhu vastupidavus on sisse ehitatud algusest peale, mitte järelmõttena. Katkestusringid, kordusstrateegia ja sujuv degradatsioon on minu rakenduslähenemise lahutamatud osad."
+      "description": "Ehitan süsteeme, kuhu vastupidavus on algusest peale sisse ehitatud, mitte järelmõttena. Katkestusahelad, korduskatsete strateegiad ja sujuv degradatsioon on minu lähenemise lahutamatud osad."
     },
     "item3": {
       "title": "Praktilised mustrid",
-      "description": "Kasutan kehtestatud disainimustreid keeruliste probleemide lahendamiseks, kuid alati praktilise meelelaadiga. Eesmärk on puhas, hooldatav kood, mis lahendab reaalseid äriprobleeme tõhusalt."
+      "description": "Kasutan kehtestatud disainimustreid keeruliste probleemide lahendamiseks, kuid alati praktilise meelelaadiga. Eesmärk on puhas ja hooldatav kood, mis lahendab reaalseid äriprobleeme tõhusalt."
     },
     "item4": {
       "title": "Testitavad lahendused",
-      "description": "Disainin süsteeme testitavust silmas pidades, rakendades põhjalikke testimisstrateegiaid üksus-, integratsiooni- ja stsenaariumipõhiste lähenemiste lõikes."
+      "description": "Disainin süsteeme testitavust silmas pidades, rakendades testimisstrateegiaid alates üksustestidest kuni integratsiooni- ja stsenaariumitestideni."
     }
   },
   "personal": {
     "title": "Isiklik perspektiiv",
-    "subtitle": "Väljapool koodi",
-    "description1": "Usun, et erakordne programmeerimine on mõjusa tarkvara alus – seal, kus selgus, fookus ja voog koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendan end kõige loomulikumalt läbi koodi – tihti satun vooseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele ülesannetele. Programmeerimine on minu jaoks kunstivorm – kaotan ajataju, kui olen 'tsoonis' ja täielikult süvenenud puhaste, tõhusate lahenduste loomisesse.",
-    "description2": "Kuigi verbaalne suhtlus võib mulle kohati keeruline tunduda, oskan keerukaid tehnilisi mõisteid hästi kirjalikult edasi anda. Kasutan erinevaid tööriistu – sealhulgas tehisintellekti –, et oma ideid koostöös selgelt ja tulemuslikult väljendada.",
-    "description3": "Elan Eestis, kaunis maapiirkonnas Tartu linna lähedal. See asukoht pakub ideaalset tasakaalu keskendumist soodustava töökeskkonna ja vajadusel elava tehnoloogiakogukonna vahel.",
-    "description4": "Väljaspool programmeerimist naudin uute tehnoloogiate avastamist, tarkvaraarhitektuuri uurimist ning pidevat enesetäiendamist, et püsida valdkonna tipus. Kuigi töötan hetkel professionaalses rollis, olen alati avatud huvitavatele projektidele ja koostöövõimalustele."
+    "subtitle": "Väljaspool koodi",
+    "description1": "Usun, et erakordne programmeerimine on mõjusa tarkvara alus – seal, kus selgus, fookus ja voog koonduvad, et lahendada keerulisi probleeme elegantselt. Väljendan end kõige loomulikumalt läbi koodi – tihti lähen vooseisundisse, mis võimaldab mul luua elegantseid lahendusi keerulistele ülesannetele. Programmeerimine on minu jaoks kunstivorm – kaotan ajataju, kui olen 'tsoonis' ja täielikult süvenenud puhta ja tõhusa koodi loomisesse.",
+    "description2": "Kuigi verbaalne suhtlus võib mulle kohati keeruline tunduda, oskan keerukaid tehnilisi mõisteid hästi kirjalikult edasi anda. Kasutan erinevaid tööriistu – sealhulgas tehisintellekti –, et oma ideid selgelt ja tõhusalt edasi anda koostöös teistega.",
+    "description3": "Elan Eestis, kaunis maapiirkonnas Tartu linna lähedal. See asukoht pakub ideaalset tasakaalu keskendumist soodustava töökeskkonna ja vajadusel ühenduse loomiseks elava tehnoloogiakogukonnaga.",
+    "description4": "Väljaspool programmeerimist naudin uute tehnoloogiate avastamist, tarkvaraarhitektuuri uurimist ning pidevat enesetäiendamist, et hoida end valdkonna tipus. Kuigi töötan hetkel professionaalses rollis, olen alati avatud huvitavatele projektidele ja koostöövõimalustele."
   },
   "cta": {
-    "title": "Vaata, kuidas ma tõlgendan loomingulist mõtlemist elegantseks koodiks",
-    "description": "Tutvu minu juhtumiuuringuga kriitilise ligipääsukontrolli süsteemi ehitamise kohta, et näha, kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
+    "title": "Vaata, kuidas ma muudan loomingulise mõtlemise elegantseks koodiks",
+    "description": "Tutvu minu juhtumiuuringuga kriitilise ligipääsukontrolli süsteemi loomise kohta, et näha, kuidas rakendan loomingulist probleemilahendust ja tehnilist meisterlikkust praktikas.",
     "primary": "Vaata juhtumiuuringut",
     "secondary": "Võta ühendust"
   }
