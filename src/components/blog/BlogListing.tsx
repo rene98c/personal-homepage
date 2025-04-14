@@ -49,6 +49,15 @@ const BlogListing = ({
   // Define blog posts (we'll keep these in English)
   const blogPosts = [
     {
+      id: 'ai-conversations',
+      title: 'Conversations with an AI, #1',
+      excerpt: "I am still reflecting on the this system i built, this thing took less than 20 days to build solo. I still cannot believe it, under normal circumstances, for me 2 months at least. They key to 15 day delivery was an AI actually. It was surreal , like pair programming but with an AI, it is mind boggling.",
+      date: 'April 15, 2025',
+      readTime: '5',
+      slug: 'conversations-with-ai',
+      isRaw: true
+    },
+    {
       id: 'ai-powered-developer',
       title: 'The AI-Powered Developer: Reflections on My Journey',
       excerpt: "The landscape of software development has fundamentally changed. As I look at the SecureAccess system and this website—both projects I'm deeply proud of—I can't help but reflect on the role AI played in bringing them to life.",
