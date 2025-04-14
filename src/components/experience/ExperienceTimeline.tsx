@@ -24,7 +24,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
     );
   };
   
-  // Create experience timeline using the dictionary
+  // Create experience timeline using the dictionary - this is what will be displayed AND exported
   const experiences = [
     {
       title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
@@ -40,9 +40,6 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       period: 'October 2019 - January 2023',
       responsibilities: [
         dictionary.experience.responsibilities?.designedMaintained || "Designed and maintained various software systems",
-        dictionary.experience.responsibilities?.dotNetWindowsLinux || ".NET on windows/linux, web APIs, entity framework, nHibernate",
-        dictionary.experience.responsibilities?.implementedTDD || "Implemented test-driven design and domain-driven design principles",
-        dictionary.experience.responsibilities?.workedWith || "Worked with Docker, PostgreSQL, MSSQL, and React"
       ]
     },
     {
@@ -50,7 +47,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       company: dictionary.experience.companyNames?.rik || 'Centre of Registers and Information Systems',
       period: 'April 2017 - September 2019',
       responsibilities: [
-        dictionary.experience.responsibilities?.developedSecure || "Developed secure, scalable systems for government information management"
+        dictionary.experience.responsibilities?.designedMaintained || "Designed and maintained various software systems",
       ]
     },
     {
@@ -69,8 +66,11 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       company: dictionary.experience.companyNames?.rik || 'Centre of Registers and Information Systems',
       period: 'January 2008 - November 2012',
       responsibilities: [
-        dictionary.experience.responsibilities?.developedMaintained || "Developed and maintained critical government information systems"
-      ]
+        dictionary.experience.responsibilities?.developedNetApps || "Developed .NET web applications and services",
+        dictionary.experience.responsibilities?.implementedBusiness || "Implemented business logic and database integration",
+        dictionary.experience.responsibilities?.createdUI || "Created user interfaces following best practices",
+        dictionary.experience.responsibilities?.participatedRequirements || "Participated in requirements analysis and system design",
+        dictionary.experience.responsibilities?.collaboratedAgile || "Collaborated in agile development processes"]
     },
     {
       title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
@@ -122,10 +122,10 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
               {dictionary.experience.description}
             </p>
             
-            {/* Resume Download Section */}
+            {/* Resume Download Section - Pass the experiences data to the download buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <DownloadResumeButton lang={lang} />
-              <PDFResumeButton lang={lang} />
+              <DownloadResumeButton lang={lang} experiences={experiences} />
+              <PDFResumeButton lang={lang} experiences={experiences} />
             </div>
           </div>
 

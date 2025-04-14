@@ -4,10 +4,24 @@ import React, { useState, useEffect } from 'react';
 import { FileDown } from 'lucide-react';
 import { Locale, getDictionary } from '@/lib/dictionaries';
 
+// Define experience types
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  responsibilities: string[];
+}
+
 // Pre-load dictionaries to avoid waiting in client components
 const dictionaryCache: Record<string, any> = {};// eslint-disable-line @typescript-eslint/no-explicit-any
 
-export const DownloadResumeButton = ({ lang }: { lang: Locale }) => {
+export const DownloadResumeButton = ({ 
+  lang, 
+  experiences 
+}: { 
+  lang: Locale;
+  experiences: Experience[];
+}) => {
   const [dictionary, setDictionary] = useState<any | null>(null);// eslint-disable-line @typescript-eslint/no-explicit-any
   const [, setIsLoading] = useState(true);
 
@@ -35,66 +49,57 @@ export const DownloadResumeButton = ({ lang }: { lang: Locale }) => {
     
     loadDictionary();
   }, [lang]);
+
+  // Function to localize month names in date ranges
+  const localizeDate = (dateStr: string): string => {
+    if (!dictionary?.common?.months) return dateStr;
+    
+    // Match month names in the date string
+    return dateStr.replace(/(January|February|March|April|May|June|July|August|September|October|November|December)/g, 
+      (match) => {
+        const translatedMonth = dictionary.common.months[match];
+        return translatedMonth || match;
+      }
+    );
+  };
   
-  // Function to generate more comprehensive resume data
+  // Function to generate resume data in the selected language
   const generateResumeData = () => {
-    // Content for the resume - structured as plain text with all the new information
-    const resumeContent = `
+    // If dictionary isn't loaded yet, use English as fallback
+    if (!dictionary) {
+      return generateEnglishResumeData();
+    }
+    
+    // Generate resume in the selected language
+    if (lang === 'et') {
+      return generateEstonianResumeData();
+    } else {
+      return generateEnglishResumeData();
+    }
+  };
+
+  // English resume content
+  const generateEnglishResumeData = () => {
+    let resumeContent = `
 RENE PROST
 C#/.NET Developer with 20+ Years Experience
 rene@bdec.ee | Based near Tartu, Estonia
 
 PROFESSIONAL EXPERIENCE
+`;
 
-.NET Software Developer
-Connected OÜ
-January 2023 - June 2024
-• Developed and maintained enterprise-level .NET desktop application
+    // Add experience sections using the provided experiences data
+    experiences.forEach(exp => {
+      resumeContent += `
+${exp.title}
+${exp.company}
+${exp.period}
+${exp.responsibilities.map(r => `• ${r}`).join('\n')}
+`;
+    });
 
-.NET Software Developer
-Fujitsu Estonia AS
-October 2019 - January 2023
-• Designed and maintained various software systems
-• .NET on windows/linux, web APIs, entity framework, nHibernate
-• Implemented test-driven design and domain-driven design principles
-• Worked with Docker, PostgreSQL, MSSQL, and React
-
-.NET Software Developer
-Centre of Registers and Information Systems
-April 2017 - September 2019
-• Developed secure, scalable systems for government information management
-
-.NET Software Developer
-Uptime OÜ / Turnit OÜ
-November 2012 - February 2017
-• Built and maintained web applications and services to support transportation business
-• Implemented frontend solutions using various JavaScript frameworks
-• Designed and optimized database schemas and queries
-• Participated in full software development lifecycle from requirements to deployment
-
-.NET Software Developer
-Centre of Registers and Information Systems
-January 2008 - November 2012
-• Developed and maintained critical government information systems
-
-.NET Software Developer
-Softronic Baltic AS / Center of Registers and Information Systems
-December 2005 - December 2007
-• Developed .NET web applications and services
-• Implemented business logic and database integration
-• Created user interfaces following best practices
-• Participated in requirements analysis and system design
-• Collaborated in agile development processes
-
-IT Specialist
-Estonian Air Force
-April 2004 - November 2005
-• Maintained PC hardware, software, and network infrastructure
-• Provided technical support and troubleshooting
-• Implemented and configured software systems
-• Ensured security and reliability of IT infrastructure
-• Documented technical procedures and system configurations
-
+    // Add education and other sections
+    resumeContent += `
 EDUCATION
 
 Estonian University of Life Sciences (2001 - 2003)
@@ -143,6 +148,83 @@ Homelab Infrastructure
 • Self-hosted services including email, git repositories, and personal cloud storage
 
 For more details and portfolio: https://reneprost.ee
+`;
+
+    return resumeContent;
+  };
+
+  // Estonian resume content
+  const generateEstonianResumeData = () => {
+   
+
+    let resumeContent = `
+RENE PROST
+C#/.NET Arendaja 20+ aasta kogemusega
+rene@bdec.ee | Tartu lähistel, Eesti
+
+TÖÖKOGEMUS
+`;
+
+    // Add experience sections using the provided experiences data
+    experiences.forEach(exp => {
+      resumeContent += `
+${exp.title}
+${exp.company}
+${localizeDate(exp.period)}
+${exp.responsibilities.map(r => `• ${r}`).join('\n')}
+`;
+    });
+
+    // Add education and other sections in Estonian
+    resumeContent += `
+HARIDUS
+
+Eesti Maaülikool (2001 - 2003)
+Maaehitus
+• Õppisin maaehituse inseneeriat (õppekava ei lõpetanud)
+
+Tartu Tamme Gümnaasium (1998 - 2001)
+Keskharidus
+• Lõpetasin keskhariduse, keskendudes reaalainetele ja matemaatikale
+
+SERTIFIKAADID
+
+• Developing and Implementing Web Applications with Microsoft Visual C# .NET (Microsoft, 2006)
+• Designing and Implementing Databases with Microsoft SQL Server 2000 Enterprise Edition (Microsoft, 2006)
+• Developing XML Web Services and Server Components with Microsoft Visual C# .NET (Microsoft, 2006)
+• MOC#2273 Designing IT Managing and Maintaining a Microsoft Windows Server 2003 Environment (BCS Koolituse AS, 2005)
+• Enterasys ESE Network Specialist Fastrack (TELEGRUPP, 2005)
+
+TEHNILISED OSKUSED
+
+Programmeerimiskeeled:
+• C#, JavaScript, HTML, CSS, SQL, JAVA, Bash
+
+Raamistikud ja teegid:
+• .NET, ASP.NET MVC, Entity Framework, nHibernate, React, Bootstrap, next.js, Node.js
+
+Andmebaasid:
+• Microsoft SQL Server, PostgreSQL, Oracle SQL
+
+Pilv ja taristu:
+• Docker, Google Cloud, Digital Ocean, Proxmox, Virtualiseerimine, Hyper-V
+
+Tööriistad ja keskkonnad:
+• Visual Studio, Visual Studio Code, Android Studio, Git, Subversion, IIS, NGINX, REST API
+
+Keeled:
+• Eesti keel (Emakeel)
+• Inglise keel (Professionaalne)
+
+ISIKLIKUD PROJEKTID
+
+Kodulabori taristu
+• Kolme sõlmega kõrge käideldavusega Proxmox VE klaster sujuva teenuste migreerimisega
+• Virtualiseeritud töölaud GPU läbipääsuga, pakkudes peaaegu riistvaralähedast jõudlust
+• OPNsense virtualiseeritud ruuter VLANide ja täiustatud võrgufunktsioonidega
+• Ise majutatud teenused, sealhulgas e-post, git hoidlad ja isiklik pilvsalvestus
+
+Rohkem teavet ja portfoolio: https://reneprost.ee
 `;
 
     return resumeContent;
