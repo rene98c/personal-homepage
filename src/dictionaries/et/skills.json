@@ -2,6 +2,7 @@
   "title": "Tehniline Tööriistakast",
   "subtitle": "Oskused ja Pädevused",
   "description": "Oma karjääri jooksul olen kujundanud tugeva ekspertiisi mitmetes tehnoloogiates, raamistikes ja metoodikates. Siin on põhjalik ülevaade minu tehnilistest oskustest.",
+  
   "sections": {
     "technical": "Tehniline Ekspertiis",
     "technologies": "Tehnoloogiad ja Tööriistad",
@@ -9,5 +10,19 @@
     "frontend": "Kasutajaliides",
     "cloud": "Pilv ja Majutus",
     "methodologies": "Metoodikad"
+  },
+  
+  "categories": {
+    "programmingLanguages": "Programmeerimiskeeled",
+    "frameworksLibraries": "Raamistikud ja Teegid",
+    "databases": "Andmebaasid",
+    "cloudInfrastructure": "Pilv ja Taristu",
+    "toolsEnvironments": "Tööriistad ja Keskkonnad",
+    "languages": "Keeled"
+  },
+  
+  "languageLevels": {
+    "native": "Emakeel",
+    "professional": "Professionaalne"
   }
 }

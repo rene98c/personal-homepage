@@ -5,5 +5,43 @@
   "keyResponsibilities": "Key Responsibilities",
   "downloadResume": "Download Resume",
   "downloadResumeText": "Download Resume (Text)",
-  "downloadResumePDF": "Download Resume (PDF)"
+  "downloadResumePDF": "Download Resume (PDF)",
+  
+  "jobTitles": {
+    "netDeveloper": ".NET Software Developer",
+    "itSpecialist": "IT Specialist"
+  },
+  
+  "companyNames": {
+    "connected": "Connected OÜ",
+    "fujitsu": "Fujitsu Estonia AS",
+    "rik": "Centre of Registers and Information Systems",
+    "uptime": "Uptime OÜ / Turnit OÜ",
+    "softronic": "Softronic Baltic AS / Center of Registers and Information Systems",
+    "airforce": "Estonian Air Force"
+  },
+  
+  "responsibilities": {
+    "developedEnterprise": "Developed and maintained enterprise-level .NET desktop application",
+    "designedMaintained": "Designed and maintained various software systems",
+    "dotNetWindowsLinux": ".NET on windows/linux, web APIs, entity framework, nHibernate",
+    "implementedTDD": "Implemented test-driven design and domain-driven design principles",
+    "workedWith": "Worked with Docker, PostgreSQL, MSSQL, and React",
+    "developedSecure": "Developed secure, scalable systems for government information management",
+    "builtRobust": "Built and maintained web applications and services to support transportation business",
+    "implementedFrontend": "Implemented frontend solutions using various JavaScript frameworks",
+    "designedDatabase": "Designed and optimized database schemas and queries",
+    "participatedSDLC": "Participated in full software development lifecycle from requirements to deployment",
+    "developedMaintained": "Developed and maintained critical government information systems",
+    "developedNetApps": "Developed .NET web applications and services",
+    "implementedBusiness": "Implemented business logic and database integration",
+    "createdUI": "Created user interfaces following best practices",
+    "participatedRequirements": "Participated in requirements analysis and system design",
+    "collaboratedAgile": "Collaborated in agile development processes",
+    "maintainedPC": "Maintained PC hardware, software, and network infrastructure",
+    "providedSupport": "Provided technical support and troubleshooting",
+    "implementedSoftware": "Implemented and configured software systems",
+    "ensuredSecurity": "Ensured security and reliability of IT infrastructure",
+    "documentedProcedures": "Documented technical procedures and system configurations"
+  }
 }

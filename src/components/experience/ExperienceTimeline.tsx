@@ -10,79 +10,93 @@ import { Locale } from '@/lib/dictionaries';
 
 // Experience Timeline component that accepts a pre-loaded dictionary
 const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// eslint-disable-line @typescript-eslint/no-explicit-any
+  
   // Create experience timeline using the dictionary
   const experiences = [
     {
-      title: '.NET Software Developer',
-      company: 'Connected OÜ',
+      title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
+      company: dictionary.experience.companyNames?.connected || 'Connected OÜ',
       period: 'January 2023 - June 2024',
       responsibilities: [
-        "Developed and maintained enterprise-level .NET desktop application",
+        dictionary.experience.responsibilities?.developedEnterprise || "Developed and maintained proprietary .NET desktop application"
       ]
     },
     {
-      title: '.NET Software Developer',
-      company: 'Fujitsu Estonia AS',
+      title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
+      company: dictionary.experience.companyNames?.fujitsu || 'Fujitsu Estonia AS',
       period: 'October 2019 - January 2023',
       responsibilities: [
-        "Designed and maintained various software systems",
-        ".NET on windows/linux, web APIs, entity framework, nHibernate",
-        "Implemented test-driven design and domain-driven design principles",
-        "Worked with Docker, PostgreSQL, MSSQL, and React"
+        dictionary.experience.responsibilities?.designedMaintained || "Designed and maintained various software systems",
       ]
     },
     {
-      title: '.NET Software Developer',
-      company: 'Centre of Registers and Information Systems',
+      title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
+      company: dictionary.experience.companyNames?.rik || 'Centre of Registers and Information Systems',
       period: 'April 2017 - September 2019',
       responsibilities: [
-        "Developed secure, scalable systems for government information management"
+        dictionary.experience.responsibilities?.designedMaintained || "Designed and maintained various software systems",
       ]
     },
     {
-      title: '.NET Software Developer',
-      company: 'Uptime OÜ / Turnit OÜ',
+      title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
+      company: dictionary.experience.companyNames?.uptime || 'Uptime OÜ / Turnit OÜ',
       period: 'November 2012 - February 2017',
       responsibilities: [
-        "Built robust web applications and services using .NET technologies",
-        "Implemented frontend solutions using various JavaScript frameworks",
-        "Designed and optimized database schemas and queries",
-        "Participated in full software development lifecycle from requirements to deployment"
+        dictionary.experience.responsibilities?.builtRobust || "Built and maintained web applications and services to support transportation business",
+        dictionary.experience.responsibilities?.implementedFrontend || "Implemented frontend solutions using various JavaScript frameworks",
+        dictionary.experience.responsibilities?.designedDatabase || "Designed and optimized database schemas and queries",
+        dictionary.experience.responsibilities?.participatedSDLC || "Participated in full software development lifecycle from requirements to deployment",
+        dictionary.experience.responsibilities?.implementedTDD || "Implemented test-driven design and domain-driven design principles"
       ]
     },
     {
-      title: '.NET Software Developer',
-      company: 'Centre of Registers and Information Systems',
+      title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
+      company: dictionary.experience.companyNames?.rik || 'Centre of Registers and Information Systems',
       period: 'January 2008 - November 2012',
       responsibilities: [
-        "Developed and maintained critical government information systems"
-      ]
+        dictionary.experience.responsibilities?.developedNetApps || "Developed .NET web applications and services",
+        dictionary.experience.responsibilities?.implementedBusiness || "Implemented business logic and database integration",
+        dictionary.experience.responsibilities?.createdUI || "Created user interfaces following best practices",
+        dictionary.experience.responsibilities?.participatedRequirements || "Participated in requirements analysis and system design",
+        dictionary.experience.responsibilities?.collaboratedAgile || "Collaborated in agile development processes"
+        ]
     },
     {
-      title: '.NET Software Developer',
-      company: 'Softronic Baltic AS / Center of Registers and Information Systems',
+      title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
+      company: dictionary.experience.companyNames?.softronic || 'Softronic Baltic AS / Center of Registers and Information Systems',
       period: 'December 2005 - December 2007',
       responsibilities: [
-        "Developed .NET web applications and services",
-        "Implemented business logic and database integration",
-        "Created user interfaces following best practices",
-        "Participated in requirements analysis and system design",
-        "Collaborated in agile development processes"
+        dictionary.experience.responsibilities?.developedNetApps || "Developed .NET web applications and services",
+        dictionary.experience.responsibilities?.implementedBusiness || "Implemented business logic and database integration",
+        dictionary.experience.responsibilities?.createdUI || "Created user interfaces following best practices",
+        dictionary.experience.responsibilities?.participatedRequirements || "Participated in requirements analysis and system design",
+        dictionary.experience.responsibilities?.collaboratedAgile || "Collaborated in agile development processes"
       ]
     },
     {
-      title: 'IT Specialist',
-      company: 'Estonian Air Force',
+      title: dictionary.experience.jobTitles?.itSpecialist || 'IT Specialist',
+      company: dictionary.experience.companyNames?.airforce || 'Estonian Air Force',
       period: 'April 2004 - November 2005',
       responsibilities: [
-        "Maintained PC hardware, software, and network infrastructure",
-        "Provided technical support and troubleshooting",
-        "Implemented and configured software systems",
-        "Ensured security and reliability of IT infrastructure",
-        "Documented technical procedures and system configurations"
+        dictionary.experience.responsibilities?.maintainedPC || "Maintained PC hardware, software, and network infrastructure",
+        dictionary.experience.responsibilities?.providedSupport || "Provided technical support and troubleshooting",
+        dictionary.experience.responsibilities?.implementedSoftware || "Implemented and configured software systems",
+        dictionary.experience.responsibilities?.ensuredSecurity || "Ensured security and reliability of IT infrastructure",
+        dictionary.experience.responsibilities?.documentedProcedures || "Documented technical procedures and system configurations"
       ]
     }
   ];
+
+  // Function to format job title and company based on language
+  const formatPosition = (title: string, company: string) => {
+    if (lang === 'et') {
+      // In Estonian, use a comma instead of "at"
+      return `${title}, ${company}`;
+    } else {
+      // In English, use "at"
+      return `${title} at ${company}`;
+    }
+  };
 
   return (
     <>
@@ -113,7 +127,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
                 <div className="flex-auto">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
                     <h3 className="text-lg font-semibold leading-6 text-gray-900">
-                      {exp.title} at {exp.company}
+                      {formatPosition(exp.title, exp.company)}
                     </h3>
                     <p className="flex items-center text-sm text-gray-500">
                       <Calendar className="mr-1.5 h-4 w-4 flex-none text-gray-400" aria-hidden="true" />
@@ -139,7 +153,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       </div>
       
       {/* New sections from the CV */}
-      <ExpandedSkillsSection  />
+      <ExpandedSkillsSection lang={lang} />
       <CertificationsSection lang={lang} />
       <EducationSection lang={lang} />
     </>

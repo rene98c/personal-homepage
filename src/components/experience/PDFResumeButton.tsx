@@ -137,7 +137,7 @@ const PDFResumeButton = ({ lang }: { lang: Locale }) => {
       'Uptime OÜ / Turnit OÜ', 
       'November 2012 - February 2017',
       [
-        'Built robust web applications and services using .NET technologies',
+        'Built and maintained web applications and services to support transportation business',
         'Implemented frontend solutions using various JavaScript frameworks',
         'Designed and optimized database schemas and queries',
         'Participated in full software development lifecycle'

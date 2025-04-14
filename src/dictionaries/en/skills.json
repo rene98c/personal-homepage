@@ -1,7 +1,8 @@
 {
-  "title": "Technical Toolkit",
-  "subtitle": "Skills & Expertise",
+  "title": "Technical Capabilities",
+  "subtitle": "Comprehensive Skill Set",
   "description": "Throughout my career, I've developed expertise in a wide range of technologies, frameworks, and methodologies. Here's a detailed overview of my technical skills.",
+  
   "sections": {
     "technical": "Technical Expertise",
     "technologies": "Technologies & Tools",
@@ -9,5 +10,19 @@
     "frontend": "Front-End",
     "cloud": "Cloud & Hosting",
     "methodologies": "Methodologies"
+  },
+  
+  "categories": {
+    "programmingLanguages": "Programming Languages",
+    "frameworksLibraries": "Frameworks & Libraries",
+    "databases": "Databases",
+    "cloudInfrastructure": "Cloud & Infrastructure",
+    "toolsEnvironments": "Tools & Environments",
+    "languages": "Languages"
+  },
+  
+  "languageLevels": {
+    "native": "Native",
+    "professional": "Professional"
   }
 }
