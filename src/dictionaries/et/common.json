@@ -6,5 +6,20 @@
     "designPatterns": "Disainimustrid",
     "homelab": "Kodulabor",
     "contact": "Kontakt",
-    "getInTouch": "Võta ühendust"
+    "getInTouch": "Võta ühendust",
+  
+    "months": {
+      "January": "Jaanuar",
+      "February": "Veebruar",
+      "March": "Märts",
+      "April": "Aprill",
+      "May": "Mai",
+      "June": "Juuni",
+      "July": "Juuli",
+      "August": "August",
+      "September": "September",
+      "October": "Oktoober",
+      "November": "November",
+      "December": "Detsember"
+    }
   }

@@ -11,6 +11,19 @@ import { Locale } from '@/lib/dictionaries';
 // Experience Timeline component that accepts a pre-loaded dictionary
 const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// eslint-disable-line @typescript-eslint/no-explicit-any
   
+  // Function to localize month names in date ranges
+  const localizeDate = (dateStr: string): string => {
+    if (!dictionary.common?.months) return dateStr;
+    
+    // Match month names in the date string
+    return dateStr.replace(/(January|February|March|April|May|June|July|August|September|October|November|December)/g, 
+      (match) => {
+        const translatedMonth = dictionary.common.months[match];
+        return translatedMonth || match;
+      }
+    );
+  };
+  
   // Create experience timeline using the dictionary
   const experiences = [
     {
@@ -18,7 +31,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       company: dictionary.experience.companyNames?.connected || 'Connected OÜ',
       period: 'January 2023 - June 2024',
       responsibilities: [
-        dictionary.experience.responsibilities?.developedEnterprise || "Developed and maintained proprietary .NET desktop application"
+        dictionary.experience.responsibilities?.developedEnterprise || "Developed and maintained enterprise-level .NET desktop application"
       ]
     },
     {
@@ -27,6 +40,9 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       period: 'October 2019 - January 2023',
       responsibilities: [
         dictionary.experience.responsibilities?.designedMaintained || "Designed and maintained various software systems",
+        dictionary.experience.responsibilities?.dotNetWindowsLinux || ".NET on windows/linux, web APIs, entity framework, nHibernate",
+        dictionary.experience.responsibilities?.implementedTDD || "Implemented test-driven design and domain-driven design principles",
+        dictionary.experience.responsibilities?.workedWith || "Worked with Docker, PostgreSQL, MSSQL, and React"
       ]
     },
     {
@@ -34,7 +50,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       company: dictionary.experience.companyNames?.rik || 'Centre of Registers and Information Systems',
       period: 'April 2017 - September 2019',
       responsibilities: [
-        dictionary.experience.responsibilities?.designedMaintained || "Designed and maintained various software systems",
+        dictionary.experience.responsibilities?.developedSecure || "Developed secure, scalable systems for government information management"
       ]
     },
     {
@@ -42,11 +58,10 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       company: dictionary.experience.companyNames?.uptime || 'Uptime OÜ / Turnit OÜ',
       period: 'November 2012 - February 2017',
       responsibilities: [
-        dictionary.experience.responsibilities?.builtRobust || "Built and maintained web applications and services to support transportation business",
+        dictionary.experience.responsibilities?.builtRobust || "Built robust web applications and services using .NET technologies",
         dictionary.experience.responsibilities?.implementedFrontend || "Implemented frontend solutions using various JavaScript frameworks",
         dictionary.experience.responsibilities?.designedDatabase || "Designed and optimized database schemas and queries",
-        dictionary.experience.responsibilities?.participatedSDLC || "Participated in full software development lifecycle from requirements to deployment",
-        dictionary.experience.responsibilities?.implementedTDD || "Implemented test-driven design and domain-driven design principles"
+        dictionary.experience.responsibilities?.participatedSDLC || "Participated in full software development lifecycle from requirements to deployment"
       ]
     },
     {
@@ -54,12 +69,8 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
       company: dictionary.experience.companyNames?.rik || 'Centre of Registers and Information Systems',
       period: 'January 2008 - November 2012',
       responsibilities: [
-        dictionary.experience.responsibilities?.developedNetApps || "Developed .NET web applications and services",
-        dictionary.experience.responsibilities?.implementedBusiness || "Implemented business logic and database integration",
-        dictionary.experience.responsibilities?.createdUI || "Created user interfaces following best practices",
-        dictionary.experience.responsibilities?.participatedRequirements || "Participated in requirements analysis and system design",
-        dictionary.experience.responsibilities?.collaboratedAgile || "Collaborated in agile development processes"
-        ]
+        dictionary.experience.responsibilities?.developedMaintained || "Developed and maintained critical government information systems"
+      ]
     },
     {
       title: dictionary.experience.jobTitles?.netDeveloper || '.NET Software Developer',
@@ -131,7 +142,7 @@ const ExperienceTimeline = ({ lang, dictionary }: { lang: Locale; dictionary: an
                     </h3>
                     <p className="flex items-center text-sm text-gray-500">
                       <Calendar className="mr-1.5 h-4 w-4 flex-none text-gray-400" aria-hidden="true" />
-                      {exp.period}
+                      {localizeDate(exp.period)}
                     </p>
                   </div>
                   <div className="mt-4 bg-white shadow-sm ring-1 ring-gray-900/5 rounded-lg px-6 py-4">
