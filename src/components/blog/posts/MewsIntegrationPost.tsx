@@ -91,7 +91,7 @@ export const MewsIntegrationPost = ({
         
         <div className="prose prose-lg prose-invert max-w-none">
           <p className="text-lg">
-            A few days ago, I was handed a new project: build an integration between two business-critical systems — MEWS (a hotel management system) and Directo (an ERP platform).
+            So, I was handed a new project: build an integration between two business-critical systems — MEWS (a hotel management system) and Directo (an ERP platform).
           </p>
           
           <p className="text-lg">
