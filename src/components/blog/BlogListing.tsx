@@ -49,9 +49,18 @@ const BlogListing = ({
   // Define blog posts (we'll keep these in English)
   const blogPosts = [
     {
+      id: 'mews-integration',
+      title: 'How I Delivered a €10k Integration in 6 Hours',
+      excerpt: "So, I was handed a new project: build an integration between two business-critical systems — MEWS (a hotel management system) and Directo (an ERP platform). The company had quoted the client €10,000 for this integration. I completed it in 6 hours.",
+      date: 'April 15, 2025',
+      readTime: '4',
+      slug: 'mews-directo-integration',
+      isRaw: false
+    },
+    {
       id: 'ai-conversations',
       title: 'Conversations with an AI, #1',
-      excerpt: "I am still reflecting on the this system i built, this thing took less than 20 days to build solo. I still cannot believe it, under normal circumstances, for me 2 months at least. They key to 15 day delivery was an AI actually. It was surreal , like pair programming but with an AI, it is mind boggling.",
+      excerpt: "I am still reflecting on the this system i built (AccessControl) , this thing took less than 20 days to build solo. I still cannot believe it, under normal circumstances, for me 2 months at least. They key to 15 day delivery was an AI actually. It was surreal , like pair programming but with an AI, it is mind boggling.",
       date: 'April 15, 2025',
       readTime: '5',
       slug: 'conversations-with-ai',
