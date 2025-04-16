@@ -128,9 +128,9 @@ const ContactForm = ({  dictionary }: { lang: Locale, dictionary: any }) => {// 
             <p className="mt-6 text-lg leading-8 text-gray-600">
               {dictionary.contact.description}
             </p>
-            <p className="mt-4 text-lg leading-8 text-indigo-600 italic">
+         {/*    <p className="mt-4 text-lg leading-8 text-indigo-600 italic">
               {dictionary.contact.note}
-            </p>
+            </p> */}
             <dl className="mt-10 space-y-6 text-base leading-7 text-gray-600">
               <div className="flex gap-x-4">
                 <dt className="flex-none">
