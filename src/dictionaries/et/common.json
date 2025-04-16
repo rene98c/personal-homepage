@@ -1,25 +1,26 @@
 {
-    "home": "Avaleht",
-    "experience": "Kogemus",
-    "blog": "Blogi",
-    "caseStudy": "Projektinäide",
-    "designPatterns": "Disainimustrid",
-    "homelab": "Kodulabor",
-    "contact": "Kontakt",
-    "getInTouch": "Võta ühendust",
-  
-    "months": {
-      "January": "Jaanuar",
-      "February": "Veebruar",
-      "March": "Märts",
-      "April": "Aprill",
-      "May": "Mai",
-      "June": "Juuni",
-      "July": "Juuli",
-      "August": "August",
-      "September": "September",
-      "October": "Oktoober",
-      "November": "November",
-      "December": "Detsember"
-    }
+  "home": "Avaleht",
+  "experience": "Kogemus",
+  "blog": "Blogi",
+  "caseStudy": "Projektinäide",
+  "designPatterns": "Disainimustrid",
+  "homelab": "Kodulabor",
+  "aboutMe": "Minust",
+  "contact": "Kontakt",
+  "getInTouch": "Võta ühendust",
+
+  "months": {
+    "January": "Jaanuar",
+    "February": "Veebruar",
+    "March": "Märts",
+    "April": "Aprill",
+    "May": "Mai",
+    "June": "Juuni",
+    "July": "Juuli",
+    "August": "August",
+    "September": "September",
+    "October": "Oktoober",
+    "November": "November",
+    "December": "Detsember"
   }
+}

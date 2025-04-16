@@ -12,13 +12,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/case-study',      // Case Study
     '/design-patterns', // Design Patterns
     '/homelab',         // Homelab
+    '/about',           // About Me
     '/contact'          // Contact
   ];
   
   // Blog posts
   const blogPosts = [
-    '/blog/ai-powered-developer',
-    '/blog/raw-thoughts-ai-development'
+    //'/blog/ai-powered-developer',
+    //'/blog/raw-thoughts-ai-development',
+    '/blog/mews-directo-integration',
+    '/blog/conversations-with-ai'
   ];
   
   // Create sitemap entries for all locales and routes

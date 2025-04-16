@@ -1,4 +1,4 @@
-// src/lib/metadata.ts
+// Update to src/lib/metadata.ts
 import { Metadata } from 'next';
 import { Locale } from './dictionaries';
 
@@ -123,6 +123,45 @@ export async function generateHomePageMetadata(locale: Locale): Promise<Metadata
   });
 }
 
+// For about page
+export async function generateAboutPageMetadata(locale: Locale): Promise<Metadata> {
+  return await generateLocalizedMetadata({
+    title_en: 'About Me - Rene Prost',
+    title_et: 'Minust - Rene Prost',
+    description_en: 'Learn more about Rene Prost, a senior C#/.NET developer with a focus on clean architecture and AI-augmented development.',
+    description_et: 'Tutvu lähemalt Rene Prostiga, C#/.NET arendajaga, kes keskendub puhtale arhitektuurile ja AI-toega arendusele.',
+    path: 'about',
+    locale,
+    keywords_en: ['about', 'personal journey', 'developer story', 'AI-augmented development'],
+    keywords_et: ['minust', 'isiklik teekond', 'arendaja lugu', 'AI-toega arendus'],
+  });
+}
+
+// General purpose metadata generator
+export async function generateMetadata(
+  locale: Locale, 
+  path: string, 
+  meta: {
+    title_en: string,
+    title_et: string,
+    description_en: string,
+    description_et: string,
+    keywords_en?: string[],
+    keywords_et?: string[]
+  }
+): Promise<Metadata> {
+  return await generateLocalizedMetadata({
+    title_en: meta.title_en,
+    title_et: meta.title_et,
+    description_en: meta.description_en,
+    description_et: meta.description_et,
+    path,
+    locale,
+    keywords_en: meta.keywords_en || [],
+    keywords_et: meta.keywords_et || [],
+  });
+}
+
 // For blog landing page
 export async function generateBlogPageMetadata(locale: Locale): Promise<Metadata> {
   return await generateLocalizedMetadata({
@@ -150,4 +189,3 @@ export async function generateCaseStudyMetadata(locale: Locale): Promise<Metadat
     keywords_et: ['projekt', 'ligipääsukontroll', 'biomeetriline tuvastamine'],
   });
 }
-

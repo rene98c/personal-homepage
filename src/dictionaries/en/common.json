@@ -1,24 +1,25 @@
 {
-    "home": "Home",
-    "experience": "Experience",
-    "blog": "Blog",
-    "caseStudy": "Case Study",
-    "designPatterns": "Design Patterns",
-    "homelab": "Homelab",
-    "contact": "Contact",
-    "getInTouch": "Get in touch",
-    "months": {
-      "January": "January",
-      "February": "February",
-      "March": "March",
-      "April": "April",
-      "May": "May",
-      "June": "June",
-      "July": "July",
-      "August": "August",
-      "September": "September",
-      "October": "October",
-      "November": "November",
-      "December": "December"
-    }
+  "home": "Home",
+  "experience": "Experience",
+  "blog": "Blog",
+  "caseStudy": "Case Study",
+  "designPatterns": "Design Patterns",
+  "homelab": "Homelab",
+  "aboutMe": "About Me",
+  "contact": "Contact",
+  "getInTouch": "Get in touch",
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
   }
+}

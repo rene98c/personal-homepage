@@ -23,6 +23,7 @@ const Navbar = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// 
     { name: dictionary.common.caseStudy, href: `/${lang}/case-study`, current: pathWithoutLang === '/case-study' },
     { name: dictionary.common.designPatterns, href: `/${lang}/design-patterns`, current: pathWithoutLang === '/design-patterns' },
     { name: dictionary.common.homelab, href: `/${lang}/homelab`, current: pathWithoutLang === '/homelab' },
+    { name: dictionary.common.aboutMe, href: `/${lang}/about`, current: pathWithoutLang === '/about' },
     { name: dictionary.common.contact, href: `/${lang}/contact`, current: pathWithoutLang === '/contact' },
   ];
 

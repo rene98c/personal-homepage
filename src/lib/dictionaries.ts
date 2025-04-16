@@ -25,6 +25,7 @@ export const getDictionary = async (locale: Locale) => {
     const skills = await import(`../dictionaries/${locale}/skills.json`).then(m => m.default);
     const certifications = await import(`../dictionaries/${locale}/certifications.json`).then(m => m.default);
     const education = await import(`../dictionaries/${locale}/education.json`).then(m => m.default);
+    const about = await import(`../dictionaries/${locale}/about.json`).then(m => m.default);
 
     // Recreate the same structure as before so components can access translations the same way
     const dictionary = {
@@ -38,7 +39,8 @@ export const getDictionary = async (locale: Locale) => {
       experience,
       skills,
       certifications,
-      education
+      education,
+      about
     };
 
     // Cache the result
