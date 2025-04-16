@@ -1,6 +1,8 @@
 {
     "title": "Get in touch",
     "description": "While I'm currently engaged in a professional role, I'm open to discussing interesting projects, technical challenges, or connecting with fellow developers. I prefer written communication where I can articulate technical ideas clearly and thoughtfully.",
+    "location": "Based near Tartu, Estonia",
+    "locationDescription": "I enjoy the focus that comes with countryside living, providing the perfect environment for deep coding sessions.",  
     "note": "I read every message personally. Don't worry about formalities — just say hello 👋",
     "form": {
       "name": "Name",

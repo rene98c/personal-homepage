@@ -171,9 +171,9 @@ const ContactForm = ({  dictionary }: { lang: Locale, dictionary: any }) => {// 
                   <MapPin className="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
                 <dd>
-                  Based near Tartu, Estonia
+                  {dictionary.contact.location}
                   <p className="mt-1">
-                    I enjoy the focus that comes with countryside living, providing the perfect environment for deep coding sessions.
+                    {dictionary.contact.locationDescription}
                   </p>
                 </dd>
               </div>
