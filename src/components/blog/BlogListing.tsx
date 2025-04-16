@@ -66,7 +66,7 @@ const BlogListing = ({
       slug: 'conversations-with-ai',
       isRaw: true
     },
-    {
+ /*    {
       id: 'ai-powered-developer',
       title: 'The AI-Powered Developer: Reflections on My Journey',
       excerpt: "The landscape of software development has fundamentally changed. As I look at the SecureAccess system and this website—both projects I'm deeply proud of—I can't help but reflect on the role AI played in bringing them to life.",
@@ -83,7 +83,7 @@ const BlogListing = ({
       readTime: '3',
       slug: 'raw-thoughts-ai-development',
       isRaw: true
-    }
+    } */
   ];
 
   // Get translations or fallback to default text
