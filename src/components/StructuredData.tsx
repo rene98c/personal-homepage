@@ -36,7 +36,7 @@ export function StructuredData() {
       "addressRegion": "Tartumaa",
       "addressCountry": "Estonia"
     },
-    "email": "rene@bdec.ee",
+    "email": "rene98c@gmail.com",
     "telephone": "+372XXXXXXXX", // Add your phone if you want to include it
     "makesOffer": [
       {

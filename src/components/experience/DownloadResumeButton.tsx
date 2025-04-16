@@ -83,7 +83,7 @@ export const DownloadResumeButton = ({
     let resumeContent = `
 RENE PROST
 C#/.NET Developer with 20+ Years Experience
-rene@bdec.ee | Based near Tartu, Estonia
+rene98c@gmail.com | Based near Tartu, Estonia
 
 PROFESSIONAL EXPERIENCE
 `;
@@ -160,7 +160,7 @@ For more details and portfolio: https://reneprost.ee
     let resumeContent = `
 RENE PROST
 C#/.NET Arendaja 20+ aasta kogemusega
-rene@bdec.ee | Tartu lähistel, Eesti
+rene98c@gmail.com | Tartu lähistel, Eesti
 
 TÖÖKOGEMUS
 `;

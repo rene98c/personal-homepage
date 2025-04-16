@@ -28,7 +28,7 @@ const Footer = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// 
     },
     {
       name: 'Email',
-      href: 'mailto:rene@bdec.ee',
+      href: 'mailto:rene98c@gmail.com',
       icon: (props: React.ComponentProps<'svg'>) => <Mail {...props} />,
     },
     {

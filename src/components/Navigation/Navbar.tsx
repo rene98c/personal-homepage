@@ -96,7 +96,7 @@ const Navbar = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// 
           </div>
 
           <a 
-            href={`mailto:rene@bdec.ee`} 
+            href={`mailto:rene98c@gmail.com`} 
             className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
             {dictionary.common.getInTouch} <span aria-hidden="true">&rarr;</span>
@@ -166,7 +166,7 @@ const Navbar = ({ lang, dictionary }: { lang: Locale; dictionary: any }) => {// 
                     </div>
                   </div>
                   <a
-                    href="mailto:rene@bdec.ee"
+                    href="mailto:rene98c@gmail.com"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {dictionary.common.getInTouch}

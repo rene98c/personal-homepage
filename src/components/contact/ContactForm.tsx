@@ -138,8 +138,8 @@ const ContactForm = ({  dictionary }: { lang: Locale, dictionary: any }) => {// 
                   <Mail className="h-7 w-6 text-indigo-600" aria-hidden="true" />
                 </dt>
                 <dd>
-                  <a href="mailto:rene@bdec.ee" className="text-indigo-600 hover:text-indigo-500">
-                    rene@bdec.ee
+                  <a href="mailto:rene98c@gmail.com" className="text-indigo-600 hover:text-indigo-500">
+                    rene98c@gmail.com
                   </a>
                 </dd>
               </div>

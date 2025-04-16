@@ -100,7 +100,7 @@ const PDFResumeButton = ({
     doc.text('C#/.NET Developer with 20+ Years Experience', 105, 30, { align: 'center' });
     
     doc.setFontSize(10);
-    doc.text('rene@bdec.ee | Based near Tartu, Estonia', 105, 38, { align: 'center' });
+    doc.text('rene98c@gmail.com | Based near Tartu, Estonia', 105, 38, { align: 'center' });
     
     // Section: Professional Experience
     doc.setFontSize(16);
@@ -340,7 +340,7 @@ const PDFResumeButton = ({
     doc.text('C#/.NET Arendaja 20+ aasta kogemusega', 105, 30, { align: 'center' });
     
     doc.setFontSize(10);
-    doc.text('rene@bdec.ee | Tartu lähistel, Eesti', 105, 38, { align: 'center' });
+    doc.text('rene98c@gmail.com | Tartu lähistel, Eesti', 105, 38, { align: 'center' });
     
     // Section: Professional Experience
     doc.setFontSize(16);
