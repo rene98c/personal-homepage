@@ -8,7 +8,7 @@
     "stats": {
       "title": "Professionaalne teekond",
       "description": "Olen arendanud tarkvara .NET platvormil C# keeles alates 2003. aastast. Oma karjääri jooksul olen töötanud erinevates valdkondades, sh avalik sektor, transport ja ettevõtete lahendused.",
-      "description2": "Minu lähenemine tarkvara arendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvara loomisesse, mis mitte ainult ei vasta praegustele vajadustele, vaid on piisavalt paindlik, et ajas areneda.",
+      "description2": "Minu lähenemine tarkvara arendusele rõhutab puhast arhitektuuri, disainimustreid ja vastupidavaid süsteeme, mis saavad kohaneda muutuvate nõuetega. Usun tarkvarasse, mis mitte ainult ei tööta — vaid kasvab koos muutuvate vajadustega.",
       "experience": "Aastat kogemust",
       "projects": "Projektides osalenud",
       "technologies": "Valdatud tehnoloogiad"
@@ -26,7 +26,7 @@
       },
       "resilience": {
         "title": "Vastupidavuse inseneeria",
-        "description": "Disainin süsteeme, mis tulevad hästi toime tõrgetega, kasutades katkestusahelaid, korduskatseid ja sujuvat degradatsiooni."
+        "description": "Ehitan süsteeme, mis peavad vastu ka siis, kui kõik ei lähe plaanipäraselt, kasutades katkestusahelaid, korduskatseid ja sujuvat degradatsiooni."
       },
       "testing": {
         "title": "Testimine ja kvaliteet",
